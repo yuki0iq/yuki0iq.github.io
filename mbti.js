@@ -6,7 +6,7 @@ function shuffle(array) {
 }
 
 question_sets = [
-  ['Temp', 'This is a rofl', [['Ni',0],['Ne',1],['Si',2],['Se',3],['Fi',4],['Fe',5],['Ti',6],['Te',7]]],
+  ['Temp', 'This is a rofl', [['Ni',0],['Ne это генератор идей, бредо текста, lorem ipsum dolor sit amet lorem ipsum dolor sit amet',1],['Si',2],['Se',3],['Fi',4],['Fe',5],['Ti',6],['Te значит доминирование над всеми видами жизни',7]]],
 ]
 
 for (i = 0; i < question_sets.length; i += 1) {
