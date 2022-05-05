@@ -6,7 +6,11 @@ function shuffle(array) {
 }
 
 function rjust(s, v) {
-  return (v - s.length) * ' ' + s
+  nn = s.length
+  for (i = 0; i < (v - n); i += 1) {
+    s = ' ' + s
+  }
+  return s
 }
 
 question_sets = [
@@ -116,6 +120,7 @@ function recalc() {
     str += question_sets[i][0]
     str += '\n'
   }
+  str += '[Ni ] [Ne ] [Si ] [Se ] [Fi ] [Fe ] [Ti ] [Te ] Группа\n'
   mx = 0
   for (j = 0; j < 8; ++j) {
     if (vans[j] > mx) {
