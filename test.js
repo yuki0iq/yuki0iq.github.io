@@ -20,7 +20,7 @@ function create(data) {
     str += '</tr>'
     j = 0
     for (const question of questions) {
-      tx = question[1]
+      tx = question[0]
       // add row
       str += '<tr>'
       str += '<td>' + (1+j) + '</td>'
