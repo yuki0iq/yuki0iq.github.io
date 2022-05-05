@@ -5,6 +5,10 @@ function shuffle(array) {
   }
 }
 
+function rjust(s, v) {
+  return (v - s.length) * ' ' + s
+}
+
 question_sets = [
   ['Ne против Ni', '', [
     [1, 'Я делюсь информацией'],
@@ -80,7 +84,113 @@ console.log(question_sets)
 
 // temp
 function recalc() {
-  alert("yes.");
+  str = ''
+  
+  str += '[Ni ] [Ne ] [Si ] [Se ] [Fi ] [Fe ] [Ti ] [Te ] Группа\n'
+  // get vans
+  vans = [0, 0, 0, 0, 0, 0, 0, 0]
+  for (i = 0; i < question_sets.length; i += 1) {
+    ans = [0, 0, 0, 0, 0, 0, 0, 0]
+    for (j = 0; j < question_sets[i][2].length; j += 1) {
+      i_n = 'i' + i + '-' + j
+      f_n = 'form' + i + '-' + j
+      v_sub = -($('input[name=' + i_n + ']:checked', f_n).value)
+      vans[question_sets[i][2][j][0]] -= v_sub  // yeah, the shit..
+      ans[question_sets[i][2][j][0]] -= v_sub
+    }
+    mx = 0
+    for (j = 0; j < 8; ++j) {
+      if (ans[j] > mx) {
+        mx = ans[j]
+      }
+    }
+    for (j = 0; j < 8; ++j) {
+      str += rjust(ans[j].toString(), 4)
+      if (ans[j] == mx) {
+        str += '!'
+      } else {
+        str += ' '
+      }
+      str += ' '
+    }
+    str += question_sets[i][0]
+    str += '\n'
+  }
+  mx = 0
+  for (j = 0; j < 8; ++j) {
+    if (vans[j] > mx) {
+      mx = vans[j]
+    }
+  }
+  for (j = 0; j < 8; ++j) {
+    str += rjust(vans[j].toString(), 4)
+    if (vans[j] == mx) {
+      str += '!'
+    } else {
+      str += ' '
+    }
+    str += ' '
+  }
+  str += 'ИТОГ'
+  str += '\n'
+  
+  /*
+funcs = {}
+fn = ['Ni', 'Ne', 'Si', 'Se', 'Fi', 'Fe', 'Ti', 'Te']
+for i in range(8):
+    funcs[fn[i]] = vans[i]
+  */
+  funcs = Map()
+  fn = ['Ni', 'Ne', 'Si', 'Se', 'Fi', 'Fe', 'Ti', 'Te']
+  for (i = 0; i < 8; i += 1) {
+    funcs.set(fn[i], vans[i])
+  }
+  
+  console.log(funcs)
+  
+  /*
+letf = {}
+func_to_letter = {
+    'Fi': {'I', 'F', 'P'},
+    'Fe': {'E', 'F', 'J'},
+    'Ti': {'I', 'T', 'P'},
+    'Te': {'E', 'T', 'J'},
+    'Ni': {'I', 'N', 'J'},
+    'Ne': {'E', 'N', 'P'},
+    'Si': {'I', 'S', 'J'},
+    'Se': {'E', 'S', 'P'} }
+for func, c in funcs.items():
+    for let in func_to_letter[func]:
+        letf[let] = letf.get(let, 0) + c
+print()
+print('Тип по буквам')
+print('I {0} -- {1} E  | '.format(str(letf['I']).rjust(2), str(letf['E']).rjust(2)), 'E' if letf['E'] >= letf['I'] else 'I')
+print('N {0} -- {1} S  | '.format(str(letf['N']).rjust(2), str(letf['S']).rjust(2)), 'S' if letf['S'] >= letf['N'] else 'N')
+print('F {0} -- {1} T  | '.format(str(letf['F']).rjust(2), str(letf['T']).rjust(2)), 'T' if letf['T'] >= letf['F'] else 'F')
+print('J {0} -- {1} P  | '.format(str(letf['J']).rjust(2), str(letf['P']).rjust(2)), 'P' if letf['P'] >= letf['J'] else 'J')
+
+
+mbti = {}
+func_to_mbti = {
+    'Fi': [('INFP', 7), ('ISFP', 7), ('ENFP', 5), ('ESFP', 5), ('INTJ', 3), ('ISTJ', 3), ('ENTJ', 1), ('ESTJ', 1)],
+    'Fe': [('ENFJ', 7), ('ESFJ', 7), ('INFJ', 5), ('ISFJ', 5), ('ENTP', 3), ('ESTP', 3), ('INTP', 1), ('ISTP', 1)],
+    'Ti': [('INTP', 7), ('ISTP', 7), ('ENTP', 5), ('ESTP', 5), ('INFJ', 3), ('ISFJ', 3), ('ENFJ', 1), ('ESFJ', 1)],
+    'Te': [('ENTJ', 7), ('ESTJ', 7), ('INTJ', 5), ('ISTJ', 5), ('ENFP', 3), ('ESFP', 3), ('INFP', 1), ('ISFP', 1)],
+    'Ni': [('INFJ', 7), ('INTJ', 7), ('ENFJ', 5), ('ENTJ', 5), ('ISFP', 3), ('ISTP', 3), ('ESFP', 1), ('ESTP', 1)],
+    'Ne': [('ENFP', 7), ('ENTP', 7), ('INFP', 5), ('INTP', 5), ('ESFJ', 3), ('ESTJ', 3), ('ISFJ', 1), ('ISTJ', 1)],
+    'Si': [('ISFJ', 7), ('ISTJ', 7), ('ESFJ', 5), ('ESTJ', 5), ('INFP', 3), ('INTP', 3), ('ENFP', 1), ('ENTP', 1)],
+    'Se': [('ESFP', 7), ('ESTP', 7), ('ISFP', 5), ('ISTP', 5), ('ENFJ', 3), ('ENTJ', 3), ('INFJ', 1), ('INTJ', 1)]
+}
+for func, c in funcs.items():
+    for ty, m in func_to_mbti[func]:
+        mbti[ty] = mbti.get(ty, 0) + c * m
+mbti = sorted([(x[1], x[0]) for x in mbti.items()])
+
+print()
+print('Тип по когнитивным функциям - формула mistypeinvestigator')
+print('\n'.join(map(lambda x: str(x[0]) + ': ' + str(x[1]), mbti)))
+  */
+  document.getElementById('res').innerHTML = '<pre>' + str + '</pre>'
 }
 
 recalc();  // Initial recalc
