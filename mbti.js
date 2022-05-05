@@ -97,10 +97,12 @@ function recalc() {
     ans = [0, 0, 0, 0, 0, 0, 0, 0]
     for (j = 0; j < question_sets[i][2].length; j += 1) {
       i_n = 'i' + i + '-' + j
-      f_n = 'form' + i + '-' + j
-      v_sub = -($('input[name=' + i_n + ']:checked', f_n).value)
-      if (isNaN(v_sub)) {  // Not selected
+      f_n = '#form' + i + '-' + j
+      v_sub = $('input[name=' + i_n + ']:checked', f_n)
+      if (v_sub.length == 0) {  // Not selected
         v_sub = 0
+      } else {
+        v_sub = -v_sub[0].value
       }
       vans[question_sets[i][2][j][0]] -= v_sub  // yeah, the shit..
       ans[question_sets[i][2][j][0]] -= v_sub
