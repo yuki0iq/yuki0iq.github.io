@@ -151,13 +151,13 @@ fn = ['Ni', 'Ne', 'Si', 'Se', 'Fi', 'Fe', 'Ti', 'Te']
 for i in range(8):
     funcs[fn[i]] = vans[i]
   */
-  funcs = new Map()
+  func = new Map()
   fn = ['Ni', 'Ne', 'Si', 'Se', 'Fi', 'Fe', 'Ti', 'Te']
   for (i = 0; i < 8; i += 1) {
-    funcs.set(fn[i], vans[i])
+    func.set(fn[i], vans[i])
   }
   
-  console.log(funcs)
+  console.log(func)
   
   /*
 letf = {}
