@@ -81,12 +81,11 @@ question_sets = [
 ]
 
 for (i = 0; i < question_sets.length; i += 1) {
-  //shuffle(question_sets[i][2])
+  shuffle(question_sets[i][2])
 }
 create(question_sets)
 console.log(question_sets)
 
-// temp
 function recalc() {
   str = ''
   
