@@ -26,13 +26,14 @@ function create(data) {
       str += '<td>' + (1+j) + '</td>'
       str += '<td>' + tx + '</td>'
       str += '<td><form id="form' + i + '-' + j + '"><table>'
-      qqq = 'i' + i + '-' + j + 'a'
+      qn = 'i' + i + '-' + j
+      qqq = qn + 'a'
       str += '<td><input id="' + qqq + '" value=2 type="radio" onclick="recalc()"> <label for="' + qqq + '">Точно я</label></td>'
-      qqq = 'i' + i + '-' + j + 'b'
+      qqq = qn + 'b'
       str += '<td><input id="' + qqq + '" value=1 type="radio" onclick="recalc()"> <label for="' + qqq + '">Немного похоже</label></td>'
-      qqq = 'i' + i + '-' + j + 'c'
+      qqq = qn + 'c'
       str += '<td><input id="' + qqq + '" value=0 type="radio" onclick="recalc()"> <label for="' + qqq + '">Не слишком похоже</label></td>'
-      qqq = 'i' + i + '-' + j + 'd'
+      qqq = qn + 'd'
       str += '<td><input id="' + qqq + '" value=-1 type="radio" onclick="recalc()"> <label for="' + qqq + '">Совсем не я</label></td>'
       str += '</table></form></td>'
       str += '</tr>'
@@ -51,3 +52,8 @@ create(
     ["Test2", [ ['qq', 1], ['qw', 1], ['qe', 1] ] ]
   ]
 );
+
+// temp
+function recalc() {
+  alert("yes.");
+}
