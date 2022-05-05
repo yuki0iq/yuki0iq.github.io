@@ -293,7 +293,7 @@ function recalc() {
   for (i = 1296 - 9; i < 1296; i += 1) {
     str += tritypew[i][1]
     str += ': '
-    str += ljust(tritypew[i][0].toString(), 3)
+    str += tritypew[i][0]
     if (i == 1295) {
       str += ' - наибольшая вероятность'
     }
