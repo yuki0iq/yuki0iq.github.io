@@ -12,7 +12,7 @@ function create(data) {
     // add H4
     questions = entry[2]
     str += '<h3>' + entry[0] + '</h3>'
-    if entyp[1] != '' {
+    if (entry[1] != '') {
       str += entry[1] + '</br>'
     }
     // begin table
