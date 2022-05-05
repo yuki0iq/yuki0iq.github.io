@@ -1,10 +1,6 @@
 function create(data) {
   // data: Array of [Name, QuickInfo, Questions]
-  // Questions: Array of [where, Name]
-  for (i = 0; i < data.length; i += 1) {
-    data[i][2].sort(() => Math.random() - 0.5)
-  }
-  
+  // Questions: Array of [where, Name]  
   str = ''
   i = 0
   for (const entry of data) {
