@@ -259,7 +259,7 @@ print('\n'.join(map(lambda x: str(x[0]) + ': ' + str(x[1]), mbti)))
     [5*Ti + 7*Se + 1*Ni + 3*Fe, 'ESTP'],
   ]
   mbti.sort()
-  str += 'Тип по когнитивкам, формула mistypeinvestigator'
+  str += 'Тип по когнитивкам, формула mistypeinvestigator\n'
   for (i = 0; i < 16; i += 1) {
     str += mbti[i][1]
     str += ': '
