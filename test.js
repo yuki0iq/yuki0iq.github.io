@@ -1,5 +1,5 @@
 function create(data) {
-  // data: Array of [Name, Questions]
+  // data: Array of [Name, QuickInfo, Questions]
   // Questions: Array of [where, Name]
   for (entry of data) {
     entry[1].sort(() => Math.random() - 0.5)
@@ -10,8 +10,11 @@ function create(data) {
   for (const entry of data) {
     gn = entry[0]
     // add H4
-    questions = entry[1]
-    str += '<h4>' + entry[0] + '</h4>'
+    questions = entry[2]
+    str += '<h3>' + entry[0] + '</h3>'
+    if entyp[1] != '' {
+      str += entry[1] + '</br>'
+    }
     // begin table
     str += '<table><tr>'
     str += '<th>No</th>'
@@ -28,13 +31,13 @@ function create(data) {
       str += '<td><form id="form' + i + '-' + j + '"><table>'
       qn = 'i' + i + '-' + j
       qqq = qn + 'a'
-      str += '<td><input id="' + qqq + '" value=2 type="radio" onclick="recalc()"> <label for="' + qqq + '">Точно я</label></td>'
+      str += '<td><input id="' + qqq + '" name="' + qn + '"value=2 type="radio" onclick="recalc()"> <label for="' + qqq + '">Точно я</label></td>'
       qqq = qn + 'b'
-      str += '<td><input id="' + qqq + '" value=1 type="radio" onclick="recalc()"> <label for="' + qqq + '">Немного похоже</label></td>'
+      str += '<td><input id="' + qqq + '" name="' + qn + '" value=1 type="radio" onclick="recalc()"> <label for="' + qqq + '">Немного похоже</label></td>'
       qqq = qn + 'c'
-      str += '<td><input id="' + qqq + '" value=0 type="radio" onclick="recalc()"> <label for="' + qqq + '">Не слишком похоже</label></td>'
+      str += '<td><input id="' + qqq + '" name="' + qn + '" value=0 type="radio" onclick="recalc()"> <label for="' + qqq + '">Не слишком похоже</label></td>'
       qqq = qn + 'd'
-      str += '<td><input id="' + qqq + '" value=-1 type="radio" onclick="recalc()"> <label for="' + qqq + '">Совсем не я</label></td>'
+      str += '<td><input id="' + qqq + '" name="' + qn + '" value=-1 type="radio" onclick="recalc()"> <label for="' + qqq + '">Совсем не я</label></td>'
       str += '</table></form></td>'
       str += '</tr>'
       j = j - (-1)
@@ -48,8 +51,8 @@ function create(data) {
 
 create(
   [
-    ["Test1", [ ['q1', 1], ['q2', 1], ['q3', 1] ] ],
-    ["Test2", [ ['qq', 1], ['qw', 1], ['qe', 1] ] ]
+    ["Test1", 'This is first question set, be careful!', [ ['q1', 1], ['q2', 1], ['q3', 1] ] ],
+    ["Test2", '', [ ['qq', 1], ['qw', 1], ['qe', 1] ] ]
   ]
 );
 
