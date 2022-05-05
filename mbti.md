@@ -6,19 +6,6 @@
 
 При перезагрузке страницы введённые ответы пропадают!
 
-<!-- Добавить ключ результата? -->
-
-<!--
-Here go questions
-
-<h4>Group name</h4>
-
-no. question        Yes PrY IDK No
-#01 Are you ASDF?   ( ) ( ) ( ) ( )
-#02 Is Earth flat?  ( ) ( ) ( ) ( )
-
-^ as a table
--->
 <div id="test_contents">
 </div>
 
