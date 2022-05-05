@@ -262,6 +262,7 @@ function recalc() {
     [E9w1, '9w1'],
     [E9w8, '9w8']
   ]
+  wings.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];})
   str += 'Эннеатип по крыльям - чем больше число, тем больше вероятность\n'
   for (k = 0; k < 2; k += 1) {
     for (j = 0; j < 9; j += 1) {
@@ -274,6 +275,30 @@ function recalc() {
     str += '\n'
   }
   str += '\n'
+  
+  tritypew = []
+  for (i of [[E2w1, '2w1'], [E2w3, '2w3'], [E3w2, '3w2'], [E3w4, '3w4'], [E4w3, '4w3'], [E4w5, '4w5']]) {
+    for (j of [5, 6, 7]) {
+      for (k of [8, 9, 1]) {
+        tritypew.push([5*vans[i[0]] + 3*vans[j[0]] + 1*vans[k[0]], i[1] + j[1] + k[1]])  //ijk
+        tritypew.push([5*vans[i[0]] + 3*vans[k[0]] + 1*vans[j[0]], i[1] + k[1] + j[1]])  //ikj
+        tritypew.push([5*vans[j[0]] + 3*vans[i[0]] + 1*vans[k[0]], j[1] + i[1] + k[1]])  //jik
+        tritypew.push([5*vans[j[0]] + 3*vans[k[0]] + 1*vans[i[0]], j[1] + k[1] + i[1]])  //jki
+        tritypew.push([5*vans[k[0]] + 3*vans[i[0]] + 1*vans[j[0]], k[1] + i[1] + j[1]])  //kij
+        tritypew.push([5*vans[k[0]] + 3*vans[j[0]] + 1*vans[i[0]], k[1] + j[1] + i[1]])  //kji
+      }
+    }
+  }
+  str += 'Тритип по крыльям (топ-9 вариантов) - чем больше число, тем больше вероятность\n'
+  for (i = 1296 - 9; i < 1296; i += 1) {
+    str += tritype[i][1]
+    str += ': '
+    str += ljust(tritype[i][0].toString(), 3)
+    if (i == 1295) {
+      str += ' - наибольшая вероятность'
+    }
+    str += '\n'
+  }
   
   document.getElementById('res').innerHTML = '<pre>' + str + '</pre>'
 }
