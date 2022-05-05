@@ -103,12 +103,12 @@ function recalc() {
       ans[question_sets[i][2][j][0]] -= v_sub
     }
     mx = 0
-    for (j = 0; j < 8; ++j) {
+    for (j = 0; j < 8; j += 1) {
       if (ans[j] > mx) {
         mx = ans[j]
       }
     }
-    for (j = 0; j < 8; ++j) {
+    for (j = 0; j < 8; j += 1) {
       str += rjust(ans[j].toString(), 4)
       if (ans[j] == mx) {
         str += '!'
@@ -122,12 +122,12 @@ function recalc() {
   }
   str += '[Ni ] [Ne ] [Si ] [Se ] [Fi ] [Fe ] [Ti ] [Te ] Группа\n'
   mx = 0
-  for (j = 0; j < 8; ++j) {
+  for (j = 0; j < 8; j += 1) {
     if (vans[j] > mx) {
       mx = vans[j]
     }
   }
-  for (j = 0; j < 8; ++j) {
+  for (j = 0; j < 8; j += 1) {
     str += rjust(vans[j].toString(), 4)
     if (vans[j] == mx) {
       str += '!'
