@@ -49,14 +49,3 @@ function create(data) {
   document.getElementById('test_contents').innerHTML = str;
 }
 
-create(
-  [
-    ["Test1", 'This is first question set, be careful!', [ ['q1', 1], ['q2', 1], ['q3', 1] ] ],
-    ["Test2", '', [ ['qq', 1], ['qw', 1], ['qe', 1] ] ]
-  ]
-);
-
-// temp
-function recalc() {
-  alert("yes.");
-}
