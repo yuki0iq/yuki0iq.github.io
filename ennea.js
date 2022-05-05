@@ -211,16 +211,14 @@ function recalc() {
     }
   }
   tritype.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];})
-  str += 'Тритип (без учета крыльев)\n'
-  for (i = 0; i < 162; i += 1) {
-    str += tritype[i][1]
-    str += ': '
-    str += tritype[i][0]
-    if (i == 0) {
-      str += ' - наименее вероятный тип'
-    }
-    if (i == 161) {
-      str += ' - наиболее вероятный тип'
+  str += 'Тритип (без учета крыльев) - чем больше число, тем больше вероятность\n'
+  for (k = 0; k < 18; k += 1) {
+    for (j = 0; j < 9; j += 1) {
+      i = 9 * k + j
+      str += tritype[i][1]
+      str += ': '
+      str += ljust(tritype[i][0].toString(), 3)
+      str += '  '
     }
     str += '\n'
   }
