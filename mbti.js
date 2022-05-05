@@ -102,16 +102,14 @@ function recalc() {
       vans[question_sets[i][2][j][0]] -= v_sub  // yeah, the shit..
       ans[question_sets[i][2][j][0]] -= v_sub
     }
-    console.log(i, question_sets.length)
-    console.log(ans)
     mx = 0
     for (j = 0; j < 8; j += 1) {
       if (ans[j] > mx) {
         mx = ans[j]
       }
     }
-    console.log(i, question_sets.length)
     for (j = 0; j < 8; j += 1) {
+      console.log(i, j)
       str += rjust(ans[j].toString(), 4)
       if (ans[j] == mx) {
         str += '!'
@@ -123,7 +121,6 @@ function recalc() {
     console.log(i, question_sets.length)
     str += question_sets[i][0]
     str += '\n'
-    console.log(i, question_sets.length)
   }
   str += '[Ni ] [Ne ] [Si ] [Se ] [Fi ] [Fe ] [Ti ] [Te ] Группа\n'
   mx = 0
