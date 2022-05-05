@@ -140,7 +140,7 @@ fn = ['Ni', 'Ne', 'Si', 'Se', 'Fi', 'Fe', 'Ti', 'Te']
 for i in range(8):
     funcs[fn[i]] = vans[i]
   */
-  funcs = Map()
+  funcs = new Map()
   fn = ['Ni', 'Ne', 'Si', 'Se', 'Fi', 'Fe', 'Ti', 'Te']
   for (i = 0; i < 8; i += 1) {
     funcs.set(fn[i], vans[i])
