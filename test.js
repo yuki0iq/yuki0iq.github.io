@@ -13,6 +13,14 @@ function rjust(s, v) {
   return s
 }
 
+function ljust(s, v) {
+  nn = s.length
+  for (iii = 0; iii < (v - nn); iii += 1) {
+    s = s + ' '
+  }
+  return s
+}
+
 function create(data) {
   // data: Array of [Name, QuickInfo, Questions]
   // Questions: Array of [where, Name]  
