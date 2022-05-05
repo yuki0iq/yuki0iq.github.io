@@ -190,25 +190,25 @@ print('J {0} -- {1} P  | '.format(str(letf['J']).rjust(2), str(letf['P']).rjust(
   letf.set('J', func.get('Fe') + func.get('Te') + func.get('Ni') + func.get('Si'))
   letf.set('P', func.get('Fi') + func.get('Ti') + func.get('Ne') + func.get('Se'))
   str += 'Тип по буквам\n'
-  str += 'I ' + rjust(letf.get('I'), 2) + ' -- ' + rjust(letf.get('E'), 2) + ' E  | '
+  str += 'I ' + rjust(letf.get('I').toString(), 2) + ' -- ' + rjust(letf.get('E').toString(), 2) + ' E  | '
   if (letf.get('I') > letf.get('E')) {
     str += 'I\n'
   } else {
     str += 'E\n'
   }
-  str += 'N ' + rjust(letf.get('N'), 2) + ' -- ' + rjust(letf.get('S'), 2) + ' S  | '
+  str += 'N ' + rjust(letf.get('N').toString(), 2) + ' -- ' + rjust(letf.get('S').toString(), 2) + ' S  | '
   if (letf.get('N') > letf.get('S')) {
     str += 'N\n'
   } else {
     str += 'S\n'
   }
-  str += 'F ' + rjust(letf.get('F'), 2) + ' -- ' + rjust(letf.get('T'), 2) + ' T  | '
+  str += 'F ' + rjust(letf.get('F').toString(), 2) + ' -- ' + rjust(letf.get('T').toString(), 2) + ' T  | '
   if (letf.get('F') > letf.get('T')) {
     str += 'F\n'
   } else {
     str += 'T\n'
   }
-  str += 'J ' + rjust(letf.get('J'), 2) + ' -- ' + rjust(letf.get('P'), 2) + ' P  | '
+  str += 'J ' + rjust(letf.get('J').toString(), 2) + ' -- ' + rjust(letf.get('P').toString(), 2) + ' P  | '
   if (letf.get('J') > letf.get('P')) {
     str += 'J\n'
   } else {
