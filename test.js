@@ -7,7 +7,7 @@ function create(data) {
   str += '<li>Это немного похоже на меня</li>'
   str += '<li>Это не слишком похоже на меня</li>'
   str += '<li>Совсем не похоже на меня</li>'
-  str += '</ol></br>'
+  str += '</ol> Для того, чтобы пропустить вопрос, не отвечай ничего иил отвечай 3'
   i = 0
   for (const entry of data) {
     gn = entry[0]
@@ -35,9 +35,9 @@ function create(data) {
       qqq = qn + 'a'
       str += '<td><input id="' + qqq + '" name="' + qn + '"value=2 type="radio" onclick="recalc()"> <label for="' + qqq + '">1 (Да)</label></td>'
       qqq = qn + 'b'
-      str += '<td><input id="' + qqq + '" name="' + qn + '" value=1 type="radio" onclick="recalc()"> <label for="' + qqq + '">2 Немного похоже</label></td>'
+      str += '<td><input id="' + qqq + '" name="' + qn + '" value=1 type="radio" onclick="recalc()"> <label for="' + qqq + '">2</label></td>'
       qqq = qn + 'c'
-      str += '<td><input id="' + qqq + '" name="' + qn + '" value=0 type="radio" onclick="recalc()"> <label for="' + qqq + '">3 Не слишком похоже</label></td>'
+      str += '<td><input id="' + qqq + '" name="' + qn + '" value=0 type="radio" onclick="recalc()"> <label for="' + qqq + '">3</label></td>'
       qqq = qn + 'd'
       str += '<td><input id="' + qqq + '" name="' + qn + '" value=-1 type="radio" onclick="recalc()"> <label for="' + qqq + '">4 (Нет)Совсем не я</label></td>'
       str += '</table></form></td>'
