@@ -201,12 +201,12 @@ function recalc() {
   for (i of [2, 3, 4]) {
     for (j of [5, 6, 7]) {
       for (k of [8, 9, 1]) {
-        tritype.push([5*vans[i] + 3*vans[j] + 1*vans[k], i.toString() + j.toString() + k.toString()])  //ijk
-        tritype.push([5*vans[i] + 3*vans[k] + 1*vans[j], i.toString() + k.toString() + j.toString()])  //ikj
-        tritype.push([5*vans[j] + 3*vans[i] + 1*vans[k], j.toString() + i.toString() + k.toString()])  //jik
-        tritype.push([5*vans[j] + 3*vans[k] + 1*vans[i], j.toString() + k.toString() + i.toString()])  //jki
-        tritype.push([5*vans[k] + 3*vans[i] + 1*vans[j], k.toString() + i.toString() + j.toString()])  //kij
-        tritype.push([5*vans[k] + 3*vans[j] + 1*vans[i], k.toString() + j.toString() + i.toString()])  //kji
+        tritype.push([5*vans[i] + 3*vans[j] + 1*vans[k], i.toString() + '-' + j.toString() + '-' + k.toString()])  //ijk
+        tritype.push([5*vans[i] + 3*vans[k] + 1*vans[j], i.toString() + '-' + k.toString() + '-' + j.toString()])  //ikj
+        tritype.push([5*vans[j] + 3*vans[i] + 1*vans[k], j.toString() + '-' + i.toString() + '-' + k.toString()])  //jik
+        tritype.push([5*vans[j] + 3*vans[k] + 1*vans[i], j.toString() + '-' + k.toString() + '-' + i.toString()])  //jki
+        tritype.push([5*vans[k] + 3*vans[i] + 1*vans[j], k.toString() + '-' + i.toString() + '-' + j.toString()])  //kij
+        tritype.push([5*vans[k] + 3*vans[j] + 1*vans[i], k.toString() + '-' + j.toString() + '-' + i.toString()])  //kji
       }
     }
   }
