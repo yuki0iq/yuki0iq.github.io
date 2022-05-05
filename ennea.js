@@ -222,6 +222,58 @@ function recalc() {
     }
     str += '\n'
   }
+  str += '\n'
+  
+  E1w2 = 3*E1 + E2
+  E1w9 = 3*E1 + E9
+  E2w1 = 3*E2 + E1
+  E2w3 = 3*E2 + E3
+  E3w2 = 3*E3 + E2
+  E3w4 = 3*E3 + E4
+  E4w3 = 3*E4 + E3
+  E4w5 = 3*E4 + E5
+  E5w4 = 3*E5 + E4
+  E5w6 = 3*E5 + E6
+  E6w5 = 3*E6 + E5
+  E6w7 = 3*E6 + E7
+  E7w6 = 3*E7 + E6
+  E7w8 = 3*E7 + E8
+  E8w7 = 3*E8 + E7
+  E8w9 = 3*E8 + E9
+  E9w1 = 3*E9 + E1
+  E9w8 = 3*E9 + E8
+  wings = [
+    [E1w2, '1w2'],
+    [E1w9, '1w9'],
+    [E2w1, '2w1'],
+    [E2w3, '2w3'],
+    [E3w2, '3w2'],
+    [E3w4, '3w4'],
+    [E4w3, '4w3'],
+    [E4w5, '4w5'],
+    [E5w4, '5w4'],
+    [E5w6, '5w6'],
+    [E6w5, '6w5'],
+    [E6w7, '6w7'],
+    [E7w6, '7w6'],
+    [E7w8, '7w8'],
+    [E8w7, '8w7'],
+    [E8w9, '8w9'],
+    [E9w1, '9w1'],
+    [E9w8, '9w8']
+  ]
+  str += 'Эннеатип по крыльям - чем больше число, тем больше вероятность\n'
+  for (k = 0; k < 2; k += 1) {
+    for (j = 0; j < 9; j += 1) {
+      i = 9 * k + j
+      str += wings[i][1]
+      str += ': '
+      str += ljust(wings[i][0].toString(), 3)
+      str += '  '
+    }
+    str += '\n'
+  }
+  str += '\n'
   
   document.getElementById('res').innerHTML = '<pre>' + str + '</pre>'
 }
