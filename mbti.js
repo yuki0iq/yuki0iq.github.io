@@ -84,7 +84,6 @@ for (i = 0; i < question_sets.length; i += 1) {
   shuffle(question_sets[i][2])
 }
 create(question_sets)
-console.log(question_sets)
 
 function recalc() {
   str = ''
@@ -156,7 +155,6 @@ for i in range(8):
     func.set(fn[i], vans[i])
   }
   
-  console.log(func)
   Fi = func.get('Fi'), Fe = func.get('Fe'), Ti = func.get('Ti'), Te = func.get('Te')
   Ni = func.get('Ni'), Ne = func.get('Ne'), Si = func.get('Si'), Se = func.get('Se')
   
