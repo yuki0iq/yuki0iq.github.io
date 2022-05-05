@@ -94,8 +94,6 @@ function recalc() {
   // get vans
   vans = [0, 0, 0, 0, 0, 0, 0, 0]
   for (i = 0; i < question_sets.length; i += 1) {
-    console.log(i, question_sets.length, question_sets[i][2].length)
-    console.log(str, vans, i)
     ans = [0, 0, 0, 0, 0, 0, 0, 0]
     for (j = 0; j < question_sets[i][2].length; j += 1) {
       i_n = 'i' + i + '-' + j
@@ -112,6 +110,7 @@ function recalc() {
         mx = ans[j]
       }
     }
+    console.log(i, question_sets.length)
     for (j = 0; j < 8; j += 1) {
       str += rjust(ans[j].toString(), 4)
       if (ans[j] == mx) {
@@ -121,6 +120,7 @@ function recalc() {
       }
       str += ' '
     }
+    console.log(i, question_sets.length)
     str += question_sets[i][0]
     str += '\n'
     console.log(i, question_sets.length)
