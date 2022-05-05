@@ -172,6 +172,59 @@ function recalc() {
   str += '\n'
   str += '\n'
   
+  E1 = vans[1]
+  E2 = vans[2]
+  E3 = vans[3]
+  E4 = vans[4]
+  E5 = vans[5]
+  E6 = vans[6]
+  E7 = vans[7]
+  E8 = vans[8]
+  E9 = vans[9]
+  
+  A234 = [E2, E3, E4]
+  _T234 = 2 + A234.indexOf(Math.max(...A234))
+  A567 = [E5, E6, E7]
+  _T567 = 5 + A567.indexOf(Math.max(...A567))
+  A891 = [E8, E9, E1]
+  _T891 = 8 + A891.indexOf(Math.max(...A891))
+  if (_T891 == 10) {
+    _T891 = 1
+  }
+  str += 'Максимум по триадам (без учета крыльев)\n'
+  str += 'Сердце ' + _T234 + ' со значением ' + vans[_T234] + '\n'
+  str += 'Голова ' + _T567 + ' со значением ' + vans[_T567] + '\n'
+  str += 'Тело   ' + _T891 + ' со значением ' + vans[_T891] + '\n'
+  str += '\n'
+  
+  tritype = []
+  for (i of [2, 3, 4]) {
+    for (j of [5, 6, 7]) {
+      for (k of [8, 9, 1]) {
+        tritype.push([5*vans[i] + 3*vans[j] + 1*vans[k], i.toString() + j.toString() + k.toString()])  //ijk
+        tritype.push([5*vans[i] + 3*vans[k] + 1*vans[j], i.toString() + k.toString() + j.toString()])  //ikj
+        tritype.push([5*vans[j] + 3*vans[i] + 1*vans[k], j.toString() + i.toString() + k.toString()])  //jik
+        tritype.push([5*vans[j] + 3*vans[k] + 1*vans[i], j.toString() + k.toString() + i.toString()])  //jki
+        tritype.push([5*vans[k] + 3*vans[i] + 1*vans[j], k.toString() + i.toString() + j.toString()])  //kij
+        tritype.push([5*vans[k] + 3*vans[j] + 1*vans[i], k.toString() + j.toString() + i.toString()])  //kji
+      }
+    }
+  }
+  tritype.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];})
+  str += 'Тритип (без учета крыльев)\n'
+  for (i = 0; i < 162; i += 1) {
+    str += tritype[i][1]
+    str += ': '
+    str += tritype[i][0]
+    if (i == 0) {
+      str += ' - наименее вероятный тип'
+    }
+    if (i == 15) {
+      str += ' - наиболее вероятный тип'
+    }
+    str += '\n'
+  }
+  
   document.getElementById('res').innerHTML = '<pre>' + str + '</pre>'
 }
 
