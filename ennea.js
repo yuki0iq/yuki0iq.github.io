@@ -291,9 +291,9 @@ function recalc() {
   }
   str += 'Тритип по крыльям (топ-9 вариантов) - чем больше число, тем больше вероятность\n'
   for (i = 1296 - 9; i < 1296; i += 1) {
-    str += tritype[i][1]
+    str += tritypew[i][1]
     str += ': '
-    str += ljust(tritype[i][0].toString(), 3)
+    str += ljust(tritypew[i][0].toString(), 3)
     if (i == 1295) {
       str += ' - наибольшая вероятность'
     }
