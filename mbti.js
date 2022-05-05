@@ -81,7 +81,7 @@ question_sets = [
 ]
 
 for (i = 0; i < question_sets.length; i += 1) {
-  shuffle(question_sets[i][2])
+  //shuffle(question_sets[i][2])
 }
 create(question_sets)
 console.log(question_sets)
@@ -94,6 +94,7 @@ function recalc() {
   // get vans
   vans = [0, 0, 0, 0, 0, 0, 0, 0]
   for (i = 0; i < question_sets.length; i += 1) {
+    console.log(str, vans, i)
     ans = [0, 0, 0, 0, 0, 0, 0, 0]
     for (j = 0; j < question_sets[i][2].length; j += 1) {
       i_n = 'i' + i + '-' + j
@@ -102,6 +103,7 @@ function recalc() {
       vans[question_sets[i][2][j][0]] -= v_sub  // yeah, the shit..
       ans[question_sets[i][2][j][0]] -= v_sub
     }
+    console.log(ans)
     mx = 0
     for (j = 0; j < 8; j += 1) {
       if (ans[j] > mx) {
