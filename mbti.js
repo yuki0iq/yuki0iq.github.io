@@ -143,6 +143,7 @@ function recalc() {
   }
   str += 'ИТОГ'
   str += '\n'
+  str += '\n'
   
   /*
 funcs = {}
@@ -178,8 +179,44 @@ print('I {0} -- {1} E  | '.format(str(letf['I']).rjust(2), str(letf['E']).rjust(
 print('N {0} -- {1} S  | '.format(str(letf['N']).rjust(2), str(letf['S']).rjust(2)), 'S' if letf['S'] >= letf['N'] else 'N')
 print('F {0} -- {1} T  | '.format(str(letf['F']).rjust(2), str(letf['T']).rjust(2)), 'T' if letf['T'] >= letf['F'] else 'F')
 print('J {0} -- {1} P  | '.format(str(letf['J']).rjust(2), str(letf['P']).rjust(2)), 'P' if letf['P'] >= letf['J'] else 'J')
+  */
+  letf = new Map()
+  letf.set('I', func.get('Fi') + func.get('Ti') + func.get('Ni') + func.get('Si'))
+  letf.set('E', func.get('Fe') + func.get('Te') + func.get('Ne') + func.get('Se'))
+  letf.set('N', func.get('Ni') + func.get('Ne'))
+  letf.set('S', func.get('Si') + func.get('Se'))
+  letf.set('F', func.get('Fi') + func.get('Fe'))
+  letf.set('T', func.get('Ti') + func.get('Te'))
+  letf.set('J', func.get('Fe') + func.get('Te') + func.get('Ni') + func.get('Si'))
+  letf.set('P', func.get('Fi') + func.get('Ti') + func.get('Ne') + func.get('Se'))
+  str += 'Тип по буквам\n'
+  str += 'I ' + rjust(letf.get('I'), 2) + ' -- ' + rjust(letf.get('E'), 2) + ' E  | '
+  if (letf.get('I') > letf.get('E')) {
+    str += 'I\n'
+  } else {
+    str += 'E\n'
+  }
+  str += 'N ' + rjust(letf.get('N'), 2) + ' -- ' + rjust(letf.get('S'), 2) + ' S  | '
+  if (letf.get('N') > letf.get('S')) {
+    str += 'N\n'
+  } else {
+    str += 'S\n'
+  }
+  str += 'F ' + rjust(letf.get('F'), 2) + ' -- ' + rjust(letf.get('T'), 2) + ' T  | '
+  if (letf.get('F') > letf.get('T')) {
+    str += 'F\n'
+  } else {
+    str += 'T\n'
+  }
+  str += 'J ' + rjust(letf.get('J'), 2) + ' -- ' + rjust(letf.get('P'), 2) + ' P  | '
+  if (letf.get('J') > letf.get('P')) {
+    str += 'J\n'
+  } else {
+    str += 'P\n'
+  }
+  str += '\n'
 
-
+  /*
 mbti = {}
 func_to_mbti = {
     'Fi': [('INFP', 7), ('ISFP', 7), ('ENFP', 5), ('ESFP', 5), ('INTJ', 3), ('ISTJ', 3), ('ENTJ', 1), ('ESTJ', 1)],
@@ -200,6 +237,8 @@ print()
 print('Тип по когнитивным функциям - формула mistypeinvestigator')
 print('\n'.join(map(lambda x: str(x[0]) + ': ' + str(x[1]), mbti)))
   */
+  
+  
   document.getElementById('res').innerHTML = '<pre>' + str + '</pre>'
 }
 
