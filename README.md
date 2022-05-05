@@ -8,5 +8,5 @@ Contact me on [telegram](https://t.me/yuki0iq)!
 
 Work in progress...
 
-- [Cognitive functions test (Russian)](/mbti)
-- [Enneagram test (Russian)](/ennea)
+- [Cognitive functions test (Russian)](/mbti.html)
+- [Enneagram test (Russian)](/ennea.html)
