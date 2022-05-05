@@ -122,6 +122,7 @@ function recalc() {
     }
     str += question_sets[i][0]
     str += '\n'
+    console.log(i, question_sets.length)
   }
   str += '[Ni ] [Ne ] [Si ] [Se ] [Fi ] [Fe ] [Ti ] [Te ] Группа\n'
   mx = 0
