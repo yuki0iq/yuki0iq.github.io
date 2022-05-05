@@ -39,7 +39,7 @@ function create(data) {
       qqq = qn + 'c'
       str += '<td><input id="' + qqq + '" name="' + qn + '" value=0 type="radio" onclick="recalc()"> <label for="' + qqq + '">3</label></td>'
       qqq = qn + 'd'
-      str += '<td><input id="' + qqq + '" name="' + qn + '" value=-1 type="radio" onclick="recalc()"> <label for="' + qqq + '">4 (Нет)Совсем не я</label></td>'
+      str += '<td><input id="' + qqq + '" name="' + qn + '" value=-1 type="radio" onclick="recalc()"> <label for="' + qqq + '">4 (Нет)</label></td>'
       str += '</table></form></td>'
       str += '</tr>'
       j = j - (-1)
