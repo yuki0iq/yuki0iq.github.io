@@ -7,7 +7,7 @@ function shuffle(array) {
 
 function rjust(s, v) {
   nn = s.length
-  for (i = 0; i < (v - n); i += 1) {
+  for (i = 0; i < (v - nn); i += 1) {
     s = ' ' + s
   }
   return s
