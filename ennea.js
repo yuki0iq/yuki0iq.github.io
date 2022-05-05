@@ -115,7 +115,62 @@ for (i = 0; i < question_sets.length; i += 1) {
 create(question_sets)
 
 function recalc() {
-  str = 'Work in progress...'
+  str = ''
+  
+  str += '[ 1 ] [ 2 ] [ 3 ] [ 4 ] [ 5 ] [ 6 ] [ 7 ] [ 8 ] [ 9 ] Группа\n'
+  // get vans
+  vans = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  for (i = 0; i < question_sets.length; i += 1) {
+    ans = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    for (j = 0; j < question_sets[i][2].length; j += 1) {
+      i_n = 'i' + i + '-' + j
+      f_n = '#form' + i + '-' + j
+      v_sub = $('input[name=' + i_n + ']:checked', f_n)
+      if (v_sub.length == 0) {  // Not selected
+        v_sub = 0
+      } else {
+        v_sub = -v_sub[0].value
+      }
+      vans[question_sets[i][2][j][0]] -= v_sub  // yeah, the shit..
+      ans[question_sets[i][2][j][0]] -= v_sub
+    }
+    mx = 0
+    for (j = 1; j < 10; j += 1) {
+      if (ans[j] > mx) {
+        mx = ans[j]
+      }
+    }
+    for (j = 1; j < 10; j += 1) {
+      str += rjust(ans[j].toString(), 4)
+      if (ans[j] == mx) {
+        str += '!'
+      } else {
+        str += ' '
+      }
+      str += ' '
+    }
+    str += question_sets[i][0]
+    str += '\n'
+  }
+  str += '[ 1 ] [ 2 ] [ 3 ] [ 4 ] [ 5 ] [ 6 ] [ 7 ] [ 8 ] [ 9 ] Группа\n'
+  mx = 0
+  for (j = 1; j < 10; j += 1) {
+    if (vans[j] > mx) {
+      mx = vans[j]
+    }
+  }
+  for (j = 1; j < 10; j += 1) {
+    str += rjust(vans[j].toString(), 4)
+    if (vans[j] == mx) {
+      str += '!'
+    } else {
+      str += ' '
+    }
+    str += ' '
+  }
+  str += 'ИТОГ'
+  str += '\n'
+  str += '\n'
   
   document.getElementById('res').innerHTML = '<pre>' + str + '</pre>'
 }
