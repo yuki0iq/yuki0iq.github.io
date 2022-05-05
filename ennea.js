@@ -280,12 +280,12 @@ function recalc() {
   for (i of [[E2w1, '2w1'], [E2w3, '2w3'], [E3w2, '3w2'], [E3w4, '3w4'], [E4w3, '4w3'], [E4w5, '4w5']]) {
     for (j of [[E5w4, '5w4'], [E5w6, '5w6'], [E6w5, '6w5'], [E6w7, '6w7'], [E7w6, '7w6'], [E7w8, '7w8']]) {
       for (k of [[E8w7, '8w7'], [E8w9, '8w9'], [E9w1, '9w1'], [E9w8, '9w8'], [E1w2, '1w2'], [E1w9, '1w9']]) {
-        tritypew.push([5*vans[i[0]] + 3*vans[j[0]] + 1*vans[k[0]], i[1] + '-' + j[1] + '-' + k[1]])  //ijk
-        tritypew.push([5*vans[i[0]] + 3*vans[k[0]] + 1*vans[j[0]], i[1] + '-' + k[1] + '-' + j[1]])  //ikj
-        tritypew.push([5*vans[j[0]] + 3*vans[i[0]] + 1*vans[k[0]], j[1] + '-' + i[1] + '-' + k[1]])  //jik
-        tritypew.push([5*vans[j[0]] + 3*vans[k[0]] + 1*vans[i[0]], j[1] + '-' + k[1] + '-' + i[1]])  //jki
-        tritypew.push([5*vans[k[0]] + 3*vans[i[0]] + 1*vans[j[0]], k[1] + '-' + i[1] + '-' + j[1]])  //kij
-        tritypew.push([5*vans[k[0]] + 3*vans[j[0]] + 1*vans[i[0]], k[1] + '-' + j[1] + '-' + i[1]])  //kji
+        tritypew.push([5*i[0] + 3*j[0] + 1*k[0], i[1] + '-' + j[1] + '-' + k[1]])  //ijk
+        tritypew.push([5*i[0] + 3*k[0] + 1*j[0], i[1] + '-' + k[1] + '-' + j[1]])  //ikj
+        tritypew.push([5*j[0] + 3*i[0] + 1*k[0], j[1] + '-' + i[1] + '-' + k[1]])  //jik
+        tritypew.push([5*j[0] + 3*k[0] + 1*i[0], j[1] + '-' + k[1] + '-' + i[1]])  //jki
+        tritypew.push([5*k[0] + 3*i[0] + 1*j[0], k[1] + '-' + i[1] + '-' + j[1]])  //kij
+        tritypew.push([5*k[0] + 3*j[0] + 1*i[0], k[1] + '-' + j[1] + '-' + i[1]])  //kji
       }
     }
   }
