@@ -7,7 +7,7 @@ function create(data) {
     gn = entry[0]
     // add H4
     questions = entry[1]
-    str += '<h4>' + questions + '</h4>'
+    str += '<h4>' + entry[0] + '</h4>'
     // begin table
     str += '<table><tr>'
     str += '<th>No</th>'
@@ -23,13 +23,13 @@ function create(data) {
       str += '<td>' + tx + '</td>'
       str += '<td><form id="form' + i + '-' + j + '">'
       qqq = 'i' + i + '-' + j + 'a'
-      str += '<input id="' + qqq + '" value=2 type="radio"> <label for="' + qqq + '">Да</label>'
+      str += '<input id="' + qqq + '" value=2 type="radio"> <label for="' + qqq + '">Точно я</label>'
       qqq = 'i' + i + '-' + j + 'b'
-      str += '<input id="' + qqq + '" value=1 type="radio"> <label for="' + qqq + '"></label>'
+      str += '<input id="' + qqq + '" value=1 type="radio"> <label for="' + qqq + '">Немного похоже</label>'
       qqq = 'i' + i + '-' + j + 'c'
-      str += '<input id="' + qqq + '" value=0 type="radio"> <label for="' + qqq + '"></label>'
+      str += '<input id="' + qqq + '" value=0 type="radio"> <label for="' + qqq + '">Не слишком похоже</label>'
       qqq = 'i' + i + '-' + j + 'd'
-      str += '<input id="' + qqq + '" value=-1 type="radio"> <label for="' + qqq + '">Нет</label>'
+      str += '<input id="' + qqq + '" value=-1 type="radio"> <label for="' + qqq + '">Совсем не я</label>'
       str += '</form></td>'
       str += '</tr>'
       j = j - (-1)
