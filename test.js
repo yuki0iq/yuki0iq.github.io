@@ -1,6 +1,10 @@
 function create(data) {
   // data: Array of [Name, Questions]
   // Questions: Array of [where, Name]
+  for (entry of data) {
+    entry[1].sort(() => Math.random() - 0.5)
+  }
+  
   str = ''
   i = 0
   for (const entry of data) {
@@ -19,7 +23,7 @@ function create(data) {
       tx = question[1]
       // add row
       str += '<tr>'
-      str += '<td>' + j + '</td>'
+      str += '<td>' + (1+j) + '</td>'
       str += '<td>' + tx + '</td>'
       str += '<td><form id="form' + i + '-' + j + '"><table>'
       qqq = 'i' + i + '-' + j + 'a'
