@@ -158,6 +158,8 @@ for i in range(8):
   }
   
   console.log(func)
+  Fi = func.get('Fi'), Fe = func.get('Fe'), Ti = func.get('Ti'), Te = func.get('Te')
+  Ni = func.get('Ni'), Ne = func.get('Ne'), Si = func.get('Si'), Se = func.get('Se')
   
   /*
 letf = {}
@@ -180,36 +182,35 @@ print('N {0} -- {1} S  | '.format(str(letf['N']).rjust(2), str(letf['S']).rjust(
 print('F {0} -- {1} T  | '.format(str(letf['F']).rjust(2), str(letf['T']).rjust(2)), 'T' if letf['T'] >= letf['F'] else 'F')
 print('J {0} -- {1} P  | '.format(str(letf['J']).rjust(2), str(letf['P']).rjust(2)), 'P' if letf['P'] >= letf['J'] else 'J')
   */
-  letf = new Map()
-  letf.set('I', func.get('Fi') + func.get('Ti') + func.get('Ni') + func.get('Si'))
-  letf.set('E', func.get('Fe') + func.get('Te') + func.get('Ne') + func.get('Se'))
-  letf.set('N', func.get('Ni') + func.get('Ne'))
-  letf.set('S', func.get('Si') + func.get('Se'))
-  letf.set('F', func.get('Fi') + func.get('Fe'))
-  letf.set('T', func.get('Ti') + func.get('Te'))
-  letf.set('J', func.get('Fe') + func.get('Te') + func.get('Ni') + func.get('Si'))
-  letf.set('P', func.get('Fi') + func.get('Ti') + func.get('Ne') + func.get('Se'))
+  I = Fi + Ti + Ni + Si
+  E = Fe + Te + Ne + Se
+  N = Ni + Ne
+  S = Si + Se
+  F = Fi + Fe
+  T = Ti + Te
+  J = Fe + Te + Ni + Si
+  P = Fi + Ti + Ne + Se
   str += 'Тип по буквам\n'
-  str += 'I ' + rjust(letf.get('I').toString(), 2) + ' -- ' + rjust(letf.get('E').toString(), 2) + ' E  | '
-  if (letf.get('I') > letf.get('E')) {
+  str += 'I ' + rjust(I.toString(), 2) + ' -- ' + rjust(E.toString(), 2) + ' E  | '
+  if (I > E) {
     str += 'I\n'
   } else {
     str += 'E\n'
   }
-  str += 'N ' + rjust(letf.get('N').toString(), 2) + ' -- ' + rjust(letf.get('S').toString(), 2) + ' S  | '
-  if (letf.get('N') > letf.get('S')) {
+  str += 'N ' + rjust(N.toString(), 2) + ' -- ' + rjust(S.toString(), 2) + ' S  | '
+  if (N > S) {
     str += 'N\n'
   } else {
     str += 'S\n'
   }
-  str += 'F ' + rjust(letf.get('F').toString(), 2) + ' -- ' + rjust(letf.get('T').toString(), 2) + ' T  | '
-  if (letf.get('F') > letf.get('T')) {
+  str += 'F ' + rjust(F.toString(), 2) + ' -- ' + rjust(T.toString(), 2) + ' T  | '
+  if (F > T) {
     str += 'F\n'
   } else {
     str += 'T\n'
   }
-  str += 'J ' + rjust(letf.get('J').toString(), 2) + ' -- ' + rjust(letf.get('P').toString(), 2) + ' P  | '
-  if (letf.get('J') > letf.get('P')) {
+  str += 'J ' + rjust(J.toString(), 2) + ' -- ' + rjust(P.toString(), 2) + ' P  | '
+  if (J > P) {
     str += 'J\n'
   } else {
     str += 'P\n'
@@ -238,6 +239,39 @@ print('Тип по когнитивным функциям - формула mist
 print('\n'.join(map(lambda x: str(x[0]) + ': ' + str(x[1]), mbti)))
   */
   
+  // 7a + 5b + 3c + 1d
+  mbti = [
+    [7*Ni + 5*Fe + 3*Ti + 1*Se, 'INFJ'],
+    [7*Ni + 5*Te + 3*Fi + 1*Se, 'INTJ'],
+    [7*Fi + 5*Ne + 3*Si + 1*Te, 'INFP'],
+    [7*Ti + 5*Ne + 3*Si + 1*Fe, 'INTP'],
+    [7*Si + 5*Fe + 3*Ti + 1*Ne, 'ISFJ'],
+    [7*Si + 5*Te + 3*Fi + 1*Ne, 'ISTJ'],
+    [7*Fi + 5*Se + 3*Ni + 1*Te, 'ISFP'],
+    [7*Ti + 5*Se + 3*Ni + 1*Fe, 'ISTP'],
+    [5*Ni + 7*Fe + 1*Ti + 3*Se, 'ENFJ'],
+    [5*Ni + 7*Te + 1*Fi + 3*Se, 'ENTJ'],
+    [5*Fi + 7*Ne + 1*Si + 3*Te, 'ENFP'],
+    [5*Ti + 7*Ne + 1*Si + 3*Fe, 'ENTP'],
+    [5*Si + 7*Fe + 1*Ti + 3*Ne, 'ESFJ'],
+    [5*Si + 7*Te + 1*Fi + 3*Ne, 'ESTJ'],
+    [5*Fi + 7*Se + 1*Ni + 3*Te, 'ESFP'],
+    [5*Ti + 7*Se + 1*Ni + 3*Fe, 'ESTP'],
+  ]
+  mbti.sort()
+  str += 'Тип по когнитивкам, формула mistypeinvestigator'
+  for (i = 0; i < 16; i += 1) {
+    str += mbti[i][1]
+    str += ': '
+    str += mbti[i][0]
+    if (i == 0) {
+      str += ' - наименее вероятный тип'
+    }
+    if (i == 15) {
+      str += ' - наиболее вероятный тип'
+    }
+    str += '\n'
+  }
   
   document.getElementById('res').innerHTML = '<pre>' + str + '</pre>'
 }
