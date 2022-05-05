@@ -104,6 +104,7 @@ function recalc() {
       vans[question_sets[i][2][j][0]] -= v_sub  // yeah, the shit..
       ans[question_sets[i][2][j][0]] -= v_sub
     }
+    console.log(i, question_sets.length)
     console.log(ans)
     mx = 0
     for (j = 0; j < 8; j += 1) {
