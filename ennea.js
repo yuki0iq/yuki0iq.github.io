@@ -289,6 +289,7 @@ function recalc() {
       }
     }
   }
+  tritypew.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];})
   str += 'Тритип по крыльям (топ-9 вариантов) - чем больше число, тем больше вероятность\n'
   for (i = 1296 - 9; i < 1296; i += 1) {
     str += tritypew[i][1]
