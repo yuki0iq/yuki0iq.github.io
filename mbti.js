@@ -257,7 +257,7 @@ print('\n'.join(map(lambda x: str(x[0]) + ': ' + str(x[1]), mbti)))
     [5*Fi + 7*Se + 1*Ni + 3*Te, 'ESFP'],
     [5*Ti + 7*Se + 1*Ni + 3*Fe, 'ESTP'],
   ]
-  mbti.sort()
+  mbti.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];})
   str += 'Тип по когнитивкам, формула mistypeinvestigator\n'
   for (i = 0; i < 16; i += 1) {
     str += mbti[i][1]
