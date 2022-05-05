@@ -1,18 +1,3 @@
-function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    let j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-}
-
-function rjust(s, v) {
-  nn = s.length
-  for (iii = 0; iii < (v - nn); iii += 1) {
-    s = ' ' + s
-  }
-  return s
-}
-
 question_sets = [
   ['Ne против Ni', '', [
     [1, 'Я делюсь информацией'],
