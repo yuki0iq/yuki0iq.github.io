@@ -94,6 +94,7 @@ function recalc() {
   // get vans
   vans = [0, 0, 0, 0, 0, 0, 0, 0]
   for (i = 0; i < question_sets.length; i += 1) {
+    console.log(i, question_sets.length, question_sets[i][2].length)
     console.log(str, vans, i)
     ans = [0, 0, 0, 0, 0, 0, 0, 0]
     for (j = 0; j < question_sets[i][2].length; j += 1) {
