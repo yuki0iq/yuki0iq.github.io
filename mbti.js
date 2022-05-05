@@ -112,7 +112,6 @@ function recalc() {
       }
     }
     for (j = 0; j < 8; j += 1) {
-      console.log(i, j)
       str += rjust(ans[j].toString(), 4)
       if (ans[j] == mx) {
         str += '!'
@@ -121,7 +120,6 @@ function recalc() {
       }
       str += ' '
     }
-    console.log(i, question_sets.length)
     str += question_sets[i][0]
     str += '\n'
   }
