@@ -37,12 +37,12 @@ function recalc() {
   }
   str += '[I>E] [N>S] [F>T] [J>P]\n'
   mx = 0
-  for (j = 0; j < 8; j += 1) {
+  for (j = 0; j < 4; j += 1) {
     if (vans[j] > mx) {
       mx = vans[j]
     }
   }
-  for (j = 0; j < 8; j += 1) {
+  for (j = 0; j < 4; j += 1) {
     str += rjust(vans[j].toString(), 4)
     if (vans[j] == mx) {
       str += '!'
