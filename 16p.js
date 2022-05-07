@@ -32,7 +32,7 @@ function recalc() {
         wh -= 4
         v_sub = -v_sub
       }
-      vans[question_sets[i][3][j][0]] -= v_sub  // yeah, the shit..
+      vans[wh] -= v_sub  // yeah, the shit..
     }
   }
   str += '[I>E] [N>S] [F>T] [J>P]\n'
