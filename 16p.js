@@ -28,6 +28,7 @@ function recalc() {
         v_sub = -v_sub[0].value
       }
       wh = question_sets[i][3][j][0]
+      console.log(wh, v_sub)
       if (wh - 1 >= 3) {
         wh -= 4
         v_sub = -v_sub
