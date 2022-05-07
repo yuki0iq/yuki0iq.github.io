@@ -43,7 +43,7 @@ function create(data) {
   for (const entry of data) {
     gn = entry[0]
     // add H4
-    type = (enrty[2] - 1) - (-1)
+    type = (entry[2] - 1) - (-1)
     questions = entry[3]
     str += '<h3>' + entry[0] + '</h3>'
     if (entry[1] != '') {
