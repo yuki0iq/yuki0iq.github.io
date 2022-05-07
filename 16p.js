@@ -54,7 +54,7 @@ function recalc() {
   str += '\n'
   str += '\n'
   
-  names = Map()
+  names = new Map()
   names.set('INTJ', 'Strateg')
   names.set('INTP', 'Ucheny')
   names.set('ENTJ', 'Komandir')
