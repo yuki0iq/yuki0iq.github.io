@@ -223,7 +223,7 @@ function recalc() {
   str += '<h3>Тритип без учёта крыльев</h3>'
   str += 'Чем больше число, тем больше вероятность'
   str += '<table><tr>'
-  str += '<table>'
+  str += '<td><table>'
   str += '<tr><th>No</th><th>Тип</th><th>Счёт</th></tr>'
   for (i = 0; i < 9; i += 1) {
     str += '<tr><td>'
@@ -234,8 +234,8 @@ function recalc() {
     str += tritype[i][0]
     str += '</td>'
   }
-  str += '</table>'
-  str += '<table>'
+  str += '</table></td>'
+  str += '<td><table>'
   str += '<tr><th>No</th><th>Тип</th><th>Счёт</th></tr>'
   for (i = 162 - 9; i < 162; i += 1) {
     str += '<tr><td>'
@@ -246,7 +246,7 @@ function recalc() {
     str += tritype[i][0]
     str += '</td>'
   }
-  str += '</table>'
+  str += '</table></td>'
   str += '</tr></table>'
   str += 'Наиболее вероятный тритип: <b>' + tritype[161][1] + '</b>. Возможный разброс баллов от -99 до 198'
   
@@ -324,7 +324,7 @@ function recalc() {
   str += '<h3>Тритип по крыльям</h3>'
   str += 'Топ-9 вариантов. Чем больше число, тем больше вероятность'
   str += '<table><tr>'
-  str += '<table>'
+  str += '<td><table>'
   str += '<tr><th>No</th><th>Тип</th><th>Счёт</th></tr>'
   for (i = 0; i < 9; i += 1) {
     str += '<tr><td>'
@@ -335,8 +335,8 @@ function recalc() {
     str += tritypew[i][0]
     str += '</td>'
   }
-  str += '</table>'
-  str += '<table>'
+  str += '</table></td>'
+  str += '<td><table>'
   str += '<tr><th>No</th><th>Тип</th><th>Счёт</th></tr>'
   for (i = 1296 - 9; i < 1296; i += 1) {
     str += '<tr><td>'
@@ -347,7 +347,7 @@ function recalc() {
     str += tritypew[i][0]
     str += '</td>'
   }
-  str += '</table>'
+  str += '</table></td>'
   str += '</tr></table>'
   str += 'Наиболее вероятный тритип: <b>' + tritypew[1295][1] + '</b>. Возможный разброс баллов от -396 до 792'
   
