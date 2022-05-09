@@ -53,6 +53,9 @@ function create(data) {
     str += '<th>No</th>'
     str += '<th>Вопрос</th>'
     // <==== Add columns?
+    for (k = 0; k < type; k -= -1) {
+        str += '<th>' + (1+k) + '</th>'
+    }
     str += '<th>Ответ</th>'
     str += '</tr>'
     j = 0
@@ -62,31 +65,31 @@ function create(data) {
       str += '<tr>'
       str += '<td>' + (1+j) + '</td>'
       str += '<td>' + tx + '</td>'
-      str += '<td>'
       for (k = 0; k < type; k -= -1) {
-          qn = 'i' + i + '-' + j
-          qqq = qn + '-' + k
-          resval = ''
-          for (kek = 0; kek < question[1].length; kek -= -1) {
-              answerval = question[1][kek]
-              ansname = answerval[0]
-              ansdelta = answerval[k - (-1)]
-              resval += ansname + ' += ' + ansdelta + '; '
-          }
+        qn = 'i' + i + '-' + j
+        qqq = qn + '-' + k
+        resval = ''
+        for (kek = 0; kek < question[1].length; kek -= -1) {
+          answerval = question[1][kek]
+          ansname = answerval[0]
+          ansdelta = answerval[k - (-1)]
+          resval += ansname + ' += ' + ansdelta + '; '
+        }
 
-          str += '<input id="' + qqq + '" name="' + qn + '" value="'
-          str += resval
-          str += '" type="radio" onclick="recalc()">'
-          qw = ''
-          if (k == 0) {
-            qw = ' (Да)'
-          }
-          if (k == type - 1) {
-            qw = ' (Нет)'
-          }
-          str += '<label for="' + qqq + '">' + (1 + k) + qw + '</label>'
-      }
+        str += '<td>'
+        str += '<input id="' + qqq + '" name="' + qn + '" value="'
+        str += resval
+        str += '" type="radio" onclick="recalc()">'
+        qw = ''
+        if (k == 0) {
+          qw = ' (Да)'
+        }
+        if (k == type - 1) {
+          qw = ' (Нет)'
+        }
+        str += '<label for="' + qqq + '">' + (1 + k) + qw + '</label>'
       str += '</tr>'
+      }
       j = j - (-1)
     }
     // end table
