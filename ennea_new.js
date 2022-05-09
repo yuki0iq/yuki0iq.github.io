@@ -222,21 +222,33 @@ function recalc() {
   tritype.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];})
   str += '<h3>Тритип без учёта крыльев</h3>'
   str += 'Чем больше число, тем больше вероятность'
+  str += '<table><tr>'
   str += '<table>'
-  for (k = 0; k < 18; k += 1) {
-    str += '<tr>'
-    for (j = 0; j < 9; j += 1) {
-      i = 9 * k + j
-      str += '<td>'
-      str += tritype[i][1]
-      str += ', счёт '
-      str += tritype[i][0]
-      str += '</td>'
-    }
-    str += '</tr>'
+  str += '<tr><th>No</th><th>Тип</th><th>Счёт</th></tr>'
+  for (i = 0; i < 9; i += 1) {
+    str += '<tr><td>'
+    str += (1 + i)
+    str += '</td><td>'
+    str += tritype[i][1]
+    str += '</td><td>'
+    str += tritype[i][0]
+    str += '</td>'
   }
   str += '</table>'
-  str += 'Наиболее вероятный тритип: <b>' + tritype[18 * 9 - 1][1] + '</b>. Возможный разброс баллов от -99 до 198'
+  str += '<table>'
+  str += '<tr><th>No</th><th>Тип</th><th>Счёт</th></tr>'
+  for (i = 162 - 9; i < 162; i += 1) {
+    str += '<tr><td>'
+    str += (1 + i)
+    str += '</td><td>'
+    str += tritype[i][1]
+    str += '</td><td>'
+    str += tritype[i][0]
+    str += '</td>'
+  }
+  str += '</table>'
+  str += '</tr></table>'
+  str += 'Наиболее вероятный тритип: <b>' + tritype[161][1] + '</b>. Возможный разброс баллов от -99 до 198'
   
   E1w2 = 3*E1 + E2
   E1w9 = 3*E1 + E9
@@ -311,16 +323,32 @@ function recalc() {
   tritypew.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];})
   str += '<h3>Тритип по крыльям</h3>'
   str += 'Топ-9 вариантов. Чем больше число, тем больше вероятность'
+  str += '<table><tr>'
   str += '<table>'
-  str += '<tr><th>Тип</th><th>Счёт</th></tr>'
-  for (i = 1296 - 9; i < 1296; i += 1) {
+  str += '<tr><th>No</th><th>Тип</th><th>Счёт</th></tr>'
+  for (i = 0; i < 9; i += 1) {
     str += '<tr><td>'
+    str += (1 + i)
+    str += '</td><td>'
     str += tritypew[i][1]
     str += '</td><td>'
     str += tritypew[i][0]
     str += '</td>'
   }
   str += '</table>'
+  str += '<table>'
+  str += '<tr><th>No</th><th>Тип</th><th>Счёт</th></tr>'
+  for (i = 1296 - 9; i < 1296; i += 1) {
+    str += '<tr><td>'
+    str += (1 + i)
+    str += '</td><td>'
+    str += tritypew[i][1]
+    str += '</td><td>'
+    str += tritypew[i][0]
+    str += '</td>'
+  }
+  str += '</table>'
+  str += '</tr></table>'
   str += 'Наиболее вероятный тритип: <b>' + tritypew[1295][1] + '</b>. Возможный разброс баллов от -396 до 792'
   
   document.getElementById('res').innerHTML = str
