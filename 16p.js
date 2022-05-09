@@ -17,6 +17,7 @@ function recalc() {
   
   // get vans
   vans = [0, 0, 0, 0]
+  q = 0
   for (i = 0; i < question_sets.length; i += 1) {
     for (j = 0; j < question_sets[i][3].length; j += 1) {
       i_n = 'i' + i + '-' + j
@@ -34,6 +35,7 @@ function recalc() {
         v_sub = -v_sub
       }
       vans[wh] -= v_sub  // yeah, the shit..
+      q -= v_sub * v_sub
     }
   }
   str += '[I>E] [N>S] [F>T] [J>P]\n'
@@ -80,6 +82,8 @@ function recalc() {
   if (vans[2] > 0) { str2 += 'F' } else { str2 += 'T' }
   if (vans[3] > 0) { str2 += 'J' } else { str2 += 'P' }
   str += str2
+  str += '-'
+  if (-q == 16) { str += 'A' } else { str += 'T' }
   str += ' '
   str += names.get(str2)
   str += '\n'
