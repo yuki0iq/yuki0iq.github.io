@@ -131,6 +131,24 @@ function recalc() {
   str += '</table>'
   str += 'Возможный разброс баллов от -7 до 14'
 
+  names = new Map()
+  names.set('INTJ', 'Стратег')
+  names.set('INTP', 'Учёный')
+  names.set('ENTJ', 'Командир')
+  names.set('ENTP', 'Полемист')
+  names.set('INFJ', 'Активист')
+  names.set('INFP', 'Посредник')
+  names.set('ENFJ', 'Тренер')
+  names.set('ENFP', 'Борец')
+  names.set('ISTJ', 'Администратор')
+  names.set('ISFJ', 'Защитник')
+  names.set('ESTJ', 'Менеджер')
+  names.set('ESTP', 'Консул')
+  names.set('ISTP', 'Виртуоз')
+  names.set('ISFP', 'Артист')
+  names.set('ESTP', 'Делец')
+  names.set('ESFP', 'Развлекатель')
+
   I = Fi + Ti + Ni + Si
   E = Fe + Te + Ne + Se
   N = Ni + Ne
@@ -151,7 +169,7 @@ function recalc() {
   str += '<tr><td>F</td><td>' + F + '</td><td>' + (F > T ? '>' : '<') + '</td><td>' + T + '</td><td>T</td></tr>'
   str += '<tr><td>J</td><td>' + J + '</td><td>' + (J > P ? '>' : '<') + '</td><td>' + P + '</td><td>P</td></tr>'
   str += '</table>'
-  str += 'Наиболее вероятный тип по буквам: <b>' + str2 + '</b>'
+  str += 'Наиболее вероятный тип по буквам: <b>' + str2 + '</b> (' + names.get(str2) + ')'
 
   // 7a + 5b + 3c + 1d
   mbti = [
