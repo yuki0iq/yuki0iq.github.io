@@ -206,15 +206,15 @@ function recalc() {
   str += 'Наиболее вероятный эннеатип: <b>' + _Tall + '</b>'
   
   tritype = []
-  for (i of [2, 3, 4]) {
-    for (j of [5, 6, 7]) {
-      for (k of [8, 9, 1]) {
-        tritype.push([5*vans[i] + 3*vans[j] + 1*vans[k], i.toString() + j.toString() + k.toString()])  //ijk
-        tritype.push([5*vans[i] + 3*vans[k] + 1*vans[j], i.toString() + k.toString() + j.toString()])  //ikj
-        tritype.push([5*vans[j] + 3*vans[i] + 1*vans[k], j.toString() + i.toString() + k.toString()])  //jik
-        tritype.push([5*vans[j] + 3*vans[k] + 1*vans[i], j.toString() + k.toString() + i.toString()])  //jki
-        tritype.push([5*vans[k] + 3*vans[i] + 1*vans[j], k.toString() + i.toString() + j.toString()])  //kij
-        tritype.push([5*vans[k] + 3*vans[j] + 1*vans[i], k.toString() + j.toString() + i.toString()])  //kji
+  for (i of [['2', E2], ['3', E3], ['4', E4]]) {
+    for (j of [['5', E5], ['6', E6], ['7', E7]]) {
+      for (k of [['8', E8], ['9', E9], ['1', E1]]) {
+        tritypew.push([5*i[0] + 3*j[0] + 1*k[0], i[1] + '-' + j[1] + '-' + k[1]])  //ijk
+        tritypew.push([5*i[0] + 3*k[0] + 1*j[0], i[1] + '-' + k[1] + '-' + j[1]])  //ikj
+        tritypew.push([5*j[0] + 3*i[0] + 1*k[0], j[1] + '-' + i[1] + '-' + k[1]])  //jik
+        tritypew.push([5*j[0] + 3*k[0] + 1*i[0], j[1] + '-' + k[1] + '-' + i[1]])  //jki
+        tritypew.push([5*k[0] + 3*i[0] + 1*j[0], k[1] + '-' + i[1] + '-' + j[1]])  //kij
+        tritypew.push([5*k[0] + 3*j[0] + 1*i[0], k[1] + '-' + j[1] + '-' + i[1]])  //kji
       }
     }
   }
