@@ -230,7 +230,7 @@ function recalc() {
       str += tritype[i][1]
       str += ', счёт '
       str += tritype[i][0]
-      str += '</td>
+      str += '</td>'
     }
     str += '</tr>'
   }
