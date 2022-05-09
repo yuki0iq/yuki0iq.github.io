@@ -129,6 +129,7 @@ function recalc() {
   str += '<td>ИТОГ</td>'
   str += '</tr>'
   str += '</table>'
+  str += 'Возможный разброс баллов от -7 до 14'
 
   I = Fi + Ti + Ni + Si
   E = Fe + Te + Ne + Se
@@ -179,7 +180,7 @@ function recalc() {
     str += '<tr><td>' + mbti[i][1] + '</td><td>' + mbti[i][0] + '</td></tr>'
   }
   str += '</table>'
-  str += 'Наиболее вероятный тип по когнитивным функциям: <b>' + mbti[15][1] + '</b>' 
+  str += 'Наиболее вероятный тип по когнитивным функциям: <b>' + mbti[15][1] + '</b>. Возможный разброс баллов от -112 до 224'
   
   document.getElementById('res').innerHTML = str
 }
