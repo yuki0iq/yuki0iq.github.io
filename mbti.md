@@ -15,5 +15,5 @@
 </div>
 
 <script src="jquery.js"></script>
-<script src="test_new.js"></script>
-<script src="mbti_new.js"></script>
+<script src="test.js"></script>
+<script src="mbti.js"></script>

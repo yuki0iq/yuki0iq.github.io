@@ -17,5 +17,5 @@
 </div>
 
 <script src="jquery.js"></script>
-<script src="test_new.js"></script>
-<script src="ennea_new.js"></script>
+<script src="test.js"></script>
+<script src="ennea.js"></script>

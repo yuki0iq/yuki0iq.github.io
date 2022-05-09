@@ -22,15 +22,14 @@ function ljust(s, v) {
 }
 
 function create(data) {
-  // data: Array of [Name, QuickInfo, Type(0|1), Questions]
-  // Questions: Array of [where, Name, (whereno)]
+  // data = [name, desc, cnt, [name, [ans, d1, d2, ...]]]
   str = 'Варианты ответов (если 4 варианта):</br>'
   str += '<ol>'
   str += '<li>Это очень похоже на меня</li>'
   str += '<li>Это немного похоже на меня</li>'
   str += '<li>Это не слишком похоже на меня</li>'
   str += '<li>Совсем не похоже на меня</li>'
-  str += '</ol></br>'
+  str += '</ol>'
   str += 'Варианты ответов (если 5 вариантов):</br>'
   str += '<ol>'
   str += '<li>Очень похоже на меня</li>'
@@ -53,31 +52,43 @@ function create(data) {
     str += '<table><tr>'
     str += '<th>No</th>'
     str += '<th>Вопрос</th>'
-    str += '<th>Ответ</th>'
+    // <==== Add columns?
+    for (k = 0; k < type; k -= -1) {
+        str += '<th>' + (1+k) + '</th>'
+    }
     str += '</tr>'
     j = 0
     for (const question of questions) {
-      tx = question[1]
+      tx = question[0]
       // add row
       str += '<tr>'
       str += '<td>' + (1+j) + '</td>'
       str += '<td>' + tx + '</td>'
-      str += '<td><form id="form' + i + '-' + j + '"><table>'
-      qn = 'i' + i + '-' + j
-      qqq = qn + 'a'
-      str += '<td><input id="' + qqq + '" name="' + qn + '"value=2 type="radio" onclick="recalc()"> <label for="' + qqq + '">1 (Да)</label></td>'
-      qqq = qn + 'b'
-      str += '<td><input id="' + qqq + '" name="' + qn + '" value=1 type="radio" onclick="recalc()"> <label for="' + qqq + '">2</label></td>'
-      qqq = qn + 'c'
-      str += '<td><input id="' + qqq + '" name="' + qn + '" value=0 type="radio" onclick="recalc()"> <label for="' + qqq + '">3</label></td>'
-      qqq = qn + 'd'
-      str += '<td><input id="' + qqq + '" name="' + qn + '" value=-1 type="radio" onclick="recalc()"> <label for="' + qqq + '">4'
-      if (type == 1) {
-        qqq = qn + 'e'
-        str += '</label></td>'
-        str += '<td><input id="' + qqq + '" name="' + qn + '" value=-2 type="radio" onclick="recalc()"> <label for="' + qqq + '">5'
+      for (k = 0; k < type; k -= -1) {
+        qn = 'i' + i + '-' + j
+        qqq = qn + '-' + k
+        resval = ''
+        for (kek = 0; kek < question[1].length; kek -= -1) {
+          answerval = question[1][kek]
+          ansname = answerval[0]
+          ansdelta = answerval[k - (-1)]
+          resval += ansname + ' += ' + ansdelta + '; '
+        }
+
+        str += '<td>'
+        str += '<input id="' + qqq + '" name="' + qn + '" value="'
+        str += resval
+        str += '" type="radio" onclick="recalc()">'
+        qw = ''
+        if (k == 0) {
+          qw = ' (Да)'
+        }
+        if (k == type - 1) {
+          qw = ' (Нет)'
+        }
+        str += '<label for="' + qqq + '">' + (1 + k) + qw + '</label>'
+        str += '</td>'
       }
-      str += ' (Нет)</label></td></table></form></td>'
       str += '</tr>'
       j = j - (-1)
     }
