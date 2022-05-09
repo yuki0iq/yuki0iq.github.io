@@ -101,8 +101,8 @@ function recalc() {
         console.log(v_sub[0].value)
       }
     }
-    mx = Math.max(Ni, Ne, Si, Se, Fi, Fe, Ti, Te)
     gNi += Ni, gNe += Ne, gSi += Si, gSe += Se, gFi += Fi, gFe += Fe, gTi += Ti, gTe += Te
+    mx = Math.max(Ni, Ne, Si, Se, Fi, Fe, Ti, Te)
     str += '<tr>'
     str += out(Ni, mx)
     str += out(Ne, mx)
@@ -174,6 +174,7 @@ function recalc() {
   mbti.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];})
   str += '<h3>Тип по когнитивкам</h3> Формула mistypeinvestigator. Самый вероятный тип имеет наибольшее число (как на сакинорве)'
   str += '<table>'
+  str += '<tr><th>Тип</th><th>Счёт</th>'
   for (i = 0; i < 16; i += 1) {
     str += '<tr><td>' + mbti[i][1] + '</td><td>' + mbti[i][0] + '</td></tr>'
   }
