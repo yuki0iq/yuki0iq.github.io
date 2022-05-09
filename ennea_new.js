@@ -209,12 +209,12 @@ function recalc() {
   for (i of [['2', E2], ['3', E3], ['4', E4]]) {
     for (j of [['5', E5], ['6', E6], ['7', E7]]) {
       for (k of [['8', E8], ['9', E9], ['1', E1]]) {
-        tritypew.push([5*i[0] + 3*j[0] + 1*k[0], i[1] + '-' + j[1] + '-' + k[1]])  //ijk
-        tritypew.push([5*i[0] + 3*k[0] + 1*j[0], i[1] + '-' + k[1] + '-' + j[1]])  //ikj
-        tritypew.push([5*j[0] + 3*i[0] + 1*k[0], j[1] + '-' + i[1] + '-' + k[1]])  //jik
-        tritypew.push([5*j[0] + 3*k[0] + 1*i[0], j[1] + '-' + k[1] + '-' + i[1]])  //jki
-        tritypew.push([5*k[0] + 3*i[0] + 1*j[0], k[1] + '-' + i[1] + '-' + j[1]])  //kij
-        tritypew.push([5*k[0] + 3*j[0] + 1*i[0], k[1] + '-' + j[1] + '-' + i[1]])  //kji
+        tritype.push([5*i[0] + 3*j[0] + 1*k[0], i[1] + '-' + j[1] + '-' + k[1]])  //ijk
+        tritype.push([5*i[0] + 3*k[0] + 1*j[0], i[1] + '-' + k[1] + '-' + j[1]])  //ikj
+        tritype.push([5*j[0] + 3*i[0] + 1*k[0], j[1] + '-' + i[1] + '-' + k[1]])  //jik
+        tritype.push([5*j[0] + 3*k[0] + 1*i[0], j[1] + '-' + k[1] + '-' + i[1]])  //jki
+        tritype.push([5*k[0] + 3*i[0] + 1*j[0], k[1] + '-' + i[1] + '-' + j[1]])  //kij
+        tritype.push([5*k[0] + 3*j[0] + 1*i[0], k[1] + '-' + j[1] + '-' + i[1]])  //kji
       }
     }
   }
