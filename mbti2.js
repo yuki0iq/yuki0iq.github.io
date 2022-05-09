@@ -239,24 +239,24 @@ function recalc() {
   str += '</table>'
   str += 'Наиболее вероятный тип по буквам: <b>' + str2 + '</b> (' + names.get(str2) + ')'
 
-  // 7dom + 5aux + 3ter + 1inf + 7dominf + 5auxter + 6dom>inf + 4aux>ter + 5loop + 5grip
+  // 7dom + 5aux + 3ter + 1inf + 7domax + 5auxax + 6domp + 4auxp + 5loop + 5grip
   mbti = [
-    [7*Ni + 5*Fe + 3*Ti + 1*Se, 'INFJ'],
-    [7*Ni + 5*Te + 3*Fi + 1*Se, 'INTJ'],
-    [7*Fi + 5*Ne + 3*Si + 1*Te, 'INFP'],
-    [7*Ti + 5*Ne + 3*Si + 1*Fe, 'INTP'],
-    [7*Si + 5*Fe + 3*Ti + 1*Ne, 'ISFJ'],
-    [7*Si + 5*Te + 3*Fi + 1*Ne, 'ISTJ'],
-    [7*Fi + 5*Se + 3*Ni + 1*Te, 'ISFP'],
-    [7*Ti + 5*Se + 3*Ni + 1*Fe, 'ISTP'],
-    [5*Ni + 7*Fe + 1*Ti + 3*Se, 'ENFJ'],
-    [5*Ni + 7*Te + 1*Fi + 3*Se, 'ENTJ'],
-    [5*Fi + 7*Ne + 1*Si + 3*Te, 'ENFP'],
-    [5*Ti + 7*Ne + 1*Si + 3*Fe, 'ENTP'],
-    [5*Si + 7*Fe + 1*Ti + 3*Ne, 'ESFJ'],
-    [5*Si + 7*Te + 1*Fi + 3*Ne, 'ESTJ'],
-    [5*Fi + 7*Se + 1*Ni + 3*Te, 'ESFP'],
-    [5*Ti + 7*Se + 1*Ni + 3*Fe, 'ESTP'],
+    [7*Ni + 5*Fe + 3*Ti + 1*Se + 7*NiSe + 5*FeTi + 6*NiP + 4*FeP + 5*lNiFe + 5*gNiFe, 'INFJ'],
+    [7*Ni + 5*Te + 3*Fi + 1*Se + 7*NiSe + 5*TeFi + 6*NiP + 4*TeP + 5*lNiTe + 5*gNiTe, 'INTJ'],
+    [7*Fi + 5*Ne + 3*Si + 1*Te + 7*FiTe + 5*NeSi + 6*FiP + 4*NeP + 5*lFiNe + 5*gFiNe, 'INFP'],
+    [7*Ti + 5*Ne + 3*Si + 1*Fe + 7*TiFe + 5*NeSi + 6*TiP + 4*NeP + 5*lTiNe + 5*gTiNe, 'INTP'],
+    [7*Si + 5*Fe + 3*Ti + 1*Ne + 7*SiNe + 5*FeTi + 6*SiP + 4*FeP + 5*lSiFe + 5*gSiFe, 'ISFJ'],
+    [7*Si + 5*Te + 3*Fi + 1*Ne + 7*SiNe + 5*TeFi + 6*SiP + 4*TeP + 5*lSiTe + 5*gSiTe, 'ISTJ'],
+    [7*Fi + 5*Se + 3*Ni + 1*Te + 7*FiTe + 5*SeNi + 6*FiP + 4*SeP + 5*lFiSe + 5*gFiSe, 'ISFP'],
+    [7*Ti + 5*Se + 3*Ni + 1*Fe + 7*TiFe + 5*SeNi + 6*TiP + 4*SeP + 5*lTiSe + 5*gTiSe, 'ISTP'],
+    [7*Fe + 5*Ni + 3*Se + 1*Ti + 7*FeTi + 5*NiSe + 6*FeP + 4*NiP + 5*lFeNi + 5*gFeNi, 'ENFJ'],
+    [7*Te + 5*Ni + 3*Se + 1*Fi + 7*TeFi + 5*NiSe + 6*TeP + 4*NiP + 5*lTeNi + 5*gTeNi, 'ENTJ'],
+    [7*Ne + 5*Fi + 3*Te + 1*Si + 7*NeSi + 5*FiTe + 6*NeP + 4*FiP + 5*lNeFi + 5*gNeFi, 'ENFP'],
+    [7*Ne + 5*Ti + 3*Fe + 1*Si + 7*NeSi + 5*TiFe + 6*NeP + 4*TiP + 5*lNeTi + 5*gNeTi, 'ENTP'],
+    [7*Fe + 5*Si + 3*Ne + 1*Ti + 7*FeTi + 5*SiNe + 6*FeP + 4*SiP + 5*lFeSi + 5*gFeSi, 'ESFJ'],
+    [7*Te + 5*Si + 3*Ne + 1*Fi + 7*TeFi + 5*SiNe + 6*TeP + 4*SiP + 5*lTeSi + 5*gTeSi, 'ESTJ'],
+    [7*Se + 5*Fi + 3*Te + 1*Ni + 7*SeNi + 5*FiTe + 6*SeP + 4*FiP + 5*lSeFi + 5*gSeFi, 'ESFP'],
+    [7*Se + 5*Ti + 3*Fe + 1*Ni + 7*SeNi + 5*TiFe + 6*SeP + 4*TiP + 5*lSeTi + 5*gSeTi, 'ESTP'],
   ]
   mbti.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];})
   str += '<h3>Тип по когнитивкам</h3> Модифицированная формула mistypeinvestigator. Самый вероятный тип имеет наибольшее число (как на сакинорве)'
