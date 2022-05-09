@@ -56,7 +56,6 @@ function create(data) {
     for (k = 0; k < type; k -= -1) {
         str += '<th>' + (1+k) + '</th>'
     }
-    str += '<th>Ответ</th>'
     str += '</tr>'
     j = 0
     for (const question of questions) {
