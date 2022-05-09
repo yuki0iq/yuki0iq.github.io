@@ -197,7 +197,7 @@ function recalc() {
   str += '<tr>' + ou('TiSe') + ou(lTiSe) + ou(gTiSe) + '</tr>'
   str += '<tr>' + ou('TeNi') + ou(lTeNi) + ou(gTeNi) + '</tr>'
   str += '<tr>' + ou('TeSi') + ou(lTeSi) + ou(gTeSi) + '</tr>'
-  str += '</table>
+  str += '</table>'
 
   names = new Map()
   names.set('INTJ', 'Стратег')
