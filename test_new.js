@@ -88,8 +88,9 @@ function create(data) {
           qw = ' (Нет)'
         }
         str += '<label for="' + qqq + '">' + (1 + k) + qw + '</label>'
-      str += '</tr>'
+        str += '</td>'
       }
+      str += '</tr>'
       j = j - (-1)
     }
     // end table
