@@ -1,8 +1,8 @@
 function RA(an) {
   n = an.length - 1
   ans = [an[0]]
-  for (i = n; i > 0; i -= 1) {
-    ans.push(an[i])
+  for (ij = n; ij > 0; ij -= 1) {
+    ans.push(an[ij])
   }
   return ans
 }
@@ -220,12 +220,11 @@ for (i = 0; i < question_sets.length; i += 1) {
       question = question_sets[i][4][j]
       if (Math.random() > 0.5) {
         left = question[0]
-        ans = question[1]
         right = question[2]
         question[0] = right
         question[2] = left
         for (k = 0; k < ans.length; k += 1) {
-          ans[k] = RA(ans[k])
+          question[1][k] = RA(question[1][k])
         }
       }
       question_sets[i][4][j] = question
