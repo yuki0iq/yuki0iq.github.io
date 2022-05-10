@@ -394,7 +394,7 @@ function recalc() {
     [7*Se + 5*Ti + 3*Fe + 1*Ni + 4*NiSe + 4*FeTi + 6*SeP + 4*TiP + 5*lSeTi + 5*gSeTi + 6*SeM + 4*TiM + 7*SeU + 5*TiU, 'ESTP'],
   ]
   mbti.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];})
-  str += '<h3>Тип по когнитивкам</h3> Модифицированная формула mistypeinvestigator. Самый вероятный тип имеет наибольшее число (как на сакинорве)'
+  str += '<h3>Тип по когнитивкам</h3> Модифицированная формула mistypeinvestigator. Самый вероятный тип имеет наибольшее число и находится с правого края таблицы'
   str += '<table>'
   str += '<tr>'
   for (i = 0; i < 16; i += 1) { str += ou(mbti[i][1]) }
