@@ -75,7 +75,7 @@ question_sets = [
 ]
 
 for (i = 0; i < question_sets.length; i += 1) {
-  shuffle(question_sets[i][3])
+  shuffle(question_sets[i][4])
 }
 create(question_sets)
 
@@ -93,7 +93,7 @@ function recalc() {
   gNi = 0, gNe = 0, gSi = 0, gSe = 0, gFi = 0, gFe = 0, gTi = 0, gTe = 0
   for (i = 0; i < question_sets.length; i += 1) {
     Ni = 0, Ne = 0, Si = 0, Se = 0, Fi = 0, Fe = 0, Ti = 0, Te = 0
-    for (j = 0; j < question_sets[i][3].length; j += 1) {
+    for (j = 0; j < question_sets[i][4].length; j += 1) {
       i_n = 'i' + i + '-' + j
       v_sub = $('input[name=' + i_n + ']:checked')
       if (v_sub.length != 0) {  // selected
