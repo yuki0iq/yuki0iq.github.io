@@ -213,13 +213,11 @@ question_sets = [
 ]
 
 for (i = 0; i < question_sets.length; i += 1) {
-  question_set = question_sets[i]
-  cntq = question_set[3]
-  questions = question_set[4]
-  shuffle(questions)
+  cntq = question_sets[i][3]
+  shuffle(question_sets[i][4])
   if (cntq == 2) {
-    for (j = 0; j < questions.length; j += 1) {
-      question = questions[j]
+    for (j = 0; j < question_sets[i][4].length; j += 1) {
+      question = question_sets[i][4][j]
       if (Math.random() > 0.5) {
         left = question[0]
         ans = question[1]
@@ -230,6 +228,7 @@ for (i = 0; i < question_sets.length; i += 1) {
           ans[k] = RA(ans[k])
         }
       }
+      question_sets[i][4][j] = question
     }
   }
 }
