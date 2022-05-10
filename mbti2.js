@@ -323,14 +323,42 @@ function recalc() {
   names.set('ESTP', 'Делец')
   names.set('ESFP', 'Развлекатель')
 
-  I = Fi + Ti + Ni + Si + FiP + TiP + NiP + SiP + FiM + TiM + NiM + SiM + lNiFe + lNiTe + lSiFe + lSiTe + lFiNe + lFiSe + lTiNe + lTiSe + gNiFe + gNiTe + gSiFe + gSiTe + gFiNe + gFiSe + gTiNe + gTiSe
-  E = Fe + Te + Ne + Se + FeP + TeP + NeP + SeP + FeM + TeM + NeM + SeM + lNeFi + lNeTi + lSeFi + lSeTi + lFeNi + lFeSi + lTeNi + lTeSi + gNeFi + gNeTi + gSeFi + gSeTi + gFeNi + gFeSi + gTeNi + gTeSi
-  N = Ni + Ne + NiP + NeP + NiM + NeM + lNiFe + lNiTe + lNeFi + lNeTi + lFeNi + lTeNi + lFiNe + lTiNe + gNiFe + gNiTe + gNeFi + gNeTi + gFeNi + gTeNi + gFiNe + gTiNe
-  S = Si + Se + SiP + SeP + SiM + SeM + lSiFe + lSiTe + lSeFi + lSeTi + lFeSi + lTeSi + lFiSe + lTiSe + gSiFe + gSiTe + gSeFi + gSeTi + gFeSi + gTeSi + gFiSe + gTiSe
-  F = Fi + Fe + FiP + FeP + FiM + FeM + lNiFe + lNeFi + lSiFe + lSeFi + lFiNe + lFiSe + lFeNi + lFeSi + gNiFe + gNeFi + gSiFe + gSeFi + gFiNe + gFiSe + gFeNi + gFeSi
-  T = Ti + Te + TiP + TeP + TiM + TeM + lNiTe + lNeTi + lSiTe + lSeTi + lTiNe + lTiSe + lTeNi + lTeSi + gNiTe + gNeTi + gSiTe + gSeTi + gTiNe + gTiSe + gTeNi + gTeSi
-  J = Fe + Te + Ni + Si + FeP + TeP + NiP + SiP + FeM + TeM + NiM + SiM + lNiFe + lNiTe + lSiFe + lSiTe + lFeNi + lFeSi + lTeNi + lTeSi + gNiFe + gNiTe + gSiFe + gSiTe + gFeNi + gFeSi + gTeNi + gTeSi
-  P = Fi + Ti + Ne + Se + FiP + TiP + NeP + SeP + FiM + TiM + NeM + SeM + lNeFi + lNeTi + lSeFi + lSeTi + lFiNe + lFiSe + lTiNe + lTiSe + gNeFi + gNeTi + gSeFi + gSeTi + gFiNe + gFiSe + gTiNe + gTiSe
+  I = Fi + Ti + Ni + Si
+    + FiP + TiP + NiP + SiP
+    + FiM + TiM + NiM + SiM
+    + FiU + TiU + NiU + SiU
+    + lNiFe + lNiTe + lSiFe + lSiTe + lFiNe + lFiSe + lTiNe + lTiSe
+    + gNiFe + gNiTe + gSiFe + gSiTe + gFiNe + gFiSe + gTiNe + gTiSe
+  E = Fe + Te + Ne + Se
+    + FeP + TeP + NeP + SeP
+    + FeM + TeM + NeM + SeM
+    + FeU + TeU + NeU + SeU
+    + lNeFi + lNeTi + lSeFi + lSeTi + lFeNi + lFeSi + lTeNi + lTeSi
+    + gNeFi + gNeTi + gSeFi + gSeTi + gFeNi + gFeSi + gTeNi + gTeSi
+  N = Ni + Ne + NiP + NeP + NiM + NeM + NiU + NeU
+    + lNiFe + lNiTe + lNeFi + lNeTi + lFeNi + lTeNi + lFiNe + lTiNe
+    + gNiFe + gNiTe + gNeFi + gNeTi + gFeNi + gTeNi + gFiNe + gTiNe
+  S = Si + Se + SiP + SeP + SiM + SeM + SiU + SeU
+    + lSiFe + lSiTe + lSeFi + lSeTi + lFeSi + lTeSi + lFiSe + lTiSe
+    + gSiFe + gSiTe + gSeFi + gSeTi + gFeSi + gTeSi + gFiSe + gTiSe
+  F = Fi + Fe + FiP + FeP + FiM + FeM + FiU + FeU
+    + lNiFe + lNeFi + lSiFe + lSeFi + lFiNe + lFiSe + lFeNi + lFeSi
+    + gNiFe + gNeFi + gSiFe + gSeFi + gFiNe + gFiSe + gFeNi + gFeSi
+  T = Ti + Te + TiP + TeP + TiM + TeM + TiU + TeU
+    + lNiTe + lNeTi + lSiTe + lSeTi + lTiNe + lTiSe + lTeNi + lTeSi
+    + gNiTe + gNeTi + gSiTe + gSeTi + gTiNe + gTiSe + gTeNi + gTeSi
+  J = Fe + Te + Ni + Si
+    + FeP + TeP + NiP + SiP
+    + FeM + TeM + NiM + SiM
+    + FeU + TeU + NiU + SiU
+    + lNiFe + lNiTe + lSiFe + lSiTe + lFeNi + lFeSi + lTeNi + lTeSi
+    + gNiFe + gNiTe + gSiFe + gSiTe + gFeNi + gFeSi + gTeNi + gTeSi
+  P = Fi + Ti + Ne + Se
+    + FiP + TiP + NeP + SeP
+    + FiM + TiM + NeM + SeM
+    + FiU + TiU + NeU + SeU
+    + lNeFi + lNeTi + lSeFi + lSeTi + lFiNe + lFiSe + lTiNe + lTiSe
+    + gNeFi + gNeTi + gSeFi + gSeTi + gFiNe + gFiSe + gTiNe + gTiSe
   str += '<h3>Тип по буквам</h3>'
   str2 = ''
   if (I > E) { str2 += 'I' } else { str2 += 'E' }
