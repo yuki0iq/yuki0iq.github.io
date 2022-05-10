@@ -1,7 +1,7 @@
 function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    let j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
+  for (let iij = array.length - 1; iij > 0; iij--) {
+    let jij = Math.floor(Math.random() * (iij + 1));
+    [array[iij], array[jij]] = [array[jij], array[iij]];
   }
 }
 
