@@ -213,21 +213,17 @@ question_sets = [
 ]
 
 for (i = 0; i < question_sets.length; i += 1) {
-  cntq = question_sets[i][3]
   shuffle(question_sets[i][4])
-  if (cntq == 2) {
+}
+for (i = 0; i < question_sets.length; i += 1) {
+  if (question_sets[i][3] == 2) {
     for (j = 0; j < question_sets[i][4].length; j += 1) {
-      question = question_sets[i][4][j]
       if (Math.random() > 0.5) {
-        left = question[0]
-        right = question[2]
-        question[0] = right
-        question[2] = left
-        for (k = 0; k < ans.length; k += 1) {
-          question[1][k] = RA(question[1][k])
+        [question_sets[i][4][j][0], question_sets[i][4][j][2]] = [question_sets[i][4][j][2], question_sets[i][4][j][0]]
+        for (k = 0; k < question_sets[i][4][j][1].length; k += 1) {
+          question_sets[i][4][j][1] = RA(question_sets[i][4][j][1])
         }
       }
-      question_sets[i][4][j] = question
     }
   }
 }
