@@ -221,7 +221,7 @@ for (i = 0; i < question_sets.length; i += 1) {
       if (Math.random() > 0.5) {
         [question_sets[i][4][j][0], question_sets[i][4][j][2]] = [question_sets[i][4][j][2], question_sets[i][4][j][0]]
         for (k = 0; k < question_sets[i][4][j][1].length; k += 1) {
-          question_sets[i][4][j][1] = RA(question_sets[i][4][j][1])
+          question_sets[i][4][j][1][k] = RA(question_sets[i][4][j][1][k])
         }
       }
     }
