@@ -8,19 +8,19 @@ function RA(an) {
 }
 
 // Cognitive functions
-aNi = ['Ni', 2, 1, 0, -1, -2]
-aNe = ['Ne', 2, 1, 0, -1, -2]
-aSi = ['Si', 2, 1, 0, -1, -2]
-aSe = ['Se', 2, 1, 0, -1, -2]
-aFi = ['Fi', 2, 1, 0, -1, -2]
-aFe = ['Fe', 2, 1, 0, -1, -2]
-aTi = ['Ti', 2, 1, 0, -1, -2]
-aTe = ['Te', 2, 1, 0, -1, -2]
+aNi = ['Ni', 2, 1, 0, 0, -1]
+aNe = ['Ne', 2, 1, 0, 0, -1]
+aSi = ['Si', 2, 1, 0, 0, -1]
+aSe = ['Se', 2, 1, 0, 0, -1]
+aFi = ['Fi', 2, 1, 0, 0, -1]
+aFe = ['Fe', 2, 1, 0, 0, -1]
+aTi = ['Ti', 2, 1, 0, 0, -1]
+aTe = ['Te', 2, 1, 0, 0, -1]
 // Axes
-aNiSe = ['NiSe', 2, 1, 0, -1, -2]
-aNeSi = ['NeSi', 2, 1, 0, -1, -2]
-aFiTe = ['FiTe', 2, 1, 0, -1, -2]
-aFeTi = ['FeTi', 2, 1, 0, -1, -2]
+aNiSe = ['NiSe', 2, 1, 0, 0, -1]
+aNeSi = ['NeSi', 2, 1, 0, 0, -1]
+aFiTe = ['FiTe', 2, 1, 0, 0, -1]
+aFeTi = ['FeTi', 2, 1, 0, 0, -1]
 // Preference
 aNiP = ['NiP', 2, 1, 0, -1]
 aNeP = ['NeP', 2, 1, 0, -1]
