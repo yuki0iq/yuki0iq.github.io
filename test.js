@@ -30,7 +30,7 @@ function create(data) {
   str += '<li>Это не слишком похоже на меня</li>'
   str += '<li>Совсем не похоже на меня</li>'
   str += '</ol>'
-  str = 'Варианты ответов (если 5 вариантов):</br>'
+  str += 'Варианты ответов (если 5 вариантов):</br>'
   str += '<ol>'
   str += '<li>Левый вариант очень похож на меня</li>'
   str += '<li>Левый вариант немного похож на меня</li>'
@@ -85,11 +85,20 @@ function create(data) {
         str += resval
         str += '" type="radio" onclick="recalc()">'
         qw = ''
-        if (k == 0) {
-          qw = ' (Да)'
-        }
-        if (k == type - 1) {
-          qw = ' (Нет)'
+        if (cntq == 1) {
+          if (k == 0) {
+            qw = ' (Да)'
+          }
+          if (k == type - 1) {
+            qw = ' (Нет)'
+          }
+        } else {
+          if (k == 0) {
+            qw = ' (L)'
+          }
+          if (k == type - 1) {
+            qw = ' (R)'
+          }
         }
         str += '<label for="' + qqq + '">' + (1 + k) + qw + '</label>'
         str += '</td>'
