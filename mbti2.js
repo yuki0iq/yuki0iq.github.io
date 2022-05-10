@@ -147,7 +147,7 @@ question_sets = [
     ['Я считаю, что каждый человек индивидуален и уникален', [aFiTe]],
     ['В коллективном обсуждении в первую очередь я выясню, кто что хочет и как мы можем добиться нужных результатов', [aFiTe]],
     ['Люди делают что-то потому, что они этого хотят', [aFiTe]],
-    ['Мир очень безличный и жёсткий, а я - уязвимый и хрупкий набор потребностей, который должен выживать, чтобы привнести что-то в этот мир', [aFiTe]],
+    ['Мир очень безличный и жёсткий, а я - уязвимый и хрупкий набор потребностей, который должен выживать, чтобы привнести что-то в этот мир', [aFiTe]]
     ]],
   ['Когнитивные оси - часть 2', 'Предпочтения функций по каждой оси', 4, [
     ['Часто рассматриваю последствия и непредвиденные обстоятельства', [aNiP]],
@@ -185,7 +185,7 @@ question_sets = [
     ['Полагаюсь на порядок и структуру', [aTiM]],
     ['Нечеткое моральное суждение', [aFiM]],
     ['Осторожен к эмоционльной интенсивности', [aFiM]],
-    ['Чувства предвзяиты и ненадёжны', [aFiM]],
+    ['Чувства предвзяты и ненадёжны', [aFiM]],
     ['Не являюсь ни лидером, ни планировщимком', [aTeM]],
     ['Медленнен и нерешителен', [aTeM]],
     ['Задумывается о вреде от фактов', [aTeM]],
@@ -286,19 +286,43 @@ function recalc() {
   str += '</table>'
   str += 'Лупы и грипы'
   str += '<table>'
+  str += '<tr> <th>Тип</th>'
+      + ou('NiFe') + ou('NiTe') + ou('NeFi') + ou('NeTi')
+      + ou('SiFe') + ou('SiTe') + ou('SeFi') + ou('SeTi')
+      + ou('FiNe') + ou('FiSe') + ou('FeNi') + ou('FeSi')
+      + ou('TiNe') + ou('TiSe') + ou('TeNi') + ou('TeSi')
+      + '</tr>'
+  str += '<tr> <th>Луп</th>'
+      + ou(lNiFe ) + ou(lNiTe ) + ou(lNeFi ) + ou(lNeTi )
+      + ou(lSiFe ) + ou(lSiTe ) + ou(lSeFi ) + ou(lSeTi )
+      + ou(lFiNe ) + ou(lFiSe ) + ou(lFeNi ) + ou(lFeSi )
+      + ou(lTiNe ) + ou(lTiSe ) + ou(lTeNi ) + ou(lTeSi )
+      + '</tr>'
+  str += '<tr> <th>Грип</th>'
+      + ou(gNiFe ) + ou(gNiTe ) + ou(gNeFi ) + ou(gNeTi )
+      + ou(gSiFe ) + ou(gSiTe ) + ou(gSeFi ) + ou(gSeTi )
+      + ou(gFiNe ) + ou(gFiSe ) + ou(gFeNi ) + ou(gFeSi )
+      + ou(gTiNe ) + ou(gTiSe ) + ou(gTeNi ) + ou(gTeSi )
+      + '</tr>'
+  str += '</table>'
+
+  str += '<table>'
   str += '<tr> <th>Тип</th> <th>Луп</th> <th>Грип</th> </tr>'
   str += '<tr>' + ou('NiFe') + ou(lNiFe) + ou(gNiFe) + '</tr>'
   str += '<tr>' + ou('NiTe') + ou(lNiTe) + ou(gNiTe) + '</tr>'
   str += '<tr>' + ou('NeFi') + ou(lNeFi) + ou(gNeFi) + '</tr>'
   str += '<tr>' + ou('NeTi') + ou(lNeTi) + ou(gNeTi) + '</tr>'
+
   str += '<tr>' + ou('SiFe') + ou(lSiFe) + ou(gSiFe) + '</tr>'
   str += '<tr>' + ou('SiTe') + ou(lSiTe) + ou(gSiTe) + '</tr>'
   str += '<tr>' + ou('SeFi') + ou(lSeFi) + ou(gSeFi) + '</tr>'
   str += '<tr>' + ou('SeTi') + ou(lSeTi) + ou(gSeTi) + '</tr>'
+
   str += '<tr>' + ou('FiNe') + ou(lFiNe) + ou(gFiNe) + '</tr>'
   str += '<tr>' + ou('FiSe') + ou(lFiSe) + ou(gFiSe) + '</tr>'
   str += '<tr>' + ou('FeNi') + ou(lFeNi) + ou(gFeNi) + '</tr>'
   str += '<tr>' + ou('FeSi') + ou(lFeSi) + ou(gFeSi) + '</tr>'
+
   str += '<tr>' + ou('TiNe') + ou(lTiNe) + ou(gTiNe) + '</tr>'
   str += '<tr>' + ou('TiSe') + ou(lTiSe) + ou(gTiSe) + '</tr>'
   str += '<tr>' + ou('TeNi') + ou(lTeNi) + ou(gTeNi) + '</tr>'
