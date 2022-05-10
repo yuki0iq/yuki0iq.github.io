@@ -213,7 +213,7 @@ question_sets = [
 ]
 
 for (i = 0; i < question_sets.length; i += 1) {
-  question_set = question_sets[4]
+  question_set = question_sets[i]
   cntq = question_set[3]
   questions = question_set[4]
   shuffle(questions)
