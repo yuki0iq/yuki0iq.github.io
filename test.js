@@ -22,7 +22,7 @@ function ljust(s, v) {
 }
 
 function create(data) {
-  // data = [name, desc, cnt, [name, [ans, d1, d2, ...]]]
+  // data = [name, desc, cnt, cntans, [name, [ans, d1, d2, ...], name2]]
   str = 'Варианты ответов (если 4 варианта):</br>'
   str += '<ol>'
   str += '<li>Это очень похоже на меня</li>'
@@ -30,13 +30,22 @@ function create(data) {
   str += '<li>Это не слишком похоже на меня</li>'
   str += '<li>Совсем не похоже на меня</li>'
   str += '</ol>'
+  str = 'Варианты ответов (если 5 варианта):</br>'
+  str += '<ol>'
+  str += '<li>Левый вариант очень похож на меня</li>'
+  str += '<li>Левый вариант немного похож на меня</li>'
+  str += '<li>Оба варианта одинаково схожи со мной</li>'
+  str += '<li>Правый вариант немного похож на меня</li>'
+  str += '<li>Правый вариант очень похож на меня</li>'
+  str += '</ol>'
   str += 'В остальных случаях 1 - наибольшее сходство, большая цифра - наименьшее сходство. Для того, чтобы пропустить вопрос, не отвечай ничего или отвечай 3'
   i = 0
   for (const entry of data) {
     gn = entry[0]
     // add H4
     type = (entry[2] - 1) - (-1)
-    questions = entry[3]
+    cntq = entry[3]
+    questions = entry[4]
     str += '<h3>' + entry[0] + '</h3>'
     if (entry[1] != '') {
       str += entry[1] + '</br>'
@@ -47,7 +56,10 @@ function create(data) {
     str += '<th>Вопрос</th>'
     // <==== Add columns?
     for (k = 0; k < type; k -= -1) {
-        str += '<th>' + (1+k) + '</th>'
+      str += '<th>' + (1+k) + '</th>'
+    }
+    if (cntq == 2) {
+      str += '<th>Вопрос</th>'
     }
     str += '</tr>'
     j = 0
@@ -81,6 +93,9 @@ function create(data) {
         }
         str += '<label for="' + qqq + '">' + (1 + k) + qw + '</label>'
         str += '</td>'
+      }
+      if (cntq == 2) {
+        str += '<td>' + question[2] + '</td>'
       }
       str += '</tr>'
       j = j - (-1)
