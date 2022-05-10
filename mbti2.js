@@ -217,7 +217,7 @@ for (i = 0; i < question_sets.length; i += 1) {
   if (question_sets[i][3] == 2) {
     for (j = 0; j < question_sets[i][4].length; j += 1) {
       if (Math.random() > 0.5) {
-        x = question_sets[i][3][j][0]
+        x = question_sets[i][4][j][0]
         question_sets[i][4][j][0] = question_sets[i][4][j][2]
         question_sets[i][4][j][2] = x
         for (k = 0; k < question_sets[i][4][j][1].length; k += 1) {
