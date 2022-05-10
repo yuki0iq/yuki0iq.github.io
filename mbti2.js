@@ -306,29 +306,6 @@ function recalc() {
       + '</tr>'
   str += '</table>'
 
-  str += '<table>'
-  str += '<tr> <th>Тип</th> <th>Луп</th> <th>Грип</th> </tr>'
-  str += '<tr>' + ou('NiFe') + ou(lNiFe) + ou(gNiFe) + '</tr>'
-  str += '<tr>' + ou('NiTe') + ou(lNiTe) + ou(gNiTe) + '</tr>'
-  str += '<tr>' + ou('NeFi') + ou(lNeFi) + ou(gNeFi) + '</tr>'
-  str += '<tr>' + ou('NeTi') + ou(lNeTi) + ou(gNeTi) + '</tr>'
-
-  str += '<tr>' + ou('SiFe') + ou(lSiFe) + ou(gSiFe) + '</tr>'
-  str += '<tr>' + ou('SiTe') + ou(lSiTe) + ou(gSiTe) + '</tr>'
-  str += '<tr>' + ou('SeFi') + ou(lSeFi) + ou(gSeFi) + '</tr>'
-  str += '<tr>' + ou('SeTi') + ou(lSeTi) + ou(gSeTi) + '</tr>'
-
-  str += '<tr>' + ou('FiNe') + ou(lFiNe) + ou(gFiNe) + '</tr>'
-  str += '<tr>' + ou('FiSe') + ou(lFiSe) + ou(gFiSe) + '</tr>'
-  str += '<tr>' + ou('FeNi') + ou(lFeNi) + ou(gFeNi) + '</tr>'
-  str += '<tr>' + ou('FeSi') + ou(lFeSi) + ou(gFeSi) + '</tr>'
-
-  str += '<tr>' + ou('TiNe') + ou(lTiNe) + ou(gTiNe) + '</tr>'
-  str += '<tr>' + ou('TiSe') + ou(lTiSe) + ou(gTiSe) + '</tr>'
-  str += '<tr>' + ou('TeNi') + ou(lTeNi) + ou(gTeNi) + '</tr>'
-  str += '<tr>' + ou('TeSi') + ou(lTeSi) + ou(gTeSi) + '</tr>'
-  str += '</table>'
-
   names = new Map()
   names.set('INTJ', 'Стратег')
   names.set('INTP', 'Учёный')
