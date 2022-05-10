@@ -373,24 +373,24 @@ function recalc() {
   str += '</table>'
   str += 'Наиболее вероятный тип по буквам: <b>' + str2 + '</b> (' + names.get(str2) + ')'
 
-  // 7dom + 5aux + 3ter + 1inf + 4domax + 4auxax + 6domp + 4auxp + 5loop + 5grip + 6ndom + 4naux
+  // 7dom + 5aux + 3ter + 1inf + 4domax + 4auxax + 6domp + 4auxp + 5loop + 5grip + 6ndom + 4naux + 7udom + 5uaux
   mbti = [
-    [7*Ni + 5*Fe + 3*Ti + 1*Se + 4*NiSe + 4*FeTi + 6*NiP + 4*FeP + 5*lNiFe + 5*gNiFe + 6*NiM + 4*FeM, 'INFJ'],
-    [7*Ni + 5*Te + 3*Fi + 1*Se + 4*NiSe + 4*FiTe + 6*NiP + 4*TeP + 5*lNiTe + 5*gNiTe + 6*NiM + 4*TeM, 'INTJ'],
-    [7*Fi + 5*Ne + 3*Si + 1*Te + 4*FiTe + 4*NeSi + 6*FiP + 4*NeP + 5*lFiNe + 5*gFiNe + 6*FiM + 4*NeM, 'INFP'],
-    [7*Ti + 5*Ne + 3*Si + 1*Fe + 4*FeTi + 4*NeSi + 6*TiP + 4*NeP + 5*lTiNe + 5*gTiNe + 6*TiM + 4*NeM, 'INTP'],
-    [7*Si + 5*Fe + 3*Ti + 1*Ne + 4*NeSi + 4*FeTi + 6*SiP + 4*FeP + 5*lSiFe + 5*gSiFe + 6*SiM + 4*FeM, 'ISFJ'],
-    [7*Si + 5*Te + 3*Fi + 1*Ne + 4*NeSi + 4*FiTe + 6*SiP + 4*TeP + 5*lSiTe + 5*gSiTe + 6*SiM + 4*TeM, 'ISTJ'],
-    [7*Fi + 5*Se + 3*Ni + 1*Te + 4*FiTe + 4*NiSe + 6*FiP + 4*SeP + 5*lFiSe + 5*gFiSe + 6*FiM + 4*SeM, 'ISFP'],
-    [7*Ti + 5*Se + 3*Ni + 1*Fe + 4*FeTi + 4*NiSe + 6*TiP + 4*SeP + 5*lTiSe + 5*gTiSe + 6*TiM + 4*SeM, 'ISTP'],
-    [7*Fe + 5*Ni + 3*Se + 1*Ti + 4*FeTi + 4*NiSe + 6*FeP + 4*NiP + 5*lFeNi + 5*gFeNi + 6*FeM + 4*NiM, 'ENFJ'],
-    [7*Te + 5*Ni + 3*Se + 1*Fi + 4*FiTe + 4*NiSe + 6*TeP + 4*NiP + 5*lTeNi + 5*gTeNi + 6*TeM + 4*NiM, 'ENTJ'],
-    [7*Ne + 5*Fi + 3*Te + 1*Si + 4*NeSi + 4*FiTe + 6*NeP + 4*FiP + 5*lNeFi + 5*gNeFi + 6*NeM + 4*FiM, 'ENFP'],
-    [7*Ne + 5*Ti + 3*Fe + 1*Si + 4*NeSi + 4*FeTi + 6*NeP + 4*TiP + 5*lNeTi + 5*gNeTi + 6*NeM + 4*TiM, 'ENTP'],
-    [7*Fe + 5*Si + 3*Ne + 1*Ti + 4*FeTi + 4*NeSi + 6*FeP + 4*SiP + 5*lFeSi + 5*gFeSi + 6*FeM + 4*SiM, 'ESFJ'],
-    [7*Te + 5*Si + 3*Ne + 1*Fi + 4*FiTe + 4*NeSi + 6*TeP + 4*SiP + 5*lTeSi + 5*gTeSi + 6*TeM + 4*SiM, 'ESTJ'],
-    [7*Se + 5*Fi + 3*Te + 1*Ni + 4*NiSe + 4*FiTe + 6*SeP + 4*FiP + 5*lSeFi + 5*gSeFi + 6*SeM + 4*FiM, 'ESFP'],
-    [7*Se + 5*Ti + 3*Fe + 1*Ni + 4*NiSe + 4*FeTi + 6*SeP + 4*TiP + 5*lSeTi + 5*gSeTi + 6*SeM + 4*TiM, 'ESTP'],
+    [7*Ni + 5*Fe + 3*Ti + 1*Se + 4*NiSe + 4*FeTi + 6*NiP + 4*FeP + 5*lNiFe + 5*gNiFe + 6*NiM + 4*FeM + 7*NiU + 5*FeU, 'INFJ'],
+    [7*Ni + 5*Te + 3*Fi + 1*Se + 4*NiSe + 4*FiTe + 6*NiP + 4*TeP + 5*lNiTe + 5*gNiTe + 6*NiM + 4*TeM + 7*NiU + 5*TeU, 'INTJ'],
+    [7*Fi + 5*Ne + 3*Si + 1*Te + 4*FiTe + 4*NeSi + 6*FiP + 4*NeP + 5*lFiNe + 5*gFiNe + 6*FiM + 4*NeM + 7*FiU + 5*NeU, 'INFP'],
+    [7*Ti + 5*Ne + 3*Si + 1*Fe + 4*FeTi + 4*NeSi + 6*TiP + 4*NeP + 5*lTiNe + 5*gTiNe + 6*TiM + 4*NeM + 7*TiU + 5*NeU, 'INTP'],
+    [7*Si + 5*Fe + 3*Ti + 1*Ne + 4*NeSi + 4*FeTi + 6*SiP + 4*FeP + 5*lSiFe + 5*gSiFe + 6*SiM + 4*FeM + 7*SiU + 5*FeU, 'ISFJ'],
+    [7*Si + 5*Te + 3*Fi + 1*Ne + 4*NeSi + 4*FiTe + 6*SiP + 4*TeP + 5*lSiTe + 5*gSiTe + 6*SiM + 4*TeM + 7*SiU + 5*TeU, 'ISTJ'],
+    [7*Fi + 5*Se + 3*Ni + 1*Te + 4*FiTe + 4*NiSe + 6*FiP + 4*SeP + 5*lFiSe + 5*gFiSe + 6*FiM + 4*SeM + 7*FiU + 5*SeU, 'ISFP'],
+    [7*Ti + 5*Se + 3*Ni + 1*Fe + 4*FeTi + 4*NiSe + 6*TiP + 4*SeP + 5*lTiSe + 5*gTiSe + 6*TiM + 4*SeM + 7*TiU + 5*SeU, 'ISTP'],
+    [7*Fe + 5*Ni + 3*Se + 1*Ti + 4*FeTi + 4*NiSe + 6*FeP + 4*NiP + 5*lFeNi + 5*gFeNi + 6*FeM + 4*NiM + 7*FeU + 5*NiU, 'ENFJ'],
+    [7*Te + 5*Ni + 3*Se + 1*Fi + 4*FiTe + 4*NiSe + 6*TeP + 4*NiP + 5*lTeNi + 5*gTeNi + 6*TeM + 4*NiM + 7*TeU + 5*NiU, 'ENTJ'],
+    [7*Ne + 5*Fi + 3*Te + 1*Si + 4*NeSi + 4*FiTe + 6*NeP + 4*FiP + 5*lNeFi + 5*gNeFi + 6*NeM + 4*FiM + 7*NeU + 5*FiU, 'ENFP'],
+    [7*Ne + 5*Ti + 3*Fe + 1*Si + 4*NeSi + 4*FeTi + 6*NeP + 4*TiP + 5*lNeTi + 5*gNeTi + 6*NeM + 4*TiM + 7*NeU + 5*TiU, 'ENTP'],
+    [7*Fe + 5*Si + 3*Ne + 1*Ti + 4*FeTi + 4*NeSi + 6*FeP + 4*SiP + 5*lFeSi + 5*gFeSi + 6*FeM + 4*SiM + 7*FeU + 5*SiU, 'ESFJ'],
+    [7*Te + 5*Si + 3*Ne + 1*Fi + 4*FiTe + 4*NeSi + 6*TeP + 4*SiP + 5*lTeSi + 5*gTeSi + 6*TeM + 4*SiM + 7*TeU + 5*SiU, 'ESTJ'],
+    [7*Se + 5*Fi + 3*Te + 1*Ni + 4*NiSe + 4*FiTe + 6*SeP + 4*FiP + 5*lSeFi + 5*gSeFi + 6*SeM + 4*FiM + 7*SeU + 5*FiU, 'ESFP'],
+    [7*Se + 5*Ti + 3*Fe + 1*Ni + 4*NiSe + 4*FeTi + 6*SeP + 4*TiP + 5*lSeTi + 5*gSeTi + 6*SeM + 4*TiM + 7*SeU + 5*TiU, 'ESTP'],
   ]
   mbti.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];})
   str += '<h3>Тип по когнитивкам</h3> Модифицированная формула mistypeinvestigator. Самый вероятный тип имеет наибольшее число (как на сакинорве)'
