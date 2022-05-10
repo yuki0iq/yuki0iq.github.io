@@ -396,10 +396,10 @@ function recalc() {
   mbti.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];})
   str += '<h3>Тип по когнитивкам</h3> Модифицированная формула mistypeinvestigator. Самый вероятный тип имеет наибольшее число (как на сакинорве)'
   str += '<table>'
-  str += '<tr> <th>Тип</th>'
+  str += '<tr>'
   for (i = 0; i < 16; i += 1) { str += ou(mbti[i][1]) }
   str += '</tr>'
-  str += '<tr> <th>Счёт</th>'
+  str += '<tr>'
   for (i = 0; i < 16; i += 1) { str += ou(mbti[i][0]) }
   str += '</tr>'
   str += '</table>'
