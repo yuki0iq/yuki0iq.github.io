@@ -21,6 +21,15 @@ aFiP = ['FiP', 2, 1, 0, -1]
 aFeP = ['FeP', 2, 1, 0, -1]
 aTiP = ['TiP', 2, 1, 0, -1]
 aTeP = ['TeP', 2, 1, 0, -1]
+// AntiMistype
+aNiM = ['NiM', -2, -1, 0, 1]
+aNeM = ['NeM', -2, -1, 0, 1]
+aSiM = ['SiM', -2, -1, 0, 1]
+aSeM = ['SeM', -2, -1, 0, 1]
+aFiM = ['FiM', -2, -1, 0, 1]
+aFeM = ['FeM', -2, -1, 0, 1]
+aTiM = ['TiM', -2, -1, 0, 1]
+aTeM = ['TeM', -2, -1, 0, 1]
 // loops
 alNiFe = ['lNiFe', 2, 1, 0, -1]
 alNiTe = ['lNiTe', 2, 1, 0, -1]
@@ -132,10 +141,52 @@ question_sets = [
     ['Мир очень безличный и жёсткий, а я - уязвимый и хрупкий набор потребностей, который должен выживать, чтобы привнести что-то в этот мир', [aFiTe]],
     ]],
   ['Когнитивные оси - часть 2', 'Предпочтения функций по каждой оси', 4, [
+    ['Часто рассматриваю последствия, непредвиденные обстоятельства или более глубокий смысл', [aNiP]],
+    ['Преследую случайные или непрактичные идеи', [aNiP]],
+    ['Наслаждаюсь рутиной и планированием', [aSiP]],
+    ['Отдаю приоритет полному плану', [aSiP]],
+    ['Небрежно отношусь к деталям', [aNeP]],
+    ['Нереалистичен и непрактичен', [aNeP]],
+    ['Счастлив жить жизньб по прихотям и побуждениям', [aSeP]],
+    ['Наслаждаюсь простым разговором', [aSeP]],
+    ['Опасаюсь критики', [aFeP]],
+    ['Не хочу быть отвергнутым другими', [aFeP]],
+    ['Могу работать, даже если несчастлив', [aTeP]],
+    ['Ценю людей только за полезность', [aTeP]],
+    ['Собственные желания имеют наибольший приоритет', [aFiP]],
+    ['Мне бывает сложно объяснить свои ценности', [aFiP]],
+    ['Одиночка', [aTiP]],
+    ['Мне бывает сложно объяснить ход мыслей', [aTiP]]
     ]],
-  ['Лупы', 'Лупы - это использование первой и третьей функций с игнорированием второй', 4, [
+  ['Метод исключения', '', 4 [
+    ['Я не тактилен', [aSeM]],
+    ['Избегаю рискованного поведения', [aSeM]],
+    ['Игнорирую конкретные доказательства', [aSeM]],
+    ['Нет новых идей', [aNeM]],
+    ['Отказываюсь от новых возможностей', [aNeM]],
+    ['Не могу мыслить или мечтать масштабно', [aNeM]],
+    ['Не люблю авторитет', [aSiM]],
+    ['Отвергаю прошлое обучение или опыт', [aSiM]],
+    ['Соблюдение процедур - проблема', [aSiM]],
+    ['Не размышляю о вариантах будущего', [aNiM]],
+    ['Не думаю о призвании или цели', [aNiM]],
+    ['Не нужна структура', [aNiM]],
+    ['Противоречия не интересуют', [aTiM]],
+    ['Легко запутываюсь', [aTiM]],
+    ['Полагаюсь на порядок и структуру', [aTiM]],
+    ['Нечеткое моральное суждение', [aFiM]],
+    ['Осторожен к эмоционльной интенсивности', [aFiM]],
+    ['Чувства предвзяиты и ненадёжны', [aFiM]],
+    ['Не являюсь ни лидером, ни планировщимком', [aTeM]],
+    ['Медленнен и нерешителен', [aTeM]],
+    ['Задумывается о вреде от фактов', [aTeM]],
+    ['Не знаю о социальных проблемах', [aFeM]],
+    ['Ставлю логику в приоритет чувствам других', [aFeM]],
+    ['Решаю проблемы знаниями, а не общением', [aFeM]]
     ]],
-  ['Грипы', 'Грипы - это использование первой и четвертой функций с игнорированием второй', 4, [
+  ['Лупы', 'Лупы - это стрессовое использование первой и третьей функций с игнорированием второй и четвертой', 4, [
+    ]],
+  ['Грипы', 'Грипы - это стрессовое использование только четвертой функции', 4, [
     ]]
 ]
 
@@ -159,6 +210,7 @@ function recalc() {
   Ni = 0, Ne = 0, Si = 0, Se = 0, Fi = 0, Fe = 0, Ti = 0, Te = 0
   NiSe = 0, NeSi = 0, FiTe = 0, FeTi = 0
   NiP = 0, NeP = 0, SiP = 0, SeP = 0, FiP = 0, FeP = 0, TiP = 0, TeP = 0
+  NiM = 0, NeM = 0, SiM = 0, SeM = 0, FiM = 0, FeM = 0, TiM = 0, TeM = 0
   lNiFe = 0, lNiTe = 0, lNeFi = 0, lNeTi = 0
   lSiFe = 0, lSiTe = 0, lSeFi = 0, lSeTi = 0
   lFiNe = 0, lFiSe = 0, lFeNi = 0, lFeSi = 0
@@ -184,6 +236,7 @@ function recalc() {
   str += '<tr> <th>Ni</th> <th>Ne</th> <th>Si</th> <th>Se</th> <th>Fi</th> <th>Fe</th> <th>Ti</th> <th>Te</th> <th>Группа</th> </tr>'
   str += '<tr>' + ou(Ni)  + ou(Ne)  + ou(Si)  + ou(Se)  + ou(Fi)  + ou(Fe)  + ou(Ti)  + ou(Te)  + ou('Ne vs Ni; Se vs Si; Fe vs Fi; Te vs Ti') + '</tr>'
   str += '<tr>' + ou(NiP) + ou(NeP) + ou(SiP) + ou(SeP) + ou(FiP) + ou(FeP) + ou(TiP) + ou(TeP) + ou('Превосходство по осям') + '</tr>'
+  str += '<tr>' + ou(NiM) + ou(NeM) + ou(SiM) + ou(SeM) + ou(FiM) + ou(FeM) + ou(TiM) + ou(TeM) + ou('Метод исключения') + '</tr>'
   str += '</table>'
   str += 'Когнитивные оси'
   str += '<table>'
@@ -229,14 +282,14 @@ function recalc() {
   names.set('ESTP', 'Делец')
   names.set('ESFP', 'Развлекатель')
 
-  I = Fi + Ti + Ni + Si + FiP + TiP + NiP + SiP + lNiFe + lNiTe + lSiFe + lSiTe + lFiNe + lFiSe + lTiNe + lTiSe + gNiFe + gNiTe + gSiFe + gSiTe + gFiNe + gFiSe + gTiNe + gTiSe
-  E = Fe + Te + Ne + Se + FeP + TeP + NeP + SeP + lNeFi + lNeTi + lSeFi + lSeTi + lFeNi + lFeSi + lTeNi + lTeSi + gNeFi + gNeTi + gSeFi + gSeTi + gFeNi + gFeSi + gTeNi + gTeSi
-  N = Ni + Ne + NiP + NeP + lNiFe + lNiTe + lNeFi + lNeTi + lFeNi + lTeNi + lFiNe + lTiNe + gNiFe + gNiTe + gNeFi + gNeTi + gFeNi + gTeNi + gFiNe + gTiNe
-  S = Si + Se + SiP + SeP + lSiFe + lSiTe + lSeFi + lSeTi + lFeSi + lTeSi + lFiSe + lTiSe + gSiFe + gSiTe + gSeFi + gSeTi + gFeSi + gTeSi + gFiSe + gTiSe
-  F = Fi + Fe + FiP + FeP + lNiFe + lNeFi + lSiFe + lSeFi + lFiNe + lFiSe + lFeNi + lFeSi + gNiFe + gNeFi + gSiFe + gSeFi + gFiNe + gFiSe + gFeNi + gFeSi
-  T = Ti + Te + TiP + TeP + lNiTe + lNeTi + lSiTe + lSeTi + lTiNe + lTiSe + lTeNi + lTeSi + gNiTe + gNeTi + gSiTe + gSeTi + gTiNe + gTiSe + gTeNi + gTeSi
-  J = Fe + Te + Ni + Si + FeP + TeP + NiP + SiP + lNiFe + lNiTe + lSiFe + lSiTe + lFeNi + lFeSi + lTeNi + lTeSi + gNiFe + gNiTe + gSiFe + gSiTe + gFeNi + gFeSi + gTeNi + gTeSi
-  P = Fi + Ti + Ne + Se + FiP + TiP + NeP + SeP + lNeFi + lNeTi + lSeFi + lSeTi + lFiNe + lFiSe + lTiNe + lTiSe + gNeFi + gNeTi + gSeFi + gSeTi + gFiNe + gFiSe + gTiNe + gTiSe
+  I = Fi + Ti + Ni + Si + FiP + TiP + NiP + SiP + FiM + TiM + NiM + SiM + lNiFe + lNiTe + lSiFe + lSiTe + lFiNe + lFiSe + lTiNe + lTiSe + gNiFe + gNiTe + gSiFe + gSiTe + gFiNe + gFiSe + gTiNe + gTiSe
+  E = Fe + Te + Ne + Se + FeP + TeP + NeP + SeP + FeM + TeM + NeM + SeM + lNeFi + lNeTi + lSeFi + lSeTi + lFeNi + lFeSi + lTeNi + lTeSi + gNeFi + gNeTi + gSeFi + gSeTi + gFeNi + gFeSi + gTeNi + gTeSi
+  N = Ni + Ne + NiP + NeP + NiM + NeM + lNiFe + lNiTe + lNeFi + lNeTi + lFeNi + lTeNi + lFiNe + lTiNe + gNiFe + gNiTe + gNeFi + gNeTi + gFeNi + gTeNi + gFiNe + gTiNe
+  S = Si + Se + SiP + SeP + SiM + SeM + lSiFe + lSiTe + lSeFi + lSeTi + lFeSi + lTeSi + lFiSe + lTiSe + gSiFe + gSiTe + gSeFi + gSeTi + gFeSi + gTeSi + gFiSe + gTiSe
+  F = Fi + Fe + FiP + FeP + FiM + FeM + lNiFe + lNeFi + lSiFe + lSeFi + lFiNe + lFiSe + lFeNi + lFeSi + gNiFe + gNeFi + gSiFe + gSeFi + gFiNe + gFiSe + gFeNi + gFeSi
+  T = Ti + Te + TiP + TeP + TiM + TeM + lNiTe + lNeTi + lSiTe + lSeTi + lTiNe + lTiSe + lTeNi + lTeSi + gNiTe + gNeTi + gSiTe + gSeTi + gTiNe + gTiSe + gTeNi + gTeSi
+  J = Fe + Te + Ni + Si + FeP + TeP + NiP + SiP + FeM + TeM + NiM + SiM + lNiFe + lNiTe + lSiFe + lSiTe + lFeNi + lFeSi + lTeNi + lTeSi + gNiFe + gNiTe + gSiFe + gSiTe + gFeNi + gFeSi + gTeNi + gTeSi
+  P = Fi + Ti + Ne + Se + FiP + TiP + NeP + SeP + FiM + TiM + NeM + SeM + lNeFi + lNeTi + lSeFi + lSeTi + lFiNe + lFiSe + lTiNe + lTiSe + gNeFi + gNeTi + gSeFi + gSeTi + gFiNe + gFiSe + gTiNe + gTiSe
   str += '<h3>Тип по буквам</h3>'
   str2 = ''
   if (I > E) { str2 += 'I' } else { str2 += 'E' }
@@ -251,24 +304,24 @@ function recalc() {
   str += '</table>'
   str += 'Наиболее вероятный тип по буквам: <b>' + str2 + '</b> (' + names.get(str2) + ')'
 
-  // 7dom + 5aux + 3ter + 1inf + 4domax + 4auxax + 6domp + 4auxp + 5loop + 5grip
+  // 7dom + 5aux + 3ter + 1inf + 4domax + 4auxax + 6domp + 4auxp + 5loop + 5grip + 6ndom + 4naux
   mbti = [
-    [7*Ni + 5*Fe + 3*Ti + 1*Se + 4*NiSe + 4*FeTi + 6*NiP + 4*FeP + 5*lNiFe + 5*gNiFe, 'INFJ'],
-    [7*Ni + 5*Te + 3*Fi + 1*Se + 4*NiSe + 4*FiTe + 6*NiP + 4*TeP + 5*lNiTe + 5*gNiTe, 'INTJ'],
-    [7*Fi + 5*Ne + 3*Si + 1*Te + 4*FiTe + 4*NeSi + 6*FiP + 4*NeP + 5*lFiNe + 5*gFiNe, 'INFP'],
-    [7*Ti + 5*Ne + 3*Si + 1*Fe + 4*FeTi + 4*NeSi + 6*TiP + 4*NeP + 5*lTiNe + 5*gTiNe, 'INTP'],
-    [7*Si + 5*Fe + 3*Ti + 1*Ne + 4*NeSi + 4*FeTi + 6*SiP + 4*FeP + 5*lSiFe + 5*gSiFe, 'ISFJ'],
-    [7*Si + 5*Te + 3*Fi + 1*Ne + 4*NeSi + 4*FiTe + 6*SiP + 4*TeP + 5*lSiTe + 5*gSiTe, 'ISTJ'],
-    [7*Fi + 5*Se + 3*Ni + 1*Te + 4*FiTe + 4*NiSe + 6*FiP + 4*SeP + 5*lFiSe + 5*gFiSe, 'ISFP'],
-    [7*Ti + 5*Se + 3*Ni + 1*Fe + 4*FeTi + 4*NiSe + 6*TiP + 4*SeP + 5*lTiSe + 5*gTiSe, 'ISTP'],
-    [7*Fe + 5*Ni + 3*Se + 1*Ti + 4*FeTi + 4*NiSe + 6*FeP + 4*NiP + 5*lFeNi + 5*gFeNi, 'ENFJ'],
-    [7*Te + 5*Ni + 3*Se + 1*Fi + 4*FiTe + 4*NiSe + 6*TeP + 4*NiP + 5*lTeNi + 5*gTeNi, 'ENTJ'],
-    [7*Ne + 5*Fi + 3*Te + 1*Si + 4*NeSi + 4*FiTe + 6*NeP + 4*FiP + 5*lNeFi + 5*gNeFi, 'ENFP'],
-    [7*Ne + 5*Ti + 3*Fe + 1*Si + 4*NeSi + 4*FeTi + 6*NeP + 4*TiP + 5*lNeTi + 5*gNeTi, 'ENTP'],
-    [7*Fe + 5*Si + 3*Ne + 1*Ti + 4*FeTi + 4*NeSi + 6*FeP + 4*SiP + 5*lFeSi + 5*gFeSi, 'ESFJ'],
-    [7*Te + 5*Si + 3*Ne + 1*Fi + 4*FiTe + 4*NeSi + 6*TeP + 4*SiP + 5*lTeSi + 5*gTeSi, 'ESTJ'],
-    [7*Se + 5*Fi + 3*Te + 1*Ni + 4*NiSe + 4*FiTe + 6*SeP + 4*FiP + 5*lSeFi + 5*gSeFi, 'ESFP'],
-    [7*Se + 5*Ti + 3*Fe + 1*Ni + 4*NiSe + 4*FeTi + 6*SeP + 4*TiP + 5*lSeTi + 5*gSeTi, 'ESTP'],
+    [7*Ni + 5*Fe + 3*Ti + 1*Se + 4*NiSe + 4*FeTi + 6*NiP + 4*FeP + 5*lNiFe + 5*gNiFe + 6*NiM + 4*FeM, 'INFJ'],
+    [7*Ni + 5*Te + 3*Fi + 1*Se + 4*NiSe + 4*FiTe + 6*NiP + 4*TeP + 5*lNiTe + 5*gNiTe + 6*NiM + 4*TeM, 'INTJ'],
+    [7*Fi + 5*Ne + 3*Si + 1*Te + 4*FiTe + 4*NeSi + 6*FiP + 4*NeP + 5*lFiNe + 5*gFiNe + 6*FiM + 4*NeM, 'INFP'],
+    [7*Ti + 5*Ne + 3*Si + 1*Fe + 4*FeTi + 4*NeSi + 6*TiP + 4*NeP + 5*lTiNe + 5*gTiNe + 6*TiM + 4*NeM, 'INTP'],
+    [7*Si + 5*Fe + 3*Ti + 1*Ne + 4*NeSi + 4*FeTi + 6*SiP + 4*FeP + 5*lSiFe + 5*gSiFe + 6*SiM + 4*FeM, 'ISFJ'],
+    [7*Si + 5*Te + 3*Fi + 1*Ne + 4*NeSi + 4*FiTe + 6*SiP + 4*TeP + 5*lSiTe + 5*gSiTe + 6*SiM + 4*TeM, 'ISTJ'],
+    [7*Fi + 5*Se + 3*Ni + 1*Te + 4*FiTe + 4*NiSe + 6*FiP + 4*SeP + 5*lFiSe + 5*gFiSe + 6*FiM + 4*SeM, 'ISFP'],
+    [7*Ti + 5*Se + 3*Ni + 1*Fe + 4*FeTi + 4*NiSe + 6*TiP + 4*SeP + 5*lTiSe + 5*gTiSe + 6*TiM + 4*SeM, 'ISTP'],
+    [7*Fe + 5*Ni + 3*Se + 1*Ti + 4*FeTi + 4*NiSe + 6*FeP + 4*NiP + 5*lFeNi + 5*gFeNi + 6*FeM + 4*NiM, 'ENFJ'],
+    [7*Te + 5*Ni + 3*Se + 1*Fi + 4*FiTe + 4*NiSe + 6*TeP + 4*NiP + 5*lTeNi + 5*gTeNi + 6*TeM + 4*NiM, 'ENTJ'],
+    [7*Ne + 5*Fi + 3*Te + 1*Si + 4*NeSi + 4*FiTe + 6*NeP + 4*FiP + 5*lNeFi + 5*gNeFi + 6*NeM + 4*FiM, 'ENFP'],
+    [7*Ne + 5*Ti + 3*Fe + 1*Si + 4*NeSi + 4*FeTi + 6*NeP + 4*TiP + 5*lNeTi + 5*gNeTi + 6*NeM + 4*TiM, 'ENTP'],
+    [7*Fe + 5*Si + 3*Ne + 1*Ti + 4*FeTi + 4*NeSi + 6*FeP + 4*SiP + 5*lFeSi + 5*gFeSi + 6*FeM + 4*SiM, 'ESFJ'],
+    [7*Te + 5*Si + 3*Ne + 1*Fi + 4*FiTe + 4*NeSi + 6*TeP + 4*SiP + 5*lTeSi + 5*gTeSi + 6*TeM + 4*SiM, 'ESTJ'],
+    [7*Se + 5*Fi + 3*Te + 1*Ni + 4*NiSe + 4*FiTe + 6*SeP + 4*FiP + 5*lSeFi + 5*gSeFi + 6*SeM + 4*FiM, 'ESFP'],
+    [7*Se + 5*Ti + 3*Fe + 1*Ni + 4*NiSe + 4*FeTi + 6*SeP + 4*TiP + 5*lSeTi + 5*gSeTi + 6*SeM + 4*TiM, 'ESTP'],
   ]
   mbti.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];})
   str += '<h3>Тип по когнитивкам</h3> Модифицированная формула mistypeinvestigator. Самый вероятный тип имеет наибольшее число (как на сакинорве)'
