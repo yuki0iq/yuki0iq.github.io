@@ -22,7 +22,6 @@ function recalc() {
       v_sub = $('input[name=' + i_n + ']:checked')
       if (v_sub.length != 0) {  // selected
         eval(v_sub[0].value)
-        console.log(v_sub[0].value)
       }
     }
   }
@@ -52,7 +51,7 @@ function recalc() {
   if (J - P > 0) { str2 += 'J' } else { str2 += 'P' }
 
   str += 'Твой тип: <b>' + str2 + '-'
-  if (E * E + N * N + F * F + P * P == 8) { str += 'A' } else { str += 'T' }
+  if (E * E + N * N + F * F + P * P == 16) { str += 'A' } else { str += 'T' }
   str += '</b> ' + names.get(str2)
   
   document.getElementById('res').innerHTML = str

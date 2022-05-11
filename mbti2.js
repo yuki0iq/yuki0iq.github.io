@@ -298,7 +298,6 @@ function recalc() {
       v_sub = $('input[name=' + i_n + ']:checked')
       if (v_sub.length != 0) {  // selected
         eval(v_sub[0].value)
-        console.log(v_sub[0].value)
       }
     }
   }

@@ -143,7 +143,6 @@ function recalc() {
       v_sub = $('input[name=' + i_n + ']:checked')
       if (v_sub.length != 0) {  // selected
         eval(v_sub[0].value)
-        console.log(v_sub[0].value)
       }
     }
     g1 += E1, g2 += E2, g3 += E3, g4 += E4, g5 += E5, g6 += E6, g7 += E7, g8 += E8, g9 += E9
