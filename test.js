@@ -86,9 +86,9 @@ function create(data) {
 		if (entry[1] != '') { str += p(gdesc) }
 
 		rows = []
-		cols = ['No', 'Вопрос']
-		for (k = 0; k < type; k += 1) { cols.push(1+k) }
-		if (cntq == 2) { cols.push('Вопрос') }
+		cols = [td('No'), td('Вопрос')]
+		for (k = 0; k < type; k += 1) { cols.push(td(1+k)) }
+		if (cntq == 2) { cols.push(td('Вопрос')) }
 		rows.push(tr(cols))
 
 		j = 0
@@ -96,7 +96,7 @@ function create(data) {
 			tx = question[0]
 			tx2 = (cntq == 2 ? question[2] : '')
 
-			cols = [1+j, tx]
+			cols = [td(1+j), td(tx)]
 			for (k = 0; k < type; k += 1) {
 				radio_name = 'i' + i + '-' + j
 				radio_id = radio_name + '-' + k
@@ -127,7 +127,7 @@ function create(data) {
 
 				cols.push(td(radiol(radio_id, radio_name, val, 'recalc()', radio_text)))
 			}
-			if (cntq == 2) { cols.push(tx2) }
+			if (cntq == 2) { cols.push(td(tx2)) }
 
 			rows.push(tr(cols))
 

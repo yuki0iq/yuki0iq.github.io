@@ -345,13 +345,6 @@ create(question_sets)
 function recalc() {
 	str = ''
 
-	out = function(val, mx) {
-		return '<td>' + val.toString() + (val == mx ? '!' : '') + '</td>'
-	}
-	ou = function(val) {
-		return '<td>' + val + '</td>'
-	}
-
 	str += h3('Исходный результат')
 
 	Ni = 0, Ne = 0, Si = 0, Se = 0, Fi = 0, Fe = 0, Ti = 0, Te = 0
