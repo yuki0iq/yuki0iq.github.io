@@ -49,7 +49,7 @@ function link(ref, s) { return _enclose('a', s, [_param('href', ref)]) }
 function ol(s) { return _ol(s.join('')) }
 function li(s) { return _enclose('li', s) }
 function p(s) { return _enclose('p', s) }
-function br() { return _end('br') }
+function br() { return _begin('br') }
 function label(s, f) { return _enclose('label', s, [_param('for', f)]) }
 function radio(id, nm, vl, oc) { return _beginv('input', [_param('id', id), _param('name', nm), _param('value', vl), _param('onclick', oc), _param('type', 'radio')]) }
 function radiol(id, nm, vl, oc, s) { return radio(id, nm, vl, oc) + label(s, id) }
@@ -57,21 +57,19 @@ function radiol(id, nm, vl, oc, s) { return radio(id, nm, vl, oc) + label(s, id)
 function create(data) {
 	// data = [name, desc, cnt, cntans, [name, [ans, d1, d2, ...], name2]]
 	str = ''
-	str += p('Варианты ответов (если 4 варианта):')
-	str += ol([
+	str += p('Варианты ответов (если 4 варианта):' + ol([
 		li('Это очень похоже на меня'),
 		li('Это немного похоже на меня'),
 		li('Это не слишком похоже на меня'),
 		li('Совсем не похоже на меня')
-	])
-	str += p('Варианты ответов (если 5 вариантов):')
-	str += ol([
+	]))
+	str += p('Варианты ответов (если 5 вариантов):') + ol([
 		li('Левый вариант очень похож на меня'),
 		li('Левый вариант немного похож на меня'),
 		li('Оба варианта одинаково схожи со мной'),
 		li('Правый вариант немного похож на меня'),
 		li('Правый вариант очень похож на меня'),
-	])
+	]))
 	str += p('В остальных случаях 1 - наибольшее сходство, большая цифра - наименьшее сходство. Для того, чтобы пропустить вопрос, не отвечай ничего или отвечай 3')
 
 	i = 0
