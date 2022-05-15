@@ -347,28 +347,25 @@ function recalc() {
 	str += h3('Исходный результат')
 	eval(pull_results)
 
-	str += p('Когнитивные функции')
-	str += table([
+	str += p('Когнитивные функции' + table([
 		tr([th('Ni'), th('Ne'), th('Si'), th('Se'), th('Fi'), th('Fe'), th('Ti'), th('Te'), th('Группа')]),
 		tr([td( Ni ), td( Ne ), td( Si ), td( Se ), td( Fi ), td( Fe ), td( Ti ), td( Te ), td('Ne/Ni | Se/Si | Fe/Fi | Te/Ti')]),
 		tr([td( NiP), td( NeP), td( SiP), td( SeP), td( FiP), td( FeP), td( TiP), td( TeP), td('Превосходство по осям')]),
 		tr([td( NiM), td( NeM), td( SiM), td( SeM), td( FiM), td( FeM), td( TiM), td( TeM), td('Метод исключения')]),
 		tr([td( NiU), td( NeU), td( SiU), td( SeU), td( FiU), td( FeU), td( TiU), td( TeU), td('Использование')]),
 		tr([td( NiT), td( NeT), td( SiT), td( SeT), td( FiT), td( FeT), td( TiT), td( TeT), td('Трикстер')]),
-	])
+	]))
 
-	str += p('Когнитивные оси')
-	str += table([
+	str += p('Когнитивные оси' + table([
 		tr([th('NiSe'), th('NeSi'), th('FiTe'), th('FeTi')]),
 		tr([td( NiSe ), td( NeSi ), td( FiTe ), td( FeTi )]),
-	])
+	]))
 
-	str += p('Лупы и грипы - скоро...')
-	str += table([
+	str += p('Лупы и грипы - скоро...' + table([
 		tr([th('Тип' ), td('NiFe'), td('NiTe'), td('NeFi'), td('NeTi'), td('SiFe'), td('SiTe'), td('SeFi'), td('SeTi'), td('FiNe'), td('FiSe'), td('FeNi'), td('FeSi'), td('TiNe'), td('TiSe'), td('TeNi'), td('TeSi')]),
 		tr([th('Луп' ), td(lNiFe ), td(lNiTe ), td(lNeTi ), td(lNeTi ), td(lSiFe ), td(lSiTe ), td(lSeFi ), td(lSeTi ), td(lFiNe ), td(lFiSe ), td(lFeNi ), td(lFeSi ), td(lTiNe ), td(lTiSe ), td(lTeNi ), td(lTeSi )]),
 		tr([th('Грип'), td(gNiFe ), td(gNiTe ), td(gNeTi ), td(gNeFi ), td(gSiFe ), td(gSiTe ), td(gSeFi ), td(gSeTi ), td(gFiNe ), td(gFiSe ), td(gFeNi ), td(gFeSi ), td(gTiNe ), td(gTiSe ), td(gTeNi ), td(gTeSi )]),
-	])
+	]))
 
 	names = new Map()
 	names.set('INTJ', 'Стратег')
