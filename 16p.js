@@ -20,7 +20,7 @@ function recalc() {
     for (j = 0; j < question_sets[i][4].length; j += 1) {
       i_n = 'i' + i + '-' + j
       v_sub = $('input[name=' + i_n + ']:checked')
-      if (v_sub.length != 0) {  // selected
+      if (v_sub.length != 0) {
         eval(v_sub[0].value)
       }
     }

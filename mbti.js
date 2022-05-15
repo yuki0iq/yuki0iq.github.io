@@ -1,12 +1,3 @@
-function RA(an) {
-  n = an.length - 1
-  ans = [an[0]]
-  for (ij = n; ij > 0; ij -= 1) {
-    ans.push(an[ij])
-  }
-  return ans
-}
-
 // Cognitive functions
 aNi = ['Ni', 2, 1, 0, 0, -1]
 aNe = ['Ne', 2, 1, 0, 0, -1]

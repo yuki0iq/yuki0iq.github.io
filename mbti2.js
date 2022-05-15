@@ -324,28 +324,10 @@ question_sets = [
 	]],
 ]
 
-for (i = 0; i < question_sets.length; i += 1) {
-	shuffle(question_sets[i][4])
-}
-for (i = 0; i < question_sets.length; i += 1) {
-	if (question_sets[i][3] == 2) {
-		for (j = 0; j < question_sets[i][4].length; j += 1) {
-			if (Math.random() > 0.5) {
-				[question_sets[i][4][j][0], question_sets[i][4][j][2]]
-					= [question_sets[i][4][j][2], question_sets[i][4][j][0]]
-				for (k = 0; k < question_sets[i][4][j][1].length; k += 1) {
-					question_sets[i][4][j][1][k] = RA(question_sets[i][4][j][1][k])
-				}
-			}
-		}
-	}
-}
-create(question_sets)
+eval(create_question_sets)
 
 function recalc() {
 	str = ''
-
-	str += h3('Исходный результат')
 
 	Ni = 0, Ne = 0, Si = 0, Se = 0, Fi = 0, Fe = 0, Ti = 0, Te = 0
 	NiSe = 0, NeSi = 0, FiTe = 0, FeTi = 0
@@ -362,15 +344,9 @@ function recalc() {
 	gFiNe = 0, gFiSe = 0, gFeNi = 0, gFeSi = 0
 	gTiNe = 0, gTiSe = 0, gTeNi = 0, gTeSi = 0
 
-	for (i = 0; i < question_sets.length; i += 1) {
-		for (j = 0; j < question_sets[i][4].length; j += 1) {
-			i_n = 'i' + i + '-' + j
-			v_sub = $('input[name=' + i_n + ']:checked')
-			if (v_sub.length != 0) {
-				eval(v_sub[0].value)
-			}
-		}
-	}
+	str += h3('Исходный результат')
+	eval(pull_results)
+
 	str += p('Когнитивные функции')
 	str += table([
 		tr([th('Ni'), th('Ne'), th('Si'), th('Se'), th('Fi'), th('Fe'), th('Ti'), th('Te'), th('Группа')]),
@@ -437,19 +413,20 @@ function recalc() {
 	  + lNeFi + lNeTi + lSeFi + lSeTi + lFiNe + lFiSe + lTiNe + lTiSe
 	  + gNeFi + gNeTi + gSeFi + gSeTi + gFiNe + gFiSe + gTiNe + gTiSe
 
+	letty = ''
+	if (I > E) { lett += 'I' } else { lett += 'E' }
+	if (N > S) { lett += 'N' } else { lett += 'S' }
+	if (F > T) { lett += 'F' } else { lett += 'T' }
+	if (J > P) { lett += 'J' } else { lett += 'P' }
+
 	str += h3('Тип по буквам')
-	str2 = ''
-	if (I > E) { str2 += 'I' } else { str2 += 'E' }
-	if (N > S) { str2 += 'N' } else { str2 += 'S' }
-	if (F > T) { str2 += 'F' } else { str2 += 'T' }
-	if (J > P) { str2 += 'J' } else { str2 += 'P' }
 	str += table([
 		tr([td('I'), td(I), td(I > E ? '>' : '<'), td(E), td('E')]),
 		tr([td('N'), td(N), td(N > S ? '>' : '<'), td(S), td('S')]),
 		tr([td('F'), td(F), td(F > T ? '>' : '<'), td(T), td('T')]),
 		tr([td('J'), td(J), td(J > P ? '>' : '<'), td(P), td('P')]),
 	])
-	str += p('Наиболее вероятный тип по буквам: ' + bold(str2) + ' (' + names.get(str2) + ')')
+	str += p('Наиболее вероятный тип по буквам: ' + bold(lett) + ' (' + names.get(lett) + ')')
 
 	//   7dom + 5aux + 3ter + 1inf + 6domax + 4auxax + 6domp + 4auxp + 5loop   + 5grip   + 6ndom + 4naux + 7udom + 5uaux + 3uter + 1uinf + 2trix + 0trx4, 'type'
 	mbti = [
@@ -483,7 +460,7 @@ function recalc() {
 	}
 	str += table([tr(col_names), tr(col_vals)])
 	str += p('Наиболее вероятный тип по когнитивным функциям: ' + bold(mbti[15][1]) + ' (' + names.get(mbti[15][1]) + ')')
-	str += p('Возможный разброс баллов от -302?? до 514??, набранный разброс от ' + mbti[0][0] + ' до ' + mbti[15][1])
+	str += p('Возможный разброс баллов от -302?? до 514??, набранный разброс от ' + mbti[0][0] + ' до ' + mbti[15][0])
 
 	document.getElementById('res').innerHTML = str
 }

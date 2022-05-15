@@ -57,6 +57,9 @@ function radiol(id, nm, vl, oc, s) { return radio(id, nm, vl, oc) + label(s, id)
 function create(data) {
 	// data = [name, desc, cnt, cntans, [name, [ans, d1, d2, ...], name2]]
 	str = ''
+	str += p('Тест может быть удобнее проходить с ландшафтной (горизонтальной) ориентацией экрана')
+	str += p('Результат автоматически пересчитывается при изменении ответа - можно проходить тест не полностью')
+	str += p('При перезагрузке страницы введённые ответы пропадают!')
 	str += p('Варианты ответов (если 4 варианта):' + ol([
 		li('Это очень похоже на меня'),
 		li('Это немного похоже на меня'),
@@ -138,4 +141,13 @@ function create(data) {
 
 	document.getElementById('test_contents').innerHTML = str;
 }
+
+create_question_sets = "for (i = 0; i < question_sets.length; i += 1) shuffle(question_sets[i][4])\n" +
+	"for (i = 0; i < question_sets.length; i += 1) if (question_sets[i][3] == 2) for (j = 0; j < question_sets[i][4].length; j += 1) if (Math.random() > 0.5) {" +
+		"[question_sets[i][4][j][0], question_sets[i][4][j][2]] = [question_sets[i][4][j][2], question_sets[i][4][j][0]];" +
+		"for (k = 0; k < question_sets[i][4][j][1].length; k += 1) question_sets[i][4][j][1][k] = RA(question_sets[i][4][j][1][k])" +
+	"}\ncreate(question_sets)"
+
+pull_results = "for (i = 0; i < question_sets.length; i += 1) for (j = 0; j < question_sets[i][4].length; j += 1)" +
+	"{ v_sub = $('input[name=i' + i + '-' + j + ']:checked'); if (v_sub.length != 0) eval(v_sub[0].value) }"
 
