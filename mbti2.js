@@ -413,7 +413,7 @@ function recalc() {
 	  + lNeFi + lNeTi + lSeFi + lSeTi + lFiNe + lFiSe + lTiNe + lTiSe
 	  + gNeFi + gNeTi + gSeFi + gSeTi + gFiNe + gFiSe + gTiNe + gTiSe
 
-	letty = ''
+	lett = ''
 	if (I > E) { lett += 'I' } else { lett += 'E' }
 	if (N > S) { lett += 'N' } else { lett += 'S' }
 	if (F > T) { lett += 'F' } else { lett += 'T' }
