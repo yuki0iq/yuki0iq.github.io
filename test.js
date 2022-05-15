@@ -30,10 +30,10 @@ function RA(an) {
 	return ans
 }
 
-function _begin(s, arg) { return '<' + s + ' ' + arg + '>' }
-function _beginv(s, arg) { return _begin(s, arg.join('')) }
+function _begin(s, arg='') { return '<' + s + ' ' + arg + '>' }
+function _beginv(s, arg=[]) { return _begin(s, arg.join('')) }
 function _end(s) { return _begin('/' + s) }
-function _enclose(s, v, arg) { return _beginv(s, arg) + v + _end(s) }
+function _enclose(s, v, arg=[]) { return _beginv(s, arg) + v + _end(s) }
 function _table(s) { return _enclose('table', s) }
 function _tr(s) { return _enclose('tr', s) }
 function _ol(s) { return _enclose('ol', s) }
