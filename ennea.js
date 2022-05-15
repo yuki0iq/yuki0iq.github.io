@@ -119,10 +119,7 @@ question_sets = [
     ]],
 ]
 
-for (i = 0; i < question_sets.length; i += 1) {
-  shuffle(question_sets[i][4])
-}
-create(question_sets)
+eval(create_question_sets)
 
 function recalc() {
   str = ''

@@ -7,24 +7,13 @@ question_sets = [
     ]],
 ]
 
-for (i = 0; i < question_sets.length; i += 1) {
-  shuffle(question_sets[i][4])
-}
-create(question_sets)
+eval(create_question_sets)
 
 function recalc() {
   str = ''
   
   E = 0, I = 0, N = 0, S = 0, T = 0, F = 0, J = 0, P = 0
-  for (i = 0; i < question_sets.length; i += 1) {
-    for (j = 0; j < question_sets[i][4].length; j += 1) {
-      i_n = 'i' + i + '-' + j
-      v_sub = $('input[name=' + i_n + ']:checked')
-      if (v_sub.length != 0) {
-        eval(v_sub[0].value)
-      }
-    }
-  }
+  eval(pull_results)
   
   names = new Map()
   names.set('INTJ', 'Strateg')
