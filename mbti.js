@@ -445,15 +445,6 @@ function recalc() {
 	if (F > T) { lett += 'F' } else { lett += 'T' }
 	if (J > P) { lett += 'J' } else { lett += 'P' }
 
-	str += h3('Тип по буквам')
-	str += table([
-		tr([td('I'), td(I), td(I > E ? '>' : '<'), td(E), td('E')]),
-		tr([td('N'), td(N), td(N > S ? '>' : '<'), td(S), td('S')]),
-		tr([td('F'), td(F), td(F > T ? '>' : '<'), td(T), td('T')]),
-		tr([td('J'), td(J), td(J > P ? '>' : '<'), td(P), td('P')]),
-	])
-	str += p('Наиболее вероятный тип по буквам: ' + bold(lett) + ' (' + names.get(lett) + ')')
-
 	//   7dom + 5aux + 3ter + 1inf + 6domax + 4auxax + 6domp + 4auxp + 5loop   + 5grip   + 6ndom + 4naux + 7udom + 5uaux + 3uter + 1uinf + 2trix + 0trx4, 'type'
 	mbti = [
 		[7*Ni + 5*Fe + 3*Ti + 1*Se + 6*NiSe + 4*FeTi + 6*NiP + 4*FeP + 5*lNiFe + 5*gNiFe + 6*NiM + 4*FeM + 7*NiU + 5*FeU + 3*TiU + 1*SeU + 2*TeT + 0*SeT, 'INFJ'],
