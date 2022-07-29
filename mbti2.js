@@ -106,6 +106,10 @@ question_sets = [
 			'Важно быть осторожным и иногда даже дотошным, чтобы внести свой вклад в систему, которая может быть и не так полезна здесь и сейчас, но безусловно будет таковой в будущем'],
 		['Я стремлюсь представить или обнаружить один путь решения проблемы, построенный на моих различных впечатлениях о вещах', [aNiSe, RA(aNeSi)],
 			'Я стремлюсь обнаружить, сопоставить или понять истинную природу вещей, составляя объединяющие элементы между различными творческими взглядами на вещи'],
+		['Знания - способ быть компетентным. Я могу накапливать знания обо всем, но не факт что я буду их когда-либо использовать', [aFeTi, RA(aFiTe)],
+			'Знания - инструмент, который можно использовать. Я фильтрую знания на факт их полезности лично для меня'],
+		['Если бы я строил дом, то сначала разработал бы план постройки, а потом искал методы реализации', [aFeTi, RA(aFiTe)],
+			'Если бы я строил дом, то использовал бы уже имеющиеся инструменты'],
 	]],
 	['Головокружение', 'Опиши головокружение и сравни его с четырьмя примерами', 4, 1, [
 		['Описывая головокружение, я привожу подробные ассоциации, связанные с моими ощущениями', [vNeV]],
@@ -388,9 +392,9 @@ function recalc() {
 		tr([th('Ni'), th('Ne'), th('Si'), th('Se'), th('Fi'), th('Fe'), th('Ti'), th('Te'), th('Группа')]),
 		tr([td( Ni ), td( Ne ), td( Si ), td( Se ), td( Fi ), td( Fe ), td( Ti ), td( Te ), td('Ne/Ni | Se/Si | Fe/Fi | Te/Ti')]),
 		tr([td( NiP), td( NeP), td( SiP), td( SeP), td( FiP), td( FeP), td( TiP), td( TeP), td('Превосходство по осям')]),
-		tr([td( NiM), td( NeM), td( SiM), td( SeM), td( FiM), td( FeM), td( TiM), td( TeM), td('Метод исключения')]),
-		//tr([td( NiU), td( NeU), td( SiU), td( SeU), td( FiU), td( FeU), td( TiU), td( TeU), td('Использование')]),
-		tr([td( NiT), td( NeT), td( SiT), td( SeT), td( FiT), td( FeT), td( TiT), td( TeT), td('Трикстер')]),
+		//tr([td( NiM), td( NeM), td( SiM), td( SeM), td( FiM), td( FeM), td( TiM), td( TeM), td('Метод исключения')]),
+		tr([td( NiU), td( NeU), td( SiU), td( SeU), td( FiU), td( FeU), td( TiU), td( TeU), td('Использование')]),
+		//tr([td( NiT), td( NeT), td( SiT), td( SeT), td( FiT), td( FeT), td( TiT), td( TeT), td('Трикстер')]),
 	])
 
 	str += p('Когнитивные оси')
@@ -424,50 +428,12 @@ function recalc() {
 	names.set('ESTP', 'Делец')
 	names.set('ESFP', 'Развлекатель')
 
-	I = Fi + Ti + Ni + Si + FiP + TiP + NiP + SiP + FiM + TiM + NiM + SiM + FiU + TiU + NiU + SiU + NeT + SeT + FeT + TeT
-	  + lNiFe + lNiTe + lSiFe + lSiTe + lFiNe + lFiSe + lTiNe + lTiSe
-	  + gNiFe + gNiTe + gSiFe + gSiTe + gFiNe + gFiSe + gTiNe + gTiSe
-	E = Fe + Te + Ne + Se + FeP + TeP + NeP + SeP + FeM + TeM + NeM + SeM + FeU + TeU + NeU + SeU + NiT + SiT + FiT + TiT
-	  + lNeFi + lNeTi + lSeFi + lSeTi + lFeNi + lFeSi + lTeNi + lTeSi
-	  + gNeFi + gNeTi + gSeFi + gSeTi + gFeNi + gFeSi + gTeNi + gTeSi
-	N = Ni + Ne + NiP + NeP + NiM + NeM + NiU + NeU + SiT + SeT
-	  + lNiFe + lNiTe + lNeFi + lNeTi + lFeNi + lTeNi + lFiNe + lTiNe
-	  + gNiFe + gNiTe + gNeFi + gNeTi + gFeNi + gTeNi + gFiNe + gTiNe
-	S = Si + Se + SiP + SeP + SiM + SeM + SiU + SeU + NiT + NeT
-	  + lSiFe + lSiTe + lSeFi + lSeTi + lFeSi + lTeSi + lFiSe + lTiSe
-	  + gSiFe + gSiTe + gSeFi + gSeTi + gFeSi + gTeSi + gFiSe + gTiSe
-	F = Fi + Fe + FiP + FeP + FiM + FeM + FiU + FeU + TiT + TeT
-	  + lNiFe + lNeFi + lSiFe + lSeFi + lFiNe + lFiSe + lFeNi + lFeSi
-	  + gNiFe + gNeFi + gSiFe + gSeFi + gFiNe + gFiSe + gFeNi + gFeSi
-	T = Ti + Te + TiP + TeP + TiM + TeM + TiU + TeU + FiT + FeT
-	  + lNiTe + lNeTi + lSiTe + lSeTi + lTiNe + lTiSe + lTeNi + lTeSi
-	  + gNiTe + gNeTi + gSiTe + gSeTi + gTiNe + gTiSe + gTeNi + gTeSi
-	J = Fe + Te + Ni + Si + FeP + TeP + NiP + SiP + FeM + TeM + NiM + SiM + FeU + TeU + NiU + SiU + FeT + TeT + NiT + SiT
-	  + lNiFe + lNiTe + lSiFe + lSiTe + lFeNi + lFeSi + lTeNi + lTeSi
-	  + gNiFe + gNiTe + gSiFe + gSiTe + gFeNi + gFeSi + gTeNi + gTeSi
-	P = Fi + Ti + Ne + Se + FiP + TiP + NeP + SeP + FiM + TiM + NeM + SeM + FiU + TiU + NeU + SeU + FiT + TiT + NeT + SeT
-	  + lNeFi + lNeTi + lSeFi + lSeTi + lFiNe + lFiSe + lTiNe + lTiSe
-	  + gNeFi + gNeTi + gSeFi + gSeTi + gFiNe + gFiSe + gTiNe + gTiSe
-
-	lett = ''
-	if (I > E) { lett += 'I' } else { lett += 'E' }
-	if (N > S) { lett += 'N' } else { lett += 'S' }
-	if (F > T) { lett += 'F' } else { lett += 'T' }
-	if (J > P) { lett += 'J' } else { lett += 'P' }
-
-	str += h3('Тип по буквам (ЭТО НЕ РЕЗУЛЬТАТ)')
-	str += table([
-		tr([td('I'), td(I), td(I > E ? '>' : '<'), td(E), td('E')]),
-		tr([td('N'), td(N), td(N > S ? '>' : '<'), td(S), td('S')]),
-		tr([td('F'), td(F), td(F > T ? '>' : '<'), td(T), td('T')]),
-		tr([td('J'), td(J), td(J > P ? '>' : '<'), td(P), td('P')]),
-	])
-	str += p('Наиболее вероятный тип по буквам: ' + bold(lett) + ' (' + names.get(lett) + ')')
-
 	// Cog + Usage
 	Ni += NiU, Ne += NeU, Si += SiU, Se += SeU, Fi += FiU, Fe += FeU, Ti += TiU, Te += TeU
 	// Mistype + Preference
 	NiP += NiM, NeP += NeM, SiP += SiM, SeP += SeM, FiP += FiM, FeP += FeM, TiP += TiM, TeP += TeM
+
+	// Normalize NeNiSeSi and FeFiTeTi (make same maximum)
 
 	//   7dom + 5aux + 3ter + 1inf + 6domax + 6auxax + 6domp + 4auxp + 5loop   + 5grip   + 2trix, 'type'
 	mbti = [
@@ -490,18 +456,18 @@ function recalc() {
 	]
 	mbti.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];})
 	str += h3('Тип по когнитивкам')
-	str += p('Модифицированная формула mistypeinvestigator. Самый вероятный тип имеет наибольшее число и находится с правого края таблицы')
+	str += p('Самый вероятный тип имеет наибольшее число и находится с правого края таблицы')
 	col_names = []
 	col_vals = []
 	for (i = 0; i < 16; i += 1) {
 		name = mbti[i][1]
-		val = mbti[i][0]
+		val = parseInt(mbti[i][0])
 		col_names.push(td(name))
 		col_vals.push(td(val))
 	}
 	str += table([tr(col_names), tr(col_vals)])
 	str += p('Наиболее вероятный тип по когнитивным функциям: ' + bold(mbti[15][1]) + ' (' + names.get(mbti[15][1]) + ')')
-	str += p('Возможный разброс баллов от 460(504) до -257(-297), набранный разброс от ' + mbti[0][0] + ' до ' + mbti[15][0] + ': величина разброса ' + (mbti[15][0] - mbti[0][0]))
+	str += p('Возможный разброс баллов от ?? до ??, набранный разброс от ' + mbti[0][0] + ' до ' + mbti[15][0] + ': величина разброса ' + (mbti[15][0] - mbti[0][0]))
 	str += p('Результат достовернее, если общий разброс больше, максимум больше, отрыв максимума от соседних типов сильнее')
 
 	document.getElementById('res').innerHTML = str
