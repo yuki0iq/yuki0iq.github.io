@@ -455,24 +455,25 @@ function recalc() {
 	mbti.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];})
 	str += h3('Тип по когнитивкам')
 	str += p('Самый вероятный тип имеет наибольший счёт')
-	col_names1 = ['Тип']
-	col_vals1 = ['Счёт']
+	col_names1 = [td('Тип')]
+	col_vals1 = [td('Счёт')]
 	for (i = 0; i < 8; i += 1) {
 		name = mbti[i][1]
 		val = parseInt(mbti[i][0])
 		col_names1.push(td(name))
 		col_vals1.push(td(val))
 	}
-	col_names2 = ['Тип']
-	col_vals2 = ['Счёт']
+	col_empty = [td('')]
+	col_names2 = [td('Тип')]
+	col_vals2 = [td('Счёт')]
 	for (i = 8; i < 16; i += 1) {
 		name = mbti[i][1]
 		val = parseInt(mbti[i][0])
 		col_names2.push(td(name))
 		col_vals2.push(td(val))
+		col_empty.push(td(''))
 	}
-	str += table([tr(col_names1), tr(col_vals1)])
-	str += table([tr(col_names2), tr(col_vals2)])
+	str += table([tr(col_names1), tr(col_vals1), tr(col_empty), tr(col_names2), tr(col_vals2)])
 	str += p('Наиболее вероятный тип по когнитивным функциям: ' + bold(mbti[15][1]) + ' (' + names.get(mbti[15][1]) + ')')
 	str += p('Возможный разброс баллов от -250 до 500, набранный разброс от ' + mbti[0][0] + ' до ' + mbti[15][0] + ': величина разброса ' + (mbti[15][0] - mbti[0][0]))
 	str += p('Результат достовернее, если общий разброс больше, максимум больше, отрыв максимума от соседних типов сильнее')
