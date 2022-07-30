@@ -365,7 +365,7 @@ function recalc() {
 	Ni = 0, Ne = 0, Si = 0, Se = 0, Fi = 0, Fe = 0, Ti = 0, Te = 0
 	NiSe = 0, NeSi = 0, FiTe = 0, FeTi = 0
 	NiP = 0, NeP = 0, SiP = 0, SeP = 0, FiP = 0, FeP = 0, TiP = 0, TeP = 0
-	NiU = 0, NeU = 0, SiU = 0, SeU = 0, FiU = 0, FeU = 0, TiU = 0, TeU = 0
+	NiV = 0, NeV = 0, SiV = 0, SeV = 0
 	lNiFe = 0, lNiTe = 0, lNeFi = 0, lNeTi = 0
 	lSiFe = 0, lSiTe = 0, lSeFi = 0, lSeTi = 0
 	lFiNe = 0, lFiSe = 0, lFeNi = 0, lFeSi = 0
@@ -423,24 +423,34 @@ function recalc() {
 
 	// Normalize NeNiSeSi and FeFiTeTi (make same maximum)
 
-	//   7dom + 5aux + 3ter + 1inf + 6domax + 6auxax + 6domp + 4auxp + 5loop   + 5grip   /*+ 2trix*/, 'type'
+	// 16cogn + 6axNS + 6axFT + 10cogP + 5loop + 5grip + 14vert
+	// cogn: -1 to 2; up to 7 qs -> range -7 to 14 -> apply -112 to 224
+	// axNS: -1 to 2; up to 4 qs -> range -4 to  8 -> apply  -24 to 48
+	// axFT: -1 to 2; up to 5 qs -> range -5 to 10 -> apply  -30 to 60
+	// cogP: -1 to 2; up to 0 qs -> range  0 to  0 -> apply    0 to 0
+	// loop: -1 to 2; up to 7 qs -> range -7 to 14 -> apply  -35 to 70
+	// grip: -1 to 2; up to 7 qs -> range -7 to 14 -> apply  -35 to 70
+	// vert: -1 to 2; up to 1 qs -> range -1 to  2 -> apply  -14 to 28
+	// sum:                                        -> apply -250 to 500
+
+	//   7dom + 5aux + 3ter + 1inf + 6domax + 6auxax + 6domp + 4auxp + 5loop   + 5grip + 14domv, 'type'
 	mbti = [
-		[7*Ni + 5*Fe + 3*Ti + 1*Se + 6*NiSe + 6*FeTi + 6*NiP + 4*FeP + 5*lNiFe + 5*gNi /*+ 2*TeT*/, 'INFJ'],
-		[7*Ni + 5*Te + 3*Fi + 1*Se + 6*NiSe + 6*FiTe + 6*NiP + 4*TeP + 5*lNiTe + 5*gNi /*+ 2*FeT*/, 'INTJ'],
-		[7*Fi + 5*Ne + 3*Si + 1*Te + 6*FiTe + 6*NeSi + 6*FiP + 4*NeP + 5*lFiNe + 5*gFi /*+ 2*SeT*/, 'INFP'],
-		[7*Ti + 5*Ne + 3*Si + 1*Fe + 6*FeTi + 6*NeSi + 6*TiP + 4*NeP + 5*lTiNe + 5*gTi /*+ 2*SeT*/, 'INTP'],
-		[7*Si + 5*Fe + 3*Ti + 1*Ne + 6*NeSi + 6*FeTi + 6*SiP + 4*FeP + 5*lSiFe + 5*gSi /*+ 2*TeT*/, 'ISFJ'],
-		[7*Si + 5*Te + 3*Fi + 1*Ne + 6*NeSi + 6*FiTe + 6*SiP + 4*TeP + 5*lSiTe + 5*gSi /*+ 2*FeT*/, 'ISTJ'],
-		[7*Fi + 5*Se + 3*Ni + 1*Te + 6*FiTe + 6*NiSe + 6*FiP + 4*SeP + 5*lFiSe + 5*gFi /*+ 2*NeT*/, 'ISFP'],
-		[7*Ti + 5*Se + 3*Ni + 1*Fe + 6*FeTi + 6*NiSe + 6*TiP + 4*SeP + 5*lTiSe + 5*gTi /*+ 2*NeT*/, 'ISTP'],
-		[7*Fe + 5*Ni + 3*Se + 1*Ti + 6*FeTi + 6*NiSe + 6*FeP + 4*NiP + 5*lFeNi + 5*gFe /*+ 2*SiT*/, 'ENFJ'],
-		[7*Te + 5*Ni + 3*Se + 1*Fi + 6*FiTe + 6*NiSe + 6*TeP + 4*NiP + 5*lTeNi + 5*gTe /*+ 2*SiT*/, 'ENTJ'],
-		[7*Ne + 5*Fi + 3*Te + 1*Si + 6*NeSi + 6*FiTe + 6*NeP + 4*FiP + 5*lNeFi + 5*gNe /*+ 2*TiT*/, 'ENFP'],
-		[7*Ne + 5*Ti + 3*Fe + 1*Si + 6*NeSi + 6*FeTi + 6*NeP + 4*TiP + 5*lNeTi + 5*gNe /*+ 2*FiT*/, 'ENTP'],
-		[7*Fe + 5*Si + 3*Ne + 1*Ti + 6*FeTi + 6*NeSi + 6*FeP + 4*SiP + 5*lFeSi + 5*gFe /*+ 2*SeT*/, 'ESFJ'],
-		[7*Te + 5*Si + 3*Ne + 1*Fi + 6*FiTe + 6*NeSi + 6*TeP + 4*SiP + 5*lTeSi + 5*gTe /*+ 2*SeT*/, 'ESTJ'],
-		[7*Se + 5*Fi + 3*Te + 1*Ni + 6*NiSe + 6*FiTe + 6*SeP + 4*FiP + 5*lSeFi + 5*gSe /*+ 2*TiT*/, 'ESFP'],
-		[7*Se + 5*Ti + 3*Fe + 1*Ni + 6*NiSe + 6*FeTi + 6*SeP + 4*TiP + 5*lSeTi + 5*gSe /*+ 2*FiT*/, 'ESTP'],
+		[7*Ni + 5*Fe + 3*Ti + 1*Se + 6*NiSe + 6*FeTi + 6*NiP + 4*FeP + 5*lNiFe + 5*gNi + 14*NiV, 'INFJ'],
+		[7*Ni + 5*Te + 3*Fi + 1*Se + 6*NiSe + 6*FiTe + 6*NiP + 4*TeP + 5*lNiTe + 5*gNi + 14*NiV, 'INTJ'],
+		[7*Fi + 5*Ne + 3*Si + 1*Te + 6*FiTe + 6*NeSi + 6*FiP + 4*NeP + 5*lFiNe + 5*gFi + 14*NeV, 'INFP'],
+		[7*Ti + 5*Ne + 3*Si + 1*Fe + 6*FeTi + 6*NeSi + 6*TiP + 4*NeP + 5*lTiNe + 5*gTi + 14*NeV, 'INTP'],
+		[7*Si + 5*Fe + 3*Ti + 1*Ne + 6*NeSi + 6*FeTi + 6*SiP + 4*FeP + 5*lSiFe + 5*gSi + 14*SiV, 'ISFJ'],
+		[7*Si + 5*Te + 3*Fi + 1*Ne + 6*NeSi + 6*FiTe + 6*SiP + 4*TeP + 5*lSiTe + 5*gSi + 14*SiV, 'ISTJ'],
+		[7*Fi + 5*Se + 3*Ni + 1*Te + 6*FiTe + 6*NiSe + 6*FiP + 4*SeP + 5*lFiSe + 5*gFi + 14*SeV, 'ISFP'],
+		[7*Ti + 5*Se + 3*Ni + 1*Fe + 6*FeTi + 6*NiSe + 6*TiP + 4*SeP + 5*lTiSe + 5*gTi + 14*SeV, 'ISTP'],
+		[7*Fe + 5*Ni + 3*Se + 1*Ti + 6*FeTi + 6*NiSe + 6*FeP + 4*NiP + 5*lFeNi + 5*gFe + 14*NiV, 'ENFJ'],
+		[7*Te + 5*Ni + 3*Se + 1*Fi + 6*FiTe + 6*NiSe + 6*TeP + 4*NiP + 5*lTeNi + 5*gTe + 14*NiV, 'ENTJ'],
+		[7*Ne + 5*Fi + 3*Te + 1*Si + 6*NeSi + 6*FiTe + 6*NeP + 4*FiP + 5*lNeFi + 5*gNe + 14*NeV, 'ENFP'],
+		[7*Ne + 5*Ti + 3*Fe + 1*Si + 6*NeSi + 6*FeTi + 6*NeP + 4*TiP + 5*lNeTi + 5*gNe + 14*NeV, 'ENTP'],
+		[7*Fe + 5*Si + 3*Ne + 1*Ti + 6*FeTi + 6*NeSi + 6*FeP + 4*SiP + 5*lFeSi + 5*gFe + 14*SiV, 'ESFJ'],
+		[7*Te + 5*Si + 3*Ne + 1*Fi + 6*FiTe + 6*NeSi + 6*TeP + 4*SiP + 5*lTeSi + 5*gTe + 14*SiV, 'ESTJ'],
+		[7*Se + 5*Fi + 3*Te + 1*Ni + 6*NiSe + 6*FiTe + 6*SeP + 4*FiP + 5*lSeFi + 5*gSe + 14*SeV, 'ESFP'],
+		[7*Se + 5*Ti + 3*Fe + 1*Ni + 6*NiSe + 6*FeTi + 6*SeP + 4*TiP + 5*lSeTi + 5*gSe + 14*SeV, 'ESTP'],
 	]
 	mbti.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];})
 	str += h3('Тип по когнитивкам')
