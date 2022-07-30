@@ -460,16 +460,16 @@ function recalc() {
 	for (i = 0; i < 8; i += 1) {
 		name = mbti[i][1]
 		val = parseInt(mbti[i][0])
-		col_names.push(td(name))
-		col_vals.push(td(val))
+		col_names1.push(td(name))
+		col_vals1.push(td(val))
 	}
 	col_names2 = ['Тип']
 	col_vals2 = ['Счёт']
 	for (i = 8; i < 16; i += 1) {
 		name = mbti[i][1]
 		val = parseInt(mbti[i][0])
-		col_names.push(td(name))
-		col_vals.push(td(val))
+		col_names2.push(td(name))
+		col_vals2.push(td(val))
 	}
 	str += table([tr(col_names1), tr(col_vals1)])
 	str += table([tr(col_names2), tr(col_vals2)])
