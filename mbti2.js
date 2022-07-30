@@ -454,10 +454,18 @@ function recalc() {
 	]
 	mbti.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];})
 	str += h3('Тип по когнитивкам')
-	str += p('Самый вероятный тип имеет наибольшее число и находится с правого края таблицы')
-	col_names = []
-	col_vals = []
-	for (i = 0; i < 16; i += 1) {
+	str += p('Самый вероятный тип имеет наибольший счёт')
+	col_names1 = ['Тип']
+	col_vals1 = ['Счёт']
+	for (i = 0; i < 8; i += 1) {
+		name = mbti[i][1]
+		val = parseInt(mbti[i][0])
+		col_names.push(td(name))
+		col_vals.push(td(val))
+	}
+	col_names2 = ['Тип']
+	col_vals2 = ['Счёт']
+	for (i = 8; i < 16; i += 1) {
 		name = mbti[i][1]
 		val = parseInt(mbti[i][0])
 		col_names.push(td(name))
