@@ -19,7 +19,7 @@ agTi = ['gTi', 2, 1, 0, -1], agTe = ['gTe', 2, 1, 0, -1], agFi = ['gFi', 2, 1, 0
 
 
 question_sets = [
-	['Сравнение когнитивных функций и осей', 'Ne/Ni, Se/Si, Fe/Fi, Te/Ti, FiTe/FeTi, NiSe/NeSi', 5, 2, [
+	['Сравнение когнитивных функций и осей', 'Ne против Ni, Se против Si, Fe против Fi, Te против Ti, FiTe против FeTi, NiSe против NeSi', 5, 2, [
 		['При восприятии информации обращаю внимание на возможности и потенциальные варианты реализации идей (даже если не планирую их реализовывать)', [aNe, RA(aNi)],
 			'При восприятии информации обращаю внимание на символы и образы, что всплывают в моём сознании'],
 		['Мои идеи разнообразны', [aNe, RA(aNi)],
@@ -378,8 +378,8 @@ function recalc() {
 	str += p('Когнитивные функции')
 	str += table([
 		tr([th('Ni'), th('Ne'), th('Si'), th('Se'), th('Fi'), th('Fe'), th('Ti'), th('Te'), th('Группа')]),
-		tr([td( Ni ), td( Ne ), td( Si ), td( Se ), td( Fi ), td( Fe ), td( Ti ), td( Te ), td('Чистые когнитивки')]),
-		tr([td( NiP), td( NeP), td( SiP), td( SeP), td( FiP), td( FeP), td( TiP), td( TeP), td('Превосходство по осям')]),
+		tr([td( Ni ), td( Ne ), td( Si ), td( Se ), td( Fi ), td( Fe ), td( Ti ), td( Te ), td('Сравнение по осям')]),
+		tr([td( NiP), td( NeP), td( SiP), td( SeP), td( FiP), td( FeP), td( TiP), td( TeP), td('Сравнение внутри оси')]),
 		tr([td( NiV), td( NeV), td( SiV), td( SeV), td('--'), td('--'), td('--'), td('--'), td('Головокружение')]),
 	])
 
