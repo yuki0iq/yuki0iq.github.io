@@ -471,7 +471,8 @@ function recalc() {
 		col_names.push(td(name))
 		col_vals.push(td(val))
 	}
-	str += table([tr(col_names), tr(col_vals)])
+	str += table([tr(col_names1), tr(col_vals1)])
+	str += table([tr(col_names2), tr(col_vals2)])
 	str += p('Наиболее вероятный тип по когнитивным функциям: ' + bold(mbti[15][1]) + ' (' + names.get(mbti[15][1]) + ')')
 	str += p('Возможный разброс баллов от -250 до 500, набранный разброс от ' + mbti[0][0] + ' до ' + mbti[15][0] + ': величина разброса ' + (mbti[15][0] - mbti[0][0]))
 	str += p('Результат достовернее, если общий разброс больше, максимум больше, отрыв максимума от соседних типов сильнее')
