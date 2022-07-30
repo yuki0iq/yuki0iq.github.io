@@ -119,10 +119,10 @@ function create(data) {
 					}
 				} else {
 					if (k == 0) {
-						radio_text += ' (L)'
+						//radio_text += ' (L)'
 					}
 					if (k == type - 1) {
-						radio_text += ' (R)'
+						//radio_text += ' (R)'
 					}
 				}
 
