@@ -438,20 +438,6 @@ function recalc() {
 		tr([td( NiSe ), td( NeSi ), td( FiTe ), td( FeTi )]),
 	])
 
-	str += p('Лупы и грипы - осталось совсем немного...')
-	str += table([
-		tr([th('Тип' ), td('NiFe'), td('NiTe'), td('NeFi'), td('NeTi'), td('SiFe'), td('SiTe'), td('SeFi'), td('SeTi')]),
-		tr([th('Луп' ), td(lNiFe ), td(lNiTe ), td(lNeTi ), td(lNeTi ), td(lSiFe ), td(lSiTe ), td(lSeFi ), td(lSeTi )]),
-	])
-	str += table([
-		tr([th('Тип' ), td('FiNe'), td('FiSe'), td('FeNi'), td('FeSi'), td('TiNe'), td('TiSe'), td('TeNi'), td('TeSi')]),
-		tr([th('Луп' ), td(lFiNe ), td(lFiSe ), td(lFeNi ), td(lFeSi ), td(lTiNe ), td(lTiSe ), td(lTeNi ), td(lTeSi )]),
-	])
-	str += table([
-		tr([th('Тип' ), td('Ni inf'), td('Ne inf'), td('Si inf'), td('Se inf'), td('Fi inf'), td('Fe inf'), td('Ti inf'), td('Te inf')]),
-		tr([th('Грип'), td(gNi     ), td(gNe     ), td(gSi     ), td(gSe     ), td(gFi     ), td(gFe     ), td(gTi     ), td(gTe     )]),
-	])
-
 	names = new Map()
 	names.set('INTJ', 'Стратег')
 	names.set('INTP', 'Учёный')
@@ -526,6 +512,20 @@ function recalc() {
 	str += p('Наиболее вероятный тип по когнитивным функциям: ' + bold(mbti[15][1]) + ' (' + names.get(mbti[15][1]) + '). [Версия теста 220804.02]')
 	str += p('Возможный разброс баллов от -250 до 500, набранный разброс от ' + mbti[0][0] + ' до ' + mbti[15][0] + ': величина разброса ' + (mbti[15][0] - mbti[0][0]))
 	str += p('Результат достовернее, если общий разброс больше, максимум больше, отрыв максимума от соседних типов сильнее')
+
+	str += h3('Лупы и грипы')
+	str += p('TODO: допилить описание и разлить воды по типу "ты в лупе как ЕНТП а в грипе как ИНФП" и добавить сортировку')
+	str += table([
+		tr([th('Тип' ), td('NiFe'), td('NiTe'), td('NeFi'), td('NeTi'), td('SiFe'), td('SiTe'), td('SeFi'), td('SeTi')]),
+		tr([th('Луп' ), td(lNiFe ), td(lNiTe ), td(lNeTi ), td(lNeTi ), td(lSiFe ), td(lSiTe ), td(lSeFi ), td(lSeTi )]),
+		tr(col_empty),
+		tr([th('Тип' ), td('FiNe'), td('FiSe'), td('FeNi'), td('FeSi'), td('TiNe'), td('TiSe'), td('TeNi'), td('TeSi')]),
+		tr([th('Луп' ), td(lFiNe ), td(lFiSe ), td(lFeNi ), td(lFeSi ), td(lTiNe ), td(lTiSe ), td(lTeNi ), td(lTeSi )]),
+	])
+	str += table([
+		tr([th('Тип' ), td('Ni inf'), td('Ne inf'), td('Si inf'), td('Se inf'), td('Fi inf'), td('Fe inf'), td('Ti inf'), td('Te inf')]),
+		tr([th('Грип'), td(gNi     ), td(gNe     ), td(gSi     ), td(gSe     ), td(gFi     ), td(gFe     ), td(gTi     ), td(gTe     )]),
+	])
 
 	document.getElementById('res').innerHTML = str
 }
