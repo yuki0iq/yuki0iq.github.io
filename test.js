@@ -209,8 +209,8 @@ function create2(data, lang, qc) {
 
 	i = 0
 	for (const entry of data) {
-		group_name = TR('name')
-		group_desc = TR('desc')
+		group_name = TRANS(GET(entry, 'name'))
+		group_desc = TRANS(GET(entry, 'desc'))
 		cnt_answers = parseInt(GET(entry, 'cnt_a'))
 		cnt_questions = parseInt(GET(entry, 'cnt_q'))
 		questions = GET(entry, 'questions')
