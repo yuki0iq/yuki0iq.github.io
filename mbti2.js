@@ -1407,7 +1407,7 @@ question_sets = [
 
 //eval(create_question_sets)
 eval(randomize_questions2)
-create2(question_sets2, default_lang, question_count)
+create2(question_sets, default_lang, question_count)
 
 function recalc() {
 	str = ''
