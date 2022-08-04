@@ -266,5 +266,29 @@ function create2(data, lang, qc) {
 	document.getElementById('test_contents').innerHTML = str;
 }
 
-randomize_questions2 = ""
+randomize_questions2 = "" +
+	"for (i = 0; i < question_sets.length; i += 1) {\n" +
+	"	question_set = new Map(question_sets[i])\n" +
+	"	questions = question_set.get('questions')\n" +
+	"	shuffle(questions)\n" +
+	"	if (2 == question_set.get('cnt_q')) {\n" +
+	"		for (j = 0; j < questions.length; j += 1) {\n" +
+	"			if (Math.random() > 0.5) {\n" +
+	"				question = new Map(questions[j])\n" +
+	"				left = question.get('le')\n" +
+	"				right = question.get('ri')\n" +
+	"				res = question.get('res')\n" +
+	"				for (k = 0; k < res.length; k += 1) {\n" +
+	"					res[k] = RA(res[k])\n" +
+	"				}\n" +
+	"				question.set('le', right)\n" +
+	"				question.set('ri', left)\n" +
+	"				question.set('res', res)\n" +
+	"				questions[j] = [...question]\n" +
+	"			}\n" +
+	"		}\n" +
+	"	}\n" +
+	"	question_set.set('questions', questions)\n" +
+	"	question_sets[i] = [...question_set]\n" +
+	"}"
 pull_results2 = ""
