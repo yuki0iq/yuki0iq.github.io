@@ -1420,6 +1420,7 @@ question_sets = [
 		]],
 	],
 ]
+eval(randomize_questions2)
 
 function recalc() {
 	str = ''
@@ -1569,7 +1570,10 @@ function recalc() {
 	document.getElementById('res').innerHTML = str
 }
 
+function chlang() {
+	lang = $('input[name=lang]:selected')[0].value || default_lang
+	create2(question_sets, lang, question_count)
+	recalc();  // Initial recalc
+}
 
-eval(randomize_questions2)
-create2(question_sets, default_lang, question_count)
-recalc();  // Initial recalc
+chlang();

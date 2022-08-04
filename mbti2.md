@@ -2,6 +2,14 @@
 
 This test requires JavaScript enabled to be run correctly. Для работы теста требуется поддержка JavaScript.
 
+<div>
+<label for="lang">Select language:</label>
+<select id="lang" onchange="">
+    <option name="lang" value="ru" selected>Русский</option>
+    <option name="lang" value="en">English</option>
+</select>
+</div>
+
 <div id="test_contents">
 </div>
 
