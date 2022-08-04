@@ -1498,7 +1498,7 @@ function recalc() {
 	namem.set('ISTP', TR('ISTP')); namem.set('ISFP', TR('ISFP')); namem.set('ESTP', TR('ESTP')); namem.set('ESFP', TR('ESFP'))
 	namel = new Map()
 	namel.set('INTJ', 'Ni-Ti'); namel.set('INTP', 'Ti-Si'); namel.set('ENTJ', 'Te-Se'); namel.set('ENTP', 'Ne-Fe')
-	namel.set('INFJ', 'Ni-Ti'); namel.set('INFP', 'Fi-Si'); namel.set('ENFJ', 'Fe-Se'); namel.set('ENFP', 'Ne-Te')
+	namel.set('INFJ', 'Ni-Fi'); namel.set('INFP', 'Fi-Si'); namel.set('ENFJ', 'Fe-Se'); namel.set('ENFP', 'Ne-Te')
 	namel.set('ISTJ', 'Si-Fi'); namel.set('ISFJ', 'Si-Ti'); namel.set('ESTJ', 'Te-Ne'); namel.set('ESTP', 'Se-Fe')
 	namel.set('ISTP', 'Ti-Ni'); namel.set('ISFP', 'Fi-Ni'); namel.set('ESTP', 'Se-Fe'); namel.set('ESFP', 'Se-Te')
 	nameg = new Map()
@@ -1573,7 +1573,7 @@ function recalc() {
 	str += h3('Лупы и грипы')
 	str += p('Самый вероятный тип имеет наибольший счёт. ' + test_ver)
 	str += table([tr(col_names1l), tr(col_vals1l), tr(col_empty), tr(col_names2l), tr(col_vals2l), tr(col_empty), tr(col_names1g), tr(col_vals1g)])
-	str += p('Наиболее вероятный луп: ' + bold(loop[15][1]) + ' (' + namel.get(mbti[15][1]) + ')')
+	str += p('Наиболее вероятный луп: ' + bold(loop[15][1]) + ' (' + namel.get(loop[15][1]) + ')')
 	str += p('Наиболее вероятный грип: ' + bold(grip[7][1]) + ' (' + nameg.get(grip[7][1]) + ')')
 	str += p('Возможный разброс баллов от -7 до 14. Результат достовернее, если общий разброс больше, максимум больше, отрыв максимума от соседних типов сильнее')
 
