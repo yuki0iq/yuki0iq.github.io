@@ -1421,10 +1421,6 @@ question_sets = [
 	],
 ]
 
-//eval(create_question_sets)
-eval(randomize_questions2)
-create2(question_sets, default_lang, question_count)
-
 function recalc() {
 	str = ''
 
@@ -1573,4 +1569,6 @@ function recalc() {
 	document.getElementById('res').innerHTML = str
 }
 
+eval(randomize_questions2)
+create2(question_sets, default_lang, question_count)
 recalc();  // Initial recalc

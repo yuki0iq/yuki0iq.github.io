@@ -162,10 +162,7 @@ function create2(data, lang, qc) {
 	txt = [
 		['help', [
 			['ru',
-				p('Этот тест содержит ' + qc + ' вопросов') +
-				p('Тест может быть удобнее проходить с ландшафтной (горизонтальной) ориентацией экрана') +
-				p('Результат автоматически пересчитывается при изменении ответа - можно проходить тест не полностью') +
-				p('При перезагрузке страницы введённые ответы пропадают!') +
+				p('Этот тест содержит ' + qc + ' вопросов. Тест может быть удобнее проходить с ландшафтной (горизонтальной) ориентацией экрана. Результат автоматически пересчитывается при изменении ответа - можно проходить тест не полностью. При перезагрузке страницы введённые ответы пропадают!') +
 				p('Варианты ответов (если 4 варианта):' + ol([
 					li('Это очень похоже на меня'),
 					li('Это немного похоже на меня'),
@@ -182,10 +179,7 @@ function create2(data, lang, qc) {
 				p('В остальных случаях 1 - наибольшее сходство, большая цифра - наименьшее сходство. Для того, чтобы пропустить вопрос, не отвечай ничего или отвечай 3')
 			],
 			['en',
-				p('This test has ' + qc + ' questions') +
-				p('Landscaoe screen orientation may be better for taking this test') +
-				p('Result is recalculated automatically giving you ability to take only a part of this test') +
-				p('Reloading the page leads to answers loss!') +
+				p('This test has ' + qc + ' questions. Landscape screen orientation may be better for taking this test. Result is recalculated automatically giving you ability to take only a part of this test. Reloading the page leads to answers loss!') +
 				p('Answer options (when 4):' + ol([
 					li('This is really me'),
 					li('This looks like me'),
