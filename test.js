@@ -230,7 +230,7 @@ function create2(data, lang, qc) {
 		j = 0
 		for (const question of questions) {
 			question_left = TRANS(GET(question, 'le'))
-			question_res = GET(question, 'res'))
+			question_res = GET(question, 'res')
 
 			cols = [td(1+j), td(question_left)]
 			for (k = 0; k < type; k += 1) {
