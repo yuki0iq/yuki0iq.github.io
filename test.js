@@ -156,7 +156,7 @@ pull_results = "for (i = 0; i < question_sets.length; i += 1) for (j = 0; j < qu
 tr_helper = "" +
 	"GET = function(arr, key) { return (new Map(arr)).get(key) || arr[0][1] || '' }\n"+
 	"TRANS = function(arr) { return GET(arr, lang) }\n"+
-	"TR = function(key) { return TRANS(GET(txt, key)) }\n"+
+	"TR = function(key) { return TRANS(GET(txt, key)) }\n"
 
 function create2(data, lang, qc) {
 	str = ''
