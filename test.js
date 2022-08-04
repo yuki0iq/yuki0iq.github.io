@@ -30,9 +30,6 @@ function RA(an) {
 	return ans
 }
 
-function GET(arr, key) { return (new Map(arr)).get(key) || arr[0][1] || '' }
-function TRANS(arr) { return GET(arr, lang) }
-
 function _begin(s, arg='') { return '<' + s + ' ' + arg + '>' }
 function _beginv(s, arg=[]) { return _begin(s, arg.join('')) }
 function _end(s) { return _begin('/' + s) }
@@ -158,6 +155,9 @@ pull_results = "for (i = 0; i < question_sets.length; i += 1) for (j = 0; j < qu
 
 function create2(data, lang, qc) {
 	str = ''
+
+	GET = function(arr, key) { return (new Map(arr)).get(key) || arr[0][1] || '' }
+	TRANS = function(arr) { return GET(arr, lang) }
 
 	txt = [
 		['help', [
