@@ -1569,6 +1569,32 @@ function recalc() {
 	document.getElementById('res').innerHTML = str
 }
 
+
+for (i = 0; i < question_sets.length; i += 1) {
+	question_set = new Map(question_sets[i])
+	questions = question_set.get('questions')
+	shuffle(questions)
+	if (2 == question_set.get('cnt_q')) {
+		for (j = 0; j < questions.length; j += 1) {
+			if (Math.random() > 0.5) {
+				question = new Map(questions[j])
+				left = question.get('le')
+				right = question.get('ri')
+				res = question.get('res')
+				for (k = 0; k < res.length; k += 1) {
+					res[k] = RA(res[k])
+				}
+				question.set('le', right)
+				question.set('ri', left)
+				question.set('res', res)
+				questions[j] = [...question]
+			}
+		}
+	}
+	question_set.set('questions', questions)
+	question_sets[i] = [...question_set]
+}
+
 eval(randomize_questions2)
 create2(question_sets, default_lang, question_count)
 recalc();  // Initial recalc
