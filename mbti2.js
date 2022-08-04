@@ -27,9 +27,11 @@ question_sets = [
 	[
 		['name', [
 			['ru', 'Сравнение когнитивных функций и осей'],
+			['en', 'Compare cognitive functions and axes'],
 		]],
 		['desc', [
 			['ru', 'Ne против Ni, Se против Si, Fe против Fi, Te против Ti, FiTe против FeTi, NiSe против NeSi'],
+			['en', 'Determine preference Ne vs Ni, Se vs Si, Fe vs Fi, Te vs Ti, FiTe vs FeTi, NiSe vs NeSi'],
 		]],
 		['cnt_a', 5],
 		['cnt_q', 2],
@@ -372,9 +374,11 @@ question_sets = [
 	[
 		['name', [
 			['ru', 'Головокружение'],
+			['en', 'Vertigo'],
 		]],
 		['desc', [
 			['ru', 'Опиши головокружение и сравни его с четырьмя примерами'],
+			['en', 'Describe a vertigo and compare yourself with four examples'],
 		]],
 		['cnt_a', 4],
 		['cnt_q', 1],
@@ -408,9 +412,11 @@ question_sets = [
 	[
 		['name', [
 			['ru', 'Лупы'],
+			['en', 'Loops'],
 		]],
 		['desc', [
 			['ru', 'Лупы - это стрессовое использование первой и третьей функций с игнорированием второй. Луп проявляется при слабом стрессе'],
+			['en', 'Loop is a light-stress use of dominant and tertiary functions ignoring auxiliary one'],
 		]],
 		['cnt_a', 4],
 		['cnt_q', 1],
@@ -1074,9 +1080,11 @@ question_sets = [
 	[
 		['name', [
 			['ru', 'Грипы'],
+			['en', 'Grips'],
 		]],
 		['desc', [
 			['ru', 'Грипы - это стрессовое использование только четвертой функции. Грип проявляется при сильном стрессе'],
+			['en', 'Grip is a stress use of only inferior function'],
 		]],
 		['cnt_a', 4],
 		['cnt_q', 1],
@@ -1425,6 +1433,8 @@ eval(randomize_questions2)
 function recalc() {
 	str = ''
 
+	lang = eval(get_lang)
+
 	Ni = 0, Ne = 0, Si = 0, Se = 0, Fi = 0, Fe = 0, Ti = 0, Te = 0
 	NiSe = 0, NeSi = 0, FiTe = 0, FeTi = 0
 	NiP = 0, NeP = 0, SiP = 0, SeP = 0, FiP = 0, FeP = 0, TiP = 0, TeP = 0
@@ -1436,93 +1446,93 @@ function recalc() {
 	gNi = 0, gNe = 0, gSi = 0, gSe = 0, gFi = 0, gFe = 0, gTi = 0, gTe = 0
 	eval(pull_results2)
 
-	str += h3('Исходный результат')
-	str += p('Когнитивные функции')
+	eval(tr_helper)
+	txt = [
+		['raw', [['ru', 'Исходный результат'], ['en', 'Raw test score']]],
+		['cog', [['ru', 'Когнитивные функции'], ['en', 'Cognitive functions score']]],
+		['group', [['ru', 'Группа'], ['en', 'Group']]],
+		['axcmp', [['ru', 'Сравнение по осям'], ['en', 'Axes compare']]],
+		['inaxcmp', [['ru', 'Сравнение внутри оси'], ['en', 'In-axe compare']]],
+		['vertigo', [['ru', 'Головокружение'], ['en', 'Vertigo']]],
+		['cogax', [['ru', 'Когнитивные оси'], ['en', 'Cognitive axes']]],
+		['INTJ', [['ru', 'Стратег'], ['en', 'Architect']]],
+		['INTP', [['ru', 'Учёный'], ['en', 'Logician']]],
+		['ENTJ', [['ru', 'Командир'], ['en', 'Commander']]],
+		['ENTP', [['ru', 'Полемист'], ['en', 'Debater']]],
+		['INFJ', [['ru', 'Активист'], ['en', 'Advocate']]],
+		['INFP', [['ru', 'Посредник'], ['en', 'Mediator']]],
+		['ENFJ', [['ru', 'Тренер'], ['en', 'Protagonist']]],
+		['ENFP', [['ru', 'Борец'], ['en', 'Campaigner']]],
+		['ISTJ', [['ru', 'Администратор'], ['en', 'Logistician']]],
+		['ISFJ', [['ru', 'Защитник'], ['en', 'Defender']]],
+		['ESTJ', [['ru', 'Менеджер'], ['en', 'Executive']]],
+		['ESTP', [['ru', 'Консул'], ['en', 'Consul']]],
+		['ISTP', [['ru', 'Виртуоз'], ['en', 'Virtuoso']]],
+		['ISFP', [['ru', 'Артист'], ['en', 'Adventurer']]],
+		['ESTP', [['ru', 'Делец'], ['en', 'Enterpreneur']]],
+		['ESFP', [['ru', 'Развлекатель'], ['en', 'Entertainer']]],
+		['type', [['ru', 'Тип'], ['en', 'Type']]],
+		['score', [['ru', 'Счёт'], ['en', 'Score']]],
+		['loop', [['ru', 'Луп'], ['en', 'Loop']]],
+		['grip', [['ru', 'Грип'], ['en', 'Grip']]],
+	]
+
+	str += h3(TR('raw'))
+	str += p(TR('cog'))
 	str += table([
-		tr([th('Ni'), th('Ne'), th('Si'), th('Se'), th('Fi'), th('Fe'), th('Ti'), th('Te'), th('Группа')]),
-		tr([td( Ni ), td( Ne ), td( Si ), td( Se ), td( Fi ), td( Fe ), td( Ti ), td( Te ), td('Сравнение по осям')]),
-		tr([td( NiP), td( NeP), td( SiP), td( SeP), td( FiP), td( FeP), td( TiP), td( TeP), td('Сравнение внутри оси')]),
-		tr([td( NiV), td( NeV), td( SiV), td( SeV), td('--'), td('--'), td('--'), td('--'), td('Головокружение')]),
+		tr([th('Ni'), th('Ne'), th('Si'), th('Se'), th('Fi'), th('Fe'), th('Ti'), th('Te'), th(TR('group'))]),
+		tr([td( Ni ), td( Ne ), td( Si ), td( Se ), td( Fi ), td( Fe ), td( Ti ), td( Te ), td(TR('axcmp'))]),
+		tr([td( NiP), td( NeP), td( SiP), td( SeP), td( FiP), td( FeP), td( TiP), td( TeP), td(TR('inaxcmp'))]),
+		tr([td( NiV), td( NeV), td( SiV), td( SeV), td('--'), td('--'), td('--'), td('--'), td(TR('vertigo'))]),
 	])
-	str += p('Когнитивные оси')
+	str += p(TR('cogax'))
 	str += table([
 		tr([th('NiSe'), th('NeSi'), th('FiTe'), th('FeTi')]),
 		tr([td( NiSe ), td( NeSi ), td( FiTe ), td( FeTi )]),
 	])
 
 	namem = new Map()
-	namem.set('INTJ', 'Стратег')
-	namem.set('INTP', 'Учёный')
-	namem.set('ENTJ', 'Командир')
-	namem.set('ENTP', 'Полемист')
-	namem.set('INFJ', 'Активист')
-	namem.set('INFP', 'Посредник')
-	namem.set('ENFJ', 'Тренер')
-	namem.set('ENFP', 'Борец')
-	namem.set('ISTJ', 'Администратор')
-	namem.set('ISFJ', 'Защитник')
-	namem.set('ESTJ', 'Менеджер')
-	namem.set('ESTP', 'Консул')
-	namem.set('ISTP', 'Виртуоз')
-	namem.set('ISFP', 'Артист')
-	namem.set('ESTP', 'Делец')
-	namem.set('ESFP', 'Развлекатель')
+	namem.set('INTJ', TR('INTJ')); namem.set('INTP', TR('INTP')); namem.set('ENTJ', TR('ENTJ')); namem.set('ENTP', TR('ENTP'))
+	namem.set('INFJ', TR('INFJ')); namem.set('INFP', TR('INFP')); namem.set('ENFJ', TR('ENFJ')); namem.set('ENFP', TR('ENFP'))
+	namem.set('ISTJ', TR('ISTJ')); namem.set('ISFJ', TR('ISFJ')); namem.set('ESTJ', TR('ESTJ')); namem.set('ESTP', TR('ESTP'))
+	namem.set('ISTP', TR('ISTP')); namem.set('ISFP', TR('ISFP')); namem.set('ESTP', TR('ESTP')); namem.set('ESFP', TR('ESFP'))
 	namel = new Map()
-	namel.set('INTJ', 'Ni-Ti')
-	namel.set('INTP', 'Ti-Si')
-	namel.set('ENTJ', 'Te-Se')
-	namel.set('ENTP', 'Ne-Fe')
-	namel.set('INFJ', 'Ni-Ti')
-	namel.set('INFP', 'Fi-Si')
-	namel.set('ENFJ', 'Fe-Se')
-	namel.set('ENFP', 'Ne-Te')
-	namel.set('ISTJ', 'Si-Fi')
-	namel.set('ISFJ', 'Si-Ti')
-	namel.set('ESTJ', 'Te-Ne')
-	namel.set('ESTP', 'Se-Fe')
-	namel.set('ISTP', 'Ti-Ni')
-	namel.set('ISFP', 'Fi-Ni')
-	namel.set('ESTP', 'Se-Fe')
-	namel.set('ESFP', 'Se-Te')
+	namel.set('INTJ', 'Ni-Ti'); namel.set('INTP', 'Ti-Si'); namel.set('ENTJ', 'Te-Se'); namel.set('ENTP', 'Ne-Fe')
+	namel.set('INFJ', 'Ni-Ti'); namel.set('INFP', 'Fi-Si'); namel.set('ENFJ', 'Fe-Se'); namel.set('ENFP', 'Ne-Te')
+	namel.set('ISTJ', 'Si-Fi'); namel.set('ISFJ', 'Si-Ti'); namel.set('ESTJ', 'Te-Ne'); namel.set('ESTP', 'Se-Fe')
+	namel.set('ISTP', 'Ti-Ni'); namel.set('ISFP', 'Fi-Ni'); namel.set('ESTP', 'Se-Fe'); namel.set('ESFP', 'Se-Te')
 	nameg = new Map()
-	nameg.set('INxJ', 'Se grip')
-	nameg.set('ENxP', 'Si grip')
-	nameg.set('ISxJ', 'Ne grip')
-	nameg.set('ESxP', 'Ni grip')
-	nameg.set('IxFP', 'Te grip')
-	nameg.set('ExFJ', 'Ti grip')
-	nameg.set('IxTP', 'Fe grip')
-	nameg.set('ExTJ', 'Fi grip')
+	nameg.set('INxJ', 'Se grip'); nameg.set('ENxP', 'Si grip'); nameg.set('ISxJ', 'Ne grip'); nameg.set('ESxP', 'Ni grip')
+	nameg.set('IxFP', 'Te grip'); nameg.set('ExFJ', 'Ti grip'); nameg.set('IxTP', 'Fe grip'); nameg.set('ExTJ', 'Fi grip')
 
 	// 16cogn + 6axNS + 6axFT + 10cogP + 5loop + 5grip + 14vert
 	// cogn: -1 to 2; up to 7 qs -> range -7 to 14 -> apply -112 to 224
 	// axNS: -1 to 2; up to 4 qs -> range -4 to  8 -> apply  -24 to 48
 	// axFT: -1 to 2; up to 5 qs -> range -5 to 10 -> apply  -30 to 60
 	// cogP: -1 to 2; up to 0 qs -> range  0 to  0 -> apply    0 to 0
-	// vert: -1 to 2; up to 1 qs -> range -1 to  2 -> apply  -14 to 28
+	// vert: -1 to 2; up to 2 qs -> range -2 to  4 -> apply  -14 to 28
 	// sum:                                        -> apply -180 to 360
-
 	// loop: -1 to 2; up to 7 qs -> range -7 to 14
 	// grip: -1 to 2; up to 7 qs -> range -7 to 14
 
-	//   7dom + 5aux + 3ter + 1inf + 6domax + 6auxax + 6domp + 4auxp + 5loop   + 5grip + 7domv, 'type'
+	//   7dom + 5aux + 3ter + 1inf + 6domax + 6auxax + 6domp + 4auxp + 7domv, 'type'
 	mbti = [
-		[7*Ni + 5*Fe + 3*Ti + 1*Se + 6*NiSe + 6*FeTi + 6*NiP + 4*FeP + 5*lNiFe + 5*gSe + 7*NiV, 'INFJ'],
-		[7*Ni + 5*Te + 3*Fi + 1*Se + 6*NiSe + 6*FiTe + 6*NiP + 4*TeP + 5*lNiTe + 5*gSe + 7*NiV, 'INTJ'],
-		[7*Fi + 5*Ne + 3*Si + 1*Te + 6*FiTe + 6*NeSi + 6*FiP + 4*NeP + 5*lFiNe + 5*gTe + 7*NeV, 'INFP'],
-		[7*Ti + 5*Ne + 3*Si + 1*Fe + 6*FeTi + 6*NeSi + 6*TiP + 4*NeP + 5*lTiNe + 5*gFe + 7*NeV, 'INTP'],
-		[7*Si + 5*Fe + 3*Ti + 1*Ne + 6*NeSi + 6*FeTi + 6*SiP + 4*FeP + 5*lSiFe + 5*gNe + 7*SiV, 'ISFJ'],
-		[7*Si + 5*Te + 3*Fi + 1*Ne + 6*NeSi + 6*FiTe + 6*SiP + 4*TeP + 5*lSiTe + 5*gNe + 7*SiV, 'ISTJ'],
-		[7*Fi + 5*Se + 3*Ni + 1*Te + 6*FiTe + 6*NiSe + 6*FiP + 4*SeP + 5*lFiSe + 5*gTe + 7*SeV, 'ISFP'],
-		[7*Ti + 5*Se + 3*Ni + 1*Fe + 6*FeTi + 6*NiSe + 6*TiP + 4*SeP + 5*lTiSe + 5*gFe + 7*SeV, 'ISTP'],
-		[7*Fe + 5*Ni + 3*Se + 1*Ti + 6*FeTi + 6*NiSe + 6*FeP + 4*NiP + 5*lFeNi + 5*gTi + 7*NiV, 'ENFJ'],
-		[7*Te + 5*Ni + 3*Se + 1*Fi + 6*FiTe + 6*NiSe + 6*TeP + 4*NiP + 5*lTeNi + 5*gFi + 7*NiV, 'ENTJ'],
-		[7*Ne + 5*Fi + 3*Te + 1*Si + 6*NeSi + 6*FiTe + 6*NeP + 4*FiP + 5*lNeFi + 5*gSi + 7*NeV, 'ENFP'],
-		[7*Ne + 5*Ti + 3*Fe + 1*Si + 6*NeSi + 6*FeTi + 6*NeP + 4*TiP + 5*lNeTi + 5*gSi + 7*NeV, 'ENTP'],
-		[7*Fe + 5*Si + 3*Ne + 1*Ti + 6*FeTi + 6*NeSi + 6*FeP + 4*SiP + 5*lFeSi + 5*gTi + 7*SiV, 'ESFJ'],
-		[7*Te + 5*Si + 3*Ne + 1*Fi + 6*FiTe + 6*NeSi + 6*TeP + 4*SiP + 5*lTeSi + 5*gFi + 7*SiV, 'ESTJ'],
-		[7*Se + 5*Fi + 3*Te + 1*Ni + 6*NiSe + 6*FiTe + 6*SeP + 4*FiP + 5*lSeFi + 5*gNi + 7*SeV, 'ESFP'],
-		[7*Se + 5*Ti + 3*Fe + 1*Ni + 6*NiSe + 6*FeTi + 6*SeP + 4*TiP + 5*lSeTi + 5*gNi + 7*SeV, 'ESTP'],
+		[7*Ni + 5*Fe + 3*Ti + 1*Se + 6*NiSe + 6*FeTi + 6*NiP + 4*FeP + 7*NiV, 'INFJ'],
+		[7*Ni + 5*Te + 3*Fi + 1*Se + 6*NiSe + 6*FiTe + 6*NiP + 4*TeP + 7*NiV, 'INTJ'],
+		[7*Fi + 5*Ne + 3*Si + 1*Te + 6*FiTe + 6*NeSi + 6*FiP + 4*NeP + 7*NeV, 'INFP'],
+		[7*Ti + 5*Ne + 3*Si + 1*Fe + 6*FeTi + 6*NeSi + 6*TiP + 4*NeP + 7*NeV, 'INTP'],
+		[7*Si + 5*Fe + 3*Ti + 1*Ne + 6*NeSi + 6*FeTi + 6*SiP + 4*FeP + 7*SiV, 'ISFJ'],
+		[7*Si + 5*Te + 3*Fi + 1*Ne + 6*NeSi + 6*FiTe + 6*SiP + 4*TeP + 7*SiV, 'ISTJ'],
+		[7*Fi + 5*Se + 3*Ni + 1*Te + 6*FiTe + 6*NiSe + 6*FiP + 4*SeP + 7*SeV, 'ISFP'],
+		[7*Ti + 5*Se + 3*Ni + 1*Fe + 6*FeTi + 6*NiSe + 6*TiP + 4*SeP + 7*SeV, 'ISTP'],
+		[7*Fe + 5*Ni + 3*Se + 1*Ti + 6*FeTi + 6*NiSe + 6*FeP + 4*NiP + 7*NiV, 'ENFJ'],
+		[7*Te + 5*Ni + 3*Se + 1*Fi + 6*FiTe + 6*NiSe + 6*TeP + 4*NiP + 7*NiV, 'ENTJ'],
+		[7*Ne + 5*Fi + 3*Te + 1*Si + 6*NeSi + 6*FiTe + 6*NeP + 4*FiP + 7*NeV, 'ENFP'],
+		[7*Ne + 5*Ti + 3*Fe + 1*Si + 6*NeSi + 6*FeTi + 6*NeP + 4*TiP + 7*NeV, 'ENTP'],
+		[7*Fe + 5*Si + 3*Ne + 1*Ti + 6*FeTi + 6*NeSi + 6*FeP + 4*SiP + 7*SiV, 'ESFJ'],
+		[7*Te + 5*Si + 3*Ne + 1*Fi + 6*FiTe + 6*NeSi + 6*TeP + 4*SiP + 7*SiV, 'ESTJ'],
+		[7*Se + 5*Fi + 3*Te + 1*Ni + 6*NiSe + 6*FiTe + 6*SeP + 4*FiP + 7*SeV, 'ESFP'],
+		[7*Se + 5*Ti + 3*Fe + 1*Ni + 6*NiSe + 6*FeTi + 6*SeP + 4*TiP + 7*SeV, 'ESTP'],
 	]
 	loop = [
 		[lNiFe, 'INFJ'], [lNiTe, 'INTJ'], [lFiNe, 'INFP'], [lTiNe, 'INTP'],
@@ -1571,7 +1581,7 @@ function recalc() {
 }
 
 function chlang() {
-	lang = $('option[name=lang]:selected')[0].value || default_lang
+	lang = eval(get_lang)
 	create2(question_sets, lang, question_count)
 	recalc();  // Initial recalc
 }

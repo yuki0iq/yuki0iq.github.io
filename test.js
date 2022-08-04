@@ -153,12 +153,15 @@ pull_results = "for (i = 0; i < question_sets.length; i += 1) for (j = 0; j < qu
 
 
 
+tr_helper = "" +
+	"GET = function(arr, key) { return (new Map(arr)).get(key) || arr[0][1] || '' }\n"+
+	"TRANS = function(arr) { return GET(arr, lang) }\n"+
+	"TR = function(key) { return TRANS(GET(txt, key)) }\n"+
+
 function create2(data, lang, qc) {
 	str = ''
 
-	GET = function(arr, key) { return (new Map(arr)).get(key) || arr[0][1] || '' }
-	TRANS = function(arr) { return GET(arr, lang) }
-
+	eval(tr_helper)
 	txt = [
 		['help', [
 			['ru',
@@ -206,8 +209,8 @@ function create2(data, lang, qc) {
 
 	i = 0
 	for (const entry of data) {
-		group_name = TRANS(GET(entry, 'name'))
-		group_desc = TRANS(GET(entry, 'desc'))
+		group_name = TR('name')
+		group_desc = TR('desc')
 		cnt_answers = parseInt(GET(entry, 'cnt_a'))
 		cnt_questions = parseInt(GET(entry, 'cnt_q'))
 		questions = GET(entry, 'questions')
@@ -216,9 +219,9 @@ function create2(data, lang, qc) {
 		if (entry[1] != '') { str += p(group_desc) }
 
 		rows = []
-		cols = [td(TRANS(GET(txt, 'number'))), td(TRANS(GET(txt, 'question')))]
+		cols = [td(TR('number')), td(TR('question'))]
 		for (k = 0; k < cnt_answers; k += 1) { cols.push(td(1+k)) }
-		if (cnt_questions == 2) { cols.push(td(TRANS(GET(txt, 'question')))) }
+		if (cnt_questions == 2) { cols.push(td(TR('question'))) }
 		rows.push(tr(cols))
 
 		j = 0
@@ -240,10 +243,10 @@ function create2(data, lang, qc) {
 				radio_text = (1+k).toString()
 				if (cnt_questions == 1) {
 					if (k == 0) {
-						radio_text += ' (' + TRANS(GET(txt, 'yes')) + ')'
+						radio_text += ' (' + TR('yes') + ')'
 					}
 					if (k == cnt_answers - 1) {
-						radio_text += ' (' + TRANS(GET(txt, 'no')) + ')'
+						radio_text += ' (' + TR('no') + ')'
 					}
 				}
 
@@ -302,3 +305,4 @@ pull_results2 = "" +
 	"		}\n" +
 	"	}\n" +
 	"}"
+get_lang = "$('option[name=lang]:selected')[0].value || default_lang"
