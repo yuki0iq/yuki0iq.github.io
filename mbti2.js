@@ -1576,4 +1576,4 @@ function chlang() {
 	recalc();  // Initial recalc
 }
 
-chlang();
+chlang()  // Initial set lang + recalc

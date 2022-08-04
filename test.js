@@ -291,4 +291,14 @@ randomize_questions2 = "" +
 	"	question_set.set('questions', questions)\n" +
 	"	question_sets[i] = [...question_set]\n" +
 	"}"
-pull_results2 = ""
+pull_results2 = "" +
+	"for (i = 0; i < question_sets.length; i += 1) {\n" +
+	"	question_set = new Map(question_sets[i])\n" +
+	"	questions = question_set.get('questions')\n" +
+	"	for (j = 0; j < questions.length; j += 1) {\n" +
+	"		v_sub = $('input[name=i' + i + '-' + j + ']:checked')\n" +
+	"		if (v_sub.length != 0) {\n" +
+	"			eval(v_sub[0].value)\n" +
+	"		}\n" +
+	"	}\n" +
+	"}"
