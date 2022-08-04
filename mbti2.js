@@ -1596,7 +1596,7 @@ function recalc() {
 
 function chlang() {
 	lang = eval(get_lang)
-	create2(question_sets, lang, question_count)
+	create2(question_sets, lang, test_ver, question_count)
 	recalc();  // Initial recalc
 }
 
