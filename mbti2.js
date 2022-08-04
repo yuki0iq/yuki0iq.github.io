@@ -1,4 +1,4 @@
-test_ver = '[mbti-debug v220804.21]'
+test_ver = '[mbti-debug v220804.22]'
 default_lang = 'ru'
 question_count = '206+'
 
@@ -1475,6 +1475,18 @@ function recalc() {
 		['score', [['ru', 'Счёт'], ['en', 'Score']]],
 		['loop', [['ru', 'Луп'], ['en', 'Loop']]],
 		['grip', [['ru', 'Грип'], ['en', 'Grip']]],
+		['cogtype', [['ru', 'Тип по когнитивкам'], ['en', 'Cognitive functions type']]],
+		['lgtype', [['ru', 'Лупы и грипы'], ['en', 'Loops and grips']]],
+		['probable', [['ru', 'Самый вероятный тип имеет наибольший счёт. '], ['en', 'Best fit type has maximal score. ']]],
+		['cogans', [['ru', 'Наиболее вероятный тип по когнитивным функциям: '], ['en', 'Best fit type is ']]],
+		['loopans', [['ru', 'Наиболее вероятный луп: '], ['en', 'Best fit loop is ']]],
+		['gripans', [['ru', 'Наиболее вероятный грип: '], ['en', 'Best fit grip is ']]],
+		['rangem', [['ru', 'Возможный разброс баллов от -180 до 360. '], ['en', 'Maximal score range is from -180 to 360. ']]],
+		['rangelg', [['ru', 'Возможный разброс баллов от -7 до 14. '], ['en', 'Maximal score range is from -7 to 14. ']]],
+		['besthint', [
+			['ru', 'Результат достовернее, если общий разброс больше, максимум больше, отрыв максимума от соседних типов сильнее'],
+			['en', 'Better result has wider score rande, greater maximum and greateness of maximal score over its neighbors']
+		]],
 	]
 
 	str += h3(TR('raw'))
@@ -1545,8 +1557,10 @@ function recalc() {
 	loop.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];})
 	grip.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];})
 
-	col_names1m = [td('Тип')], col_names2m = [td('Тип')], col_names1l = [td('Тип')], col_names2l = [td('Тип')], col_names1g = [td('Тип')]
-	col_vals1m = [td('Счёт')], col_vals2m = [td('Счёт')], col_vals1l = [td('Луп')], col_vals2l = [td('Луп')], col_vals1g = [td('Грип')]
+	col_names1m = [td(TR('type'))], col_names2m = [td(TR('type'))]
+	col_names1l = [td(TR('type'))], col_names2l = [td(TR('type'))], col_names1g = [TR('type')]
+	col_vals1m = [td(TR('score'))], col_vals2m = [td(TR('score'))]
+	col_vals1l = [td(TR('loop'))], col_vals2l = [td(TR('loop'))], col_vals1g = [td(TR('grip'))]
 	col_empty = [td('')]
 	for (i = 0; i < 8; i += 1) { col_empty.push(td('')) }
 	for (i = 0; i < 8; i += 1) {
@@ -1564,18 +1578,18 @@ function recalc() {
 		col_names2l.push(td(nl)), col_vals2l.push(td(vl))
 	}
 
-	str += h3('Тип по когнитивкам')
-	str += p('Самый вероятный тип имеет наибольший счёт. ' + test_ver)
+	str += h3(TR('cogtype'))
+	str += p(TR('probable') + test_ver)
 	str += table([tr(col_names1m), tr(col_vals1m), tr(col_empty), tr(col_names2m), tr(col_vals2m)])
-	str += p('Наиболее вероятный тип по когнитивным функциям: ' + bold(mbti[15][1]) + ' (' + namem.get(mbti[15][1]) + ')')
-	str += p('Возможный разброс баллов от -180 до 360. Результат достовернее, если общий разброс больше, максимум больше, отрыв максимума от соседних типов сильнее')
+	str += p(TR('cogans') + bold(mbti[15][1]) + ' (' + namem.get(mbti[15][1]) + ')')
+	str += p(TR('rangem') + TR('besthint'))
 
-	str += h3('Лупы и грипы')
-	str += p('Самый вероятный тип имеет наибольший счёт. ' + test_ver)
+	str += h3(TR('lgtype'))
+	str += p(TR('probable') + test_ver)
 	str += table([tr(col_names1l), tr(col_vals1l), tr(col_empty), tr(col_names2l), tr(col_vals2l), tr(col_empty), tr(col_names1g), tr(col_vals1g)])
-	str += p('Наиболее вероятный луп: ' + bold(loop[15][1]) + ' (' + namel.get(loop[15][1]) + ')')
-	str += p('Наиболее вероятный грип: ' + bold(grip[7][1]) + ' (' + nameg.get(grip[7][1]) + ')')
-	str += p('Возможный разброс баллов от -7 до 14. Результат достовернее, если общий разброс больше, максимум больше, отрыв максимума от соседних типов сильнее')
+	str += p(TR('loopans') + bold(loop[15][1]) + ' (' + namel.get(loop[15][1]) + ')')
+	str += p(TR('gripans') + bold(grip[7][1]) + ' (' + nameg.get(grip[7][1]) + ')')
+	str += p(TR('rangelg') + TR('besthint'))
 
 	document.getElementById('res').innerHTML = str
 }
