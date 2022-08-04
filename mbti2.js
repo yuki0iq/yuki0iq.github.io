@@ -1,6 +1,6 @@
 test_ver = '[Версия теста 220804.14]'
 default_lang = 'ru'
-questions_count = '206+'
+question_count = '206+'
 
 
 // Cognitive functions
