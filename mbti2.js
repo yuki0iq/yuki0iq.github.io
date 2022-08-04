@@ -1571,7 +1571,7 @@ function recalc() {
 }
 
 function chlang() {
-	lang = $('input[name=lang]:selected')[0].value || default_lang
+	lang = $('option[name=lang]:selected')[0].value || default_lang
 	create2(question_sets, lang, question_count)
 	recalc();  // Initial recalc
 }
