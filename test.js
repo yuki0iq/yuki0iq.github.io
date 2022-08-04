@@ -224,7 +224,7 @@ function create2(data, lang, qc) {
 		rows = []
 		cols = [td(TRANS(GET(txt, 'number'))), td(TRANS(GET(txt, 'question')))]
 		for (k = 0; k < cnt_answers; k += 1) { cols.push(td(1+k)) }
-		if (cnt_questions == 2) { cols.push(td(TRANS(GET(txt, 'questions')))) }
+		if (cnt_questions == 2) { cols.push(td(TRANS(GET(txt, 'question')))) }
 		rows.push(tr(cols))
 
 		j = 0
