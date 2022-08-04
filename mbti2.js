@@ -1558,7 +1558,7 @@ function recalc() {
 	grip.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];})
 
 	col_names1m = [td(TR('type'))], col_names2m = [td(TR('type'))]
-	col_names1l = [td(TR('type'))], col_names2l = [td(TR('type'))], col_names1g = [TR('type')]
+	col_names1l = [td(TR('type'))], col_names2l = [td(TR('type'))], col_names1g = [td(TR('type'))]
 	col_vals1m = [td(TR('score'))], col_vals2m = [td(TR('score'))]
 	col_vals1l = [td(TR('loop'))], col_vals2l = [td(TR('loop'))], col_vals1g = [td(TR('grip'))]
 	col_empty = [td('')]
