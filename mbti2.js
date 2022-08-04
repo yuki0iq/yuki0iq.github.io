@@ -525,7 +525,7 @@ function recalc() {
 	grip.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];})
 
 	col_names1m = [td('Тип')], col_names2m = [td('Тип')], col_names1l = [td('Тип')], col_names2l = [td('Тип')], col_names1g = [td('Тип')]
-	col_vals1m = [td('Счёт')], col_vals2m = [td('Счёт')], col_vals1l = [td('Счёт')], col_vals2l = [td('Счёт')], col_vals1g = [td('Счёт')]
+	col_vals1m = [td('Счёт')], col_vals2m = [td('Счёт')], col_vals1l = [td('Луп')], col_vals2l = [td('Луп')], col_vals1g = [td('Грип')]
 	col_empty = [td('')]
 	for (i = 0; i < 8; i += 1) { col_empty.push(td('')) }
 	for (i = 0; i < 8; i += 1) {
