@@ -201,7 +201,7 @@ function create2(data, lang, qc) {
 				])) +
 				p('To skip question don\'t answer or press 3')
 			],
-		],
+		]],
 		['question', [['ru', 'Вопрос'], ['en', 'Question']]],
 		['yes', [['ru', 'Да'], ['en', 'Yes']]],
 		['no', [['ru', 'Нет'], ['en', 'No']]],
