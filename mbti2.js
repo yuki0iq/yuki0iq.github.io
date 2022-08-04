@@ -1,6 +1,6 @@
 test_ver = '[mbti-debug v220805.01]'
 default_lang = 'ru'
-question_count = '206+'
+question_count = '206'
 
 
 // Cognitive functions
