@@ -1,3 +1,6 @@
+test_ver = '[Версия теста 220804.14]'
+
+
 // Cognitive functions
 aNi = ['Ni', 2, 1, 0, 0, -1], aNe = ['Ne', 2, 1, 0, 0, -1], aSi = ['Si', 2, 1, 0, 0, -1], aSe = ['Se', 2, 1, 0, 0, -1]
 aFi = ['Fi', 2, 1, 0, 0, -1], aFe = ['Fe', 2, 1, 0, 0, -1], aTi = ['Ti', 2, 1, 0, 0, -1], aTe = ['Te', 2, 1, 0, 0, -1]
@@ -98,10 +101,10 @@ question_sets = [
 			'Если бы я строил дом, то использовал бы уже имеющиеся инструменты'],
 	]],
 	['Головокружение', 'Опиши головокружение и сравни его с четырьмя примерами', 4, 1, [
-		['Описывая головокружение, я привожу подробные ассоциации, связанные с моими ощущениями', [aNeV, aSiV]],
-		['Описывая головокружение, я обращаю внимание на всплывающие в моей голове внутренние образы, мысли, на визуализированные внутренние объекты (Например: "Головокружение ощущается как размытое кистью изображение", "Когда я описывал головокружение, в моей голове всплыла картинка человечка из комикса со звёздочками вокруг своей головы")', [aNiV, aSeV]],
-		['Описание головокружение вызывает у меня трудности, обычно я просто перечисляю основные физические ощущения', [aNiV, aSeV]],
-		['Описывая головокружение, я рассказываю точные подробные физические ощущения, расписывая их до мелочей', [aNeV, aSiV]],
+		['Описывая головокружение, я привожу подробные ассоциации, связанные с моими ощущениями (Пример: TODO)', [aNeV, aSiV]],
+		['Описывая головокружение, я обращаю внимание на всплывающие в моей голове внутренние образы, мысли, на визуализированные внутренние объекты (Пример: "Головокружение ощущается как размытое кистью изображение", "Когда я описывал головокружение, в моей голове всплыла картинка человечка из комикса со звёздочками вокруг своей головы")', [aNiV, aSeV]],
+		['Описание головокружение вызывает у меня трудности, обычно я просто перечисляю основные физические ощущения (Пример: Голова кружится, болит. Глаза болят. Тошнит)', [aNiV, aSeV]],
+		['Описывая головокружение, я рассказываю точные подробные физические ощущения, расписывая их до мелочей (Пример: Голова кружится и небольшая боль в затылке, руки дрожат, сильно тошнит и темнеет в глазах. Иногда становится трудно дышать, хочется прилечь, ноги подкашиваются)', [aNeV, aSiV]],
 	]],
 	/*['Когнитивные оси и метод исключения', 'Предпочтения функций по каждой оси', 4, 1, [
 		['Часто рассматриваю последствия и непредвиденные обстоятельства', [aNiP]],
@@ -420,10 +423,9 @@ function recalc() {
 	lFiNe = 0, lFiSe = 0, lFeNi = 0, lFeSi = 0
 	lTiNe = 0, lTiSe = 0, lTeNi = 0, lTeSi = 0
 	gNi = 0, gNe = 0, gSi = 0, gSe = 0, gFi = 0, gFe = 0, gTi = 0, gTe = 0
-
-	str += h3('Исходный результат')
 	eval(pull_results)
 
+	str += h3('Исходный результат')
 	str += p('Когнитивные функции')
 	str += table([
 		tr([th('Ni'), th('Ne'), th('Si'), th('Se'), th('Fi'), th('Fe'), th('Ti'), th('Te'), th('Группа')]),
@@ -431,42 +433,66 @@ function recalc() {
 		tr([td( NiP), td( NeP), td( SiP), td( SeP), td( FiP), td( FeP), td( TiP), td( TeP), td('Сравнение внутри оси')]),
 		tr([td( NiV), td( NeV), td( SiV), td( SeV), td('--'), td('--'), td('--'), td('--'), td('Головокружение')]),
 	])
-
 	str += p('Когнитивные оси')
 	str += table([
 		tr([th('NiSe'), th('NeSi'), th('FiTe'), th('FeTi')]),
 		tr([td( NiSe ), td( NeSi ), td( FiTe ), td( FeTi )]),
 	])
 
-	names = new Map()
-	names.set('INTJ', 'Стратег')
-	names.set('INTP', 'Учёный')
-	names.set('ENTJ', 'Командир')
-	names.set('ENTP', 'Полемист')
-	names.set('INFJ', 'Активист')
-	names.set('INFP', 'Посредник')
-	names.set('ENFJ', 'Тренер')
-	names.set('ENFP', 'Борец')
-	names.set('ISTJ', 'Администратор')
-	names.set('ISFJ', 'Защитник')
-	names.set('ESTJ', 'Менеджер')
-	names.set('ESTP', 'Консул')
-	names.set('ISTP', 'Виртуоз')
-	names.set('ISFP', 'Артист')
-	names.set('ESTP', 'Делец')
-	names.set('ESFP', 'Развлекатель')
-
-	// Normalize NeNiSeSi and FeFiTeTi (make same maximum)
+	namem = new Map()
+	namem.set('INTJ', 'Стратег')
+	namem.set('INTP', 'Учёный')
+	namem.set('ENTJ', 'Командир')
+	namem.set('ENTP', 'Полемист')
+	namem.set('INFJ', 'Активист')
+	namem.set('INFP', 'Посредник')
+	namem.set('ENFJ', 'Тренер')
+	namem.set('ENFP', 'Борец')
+	namem.set('ISTJ', 'Администратор')
+	namem.set('ISFJ', 'Защитник')
+	namem.set('ESTJ', 'Менеджер')
+	namem.set('ESTP', 'Консул')
+	namem.set('ISTP', 'Виртуоз')
+	namem.set('ISFP', 'Артист')
+	namem.set('ESTP', 'Делец')
+	namem.set('ESFP', 'Развлекатель')
+	namel = new Map()
+	namel.set('INTJ', 'Ni-Ti')
+	namel.set('INTP', 'Ti-Si')
+	namel.set('ENTJ', 'Te-Se')
+	namel.set('ENTP', 'Ne-Fe')
+	namel.set('INFJ', 'Ni-Ti')
+	namel.set('INFP', 'Fi-Si')
+	namel.set('ENFJ', 'Fe-Se')
+	namel.set('ENFP', 'Ne-Te')
+	namel.set('ISTJ', 'Si-Fi')
+	namel.set('ISFJ', 'Si-Ti')
+	namel.set('ESTJ', 'Te-Ne')
+	namel.set('ESTP', 'Se-Fe')
+	namel.set('ISTP', 'Ti-Ni')
+	namel.set('ISFP', 'Fi-Ni')
+	namel.set('ESTP', 'Se-Fe')
+	namel.set('ESFP', 'Se-Te')
+	nameg = new Map()
+	nameg.set('INxJ', 'Se grip')
+	nameg.set('ENxP', 'Si grip')
+	nameg.set('ISxJ', 'Ne grip')
+	nameg.set('ESxP', 'Ni grip')
+	nameg.set('IxFP', 'Te grip')
+	nameg.set('ExFJ', 'Ti grip')
+	nameg.set('IxTP', 'Fe grip')
+	nameg.set('ExTJ', 'Fi grip')
 
 	// 16cogn + 6axNS + 6axFT + 10cogP + 5loop + 5grip + 14vert
 	// cogn: -1 to 2; up to 7 qs -> range -7 to 14 -> apply -112 to 224
 	// axNS: -1 to 2; up to 4 qs -> range -4 to  8 -> apply  -24 to 48
 	// axFT: -1 to 2; up to 5 qs -> range -5 to 10 -> apply  -30 to 60
 	// cogP: -1 to 2; up to 0 qs -> range  0 to  0 -> apply    0 to 0
-	// loop: -1 to 2; up to 7 qs -> range -7 to 14 -> apply  -35 to 70
-	// grip: -1 to 2; up to 7 qs -> range -7 to 14 -> apply  -35 to 70
 	// vert: -1 to 2; up to 1 qs -> range -1 to  2 -> apply  -14 to 28
-	// sum:                                        -> apply -250 to 500
+	// sum:                                        -> apply -180 to 360
+
+	// loop: -1 to 2; up to 7 qs -> range -7 to 14
+	// grip: -1 to 2; up to 7 qs -> range -7 to 14
 
 	//   7dom + 5aux + 3ter + 1inf + 6domax + 6auxax + 6domp + 4auxp + 5loop   + 5grip + 7domv, 'type'
 	mbti = [
@@ -487,44 +513,48 @@ function recalc() {
 		[7*Se + 5*Fi + 3*Te + 1*Ni + 6*NiSe + 6*FiTe + 6*SeP + 4*FiP + 5*lSeFi + 5*gNi + 7*SeV, 'ESFP'],
 		[7*Se + 5*Ti + 3*Fe + 1*Ni + 6*NiSe + 6*FeTi + 6*SeP + 4*TiP + 5*lSeTi + 5*gNi + 7*SeV, 'ESTP'],
 	]
+	loop = [
+		[lNiFe, 'INFJ'], [lNiTe, 'INTJ'], [lFiNe, 'INFP'], [lTiNe, 'INTP'],
+		[lSiFe, 'ISFJ'], [lSiTe, 'ISTJ'], [lFiSe, 'ISFP'], [lTiSe, 'ISTP'],
+		[lFeNi, 'ENFJ'], [lTeNi, 'ENTJ'], [lNeFi, 'ENFP'], [lNeTi, 'ENTP'],
+		[lFeSi, 'ESFJ'], [lTeSi, 'ESTJ'], [lSeFi, 'ESFP'], [lSeTi, 'ESTP'],
+	]
+	grip = [ [gSe, 'INxJ'], [gTe, 'IxFP'], [gFe, 'IxTP'], [gNe, 'ISxJ'], [gTi, 'ExFJ'], [gFi, 'ExTJ'], [gSi, 'ENxP'], [gNi, 'ESxP'], ]
 	mbti.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];})
-	str += h3('Тип по когнитивкам')
-	str += p('Самый вероятный тип имеет наибольший счёт')
-	col_names1 = [td('Тип')]
-	col_vals1 = [td('Счёт')]
-	for (i = 0; i < 8; i += 1) {
-		name = mbti[i][1]
-		val = parseInt(mbti[i][0])
-		col_names1.push(td(name))
-		col_vals1.push(td(val))
-	}
+	loop.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];})
+	grip.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];})
+
+	col_names1m = [td('Тип')], col_names2m = [td('Тип')], col_names1l = [td('Тип')], col_names2l = [td('Тип')], col_names1g = [td('Тип')]
+	col_vals1m = [td('Счёт')], col_vals2m = [td('Счёт')], col_vals1l = [td('Счёт')], col_vals2l = [td('Счёт')], col_vals1g = [td('Счёт')]
 	col_empty = [td('')]
-	col_names2 = [td('Тип')]
-	col_vals2 = [td('Счёт')]
-	for (i = 8; i < 16; i += 1) {
-		name = mbti[i][1]
-		val = parseInt(mbti[i][0])
-		col_names2.push(td(name))
-		col_vals2.push(td(val))
-		col_empty.push(td(''))
+	for (i = 0; i < 8; i += 1) { col_empty.push(td('')) }
+	for (i = 0; i < 8; i += 1) {
+		nm = mbti[i][1], vm = parseInt(mbti[i][0])
+		nl = loop[i][1], vl = parseInt(loop[i][0])
+		ng = grip[i][1], vg = parseInt(grip[i][0])
+		col_names1m.push(td(nm)), col_vals1m.push(td(vm))
+		col_names1l.push(td(nl)), col_vals1l.push(td(vl))
+		col_names1g.push(td(ng)), col_vals1g.push(td(vg))
 	}
-	str += table([tr(col_names1), tr(col_vals1), tr(col_empty), tr(col_names2), tr(col_vals2)])
-	str += p('Наиболее вероятный тип по когнитивным функциям: ' + bold(mbti[15][1]) + ' (' + names.get(mbti[15][1]) + '). [Версия теста 220804.02]')
-	str += p('Возможный разброс баллов от -250 до 500, набранный разброс от ' + mbti[0][0] + ' до ' + mbti[15][0] + ': величина разброса ' + (mbti[15][0] - mbti[0][0]))
-	str += p('Результат достовернее, если общий разброс больше, максимум больше, отрыв максимума от соседних типов сильнее')
+	for (i = 8; i < 16; i += 1) {
+		nm = mbti[i][1], vm = parseInt(mbti[i][0])
+		nl = loop[i][1], vl = parseInt(loop[i][0])
+		col_names2m.push(td(nm)), col_vals2m.push(td(vm))
+		col_names2l.push(td(nl)), col_vals2l.push(td(vl))
+	}
+
+	str += h3('Тип по когнитивкам')
+	str += p('Самый вероятный тип имеет наибольший счёт. ' + test_ver)
+	str += table([tr(col_names1m), tr(col_vals1m), tr(col_empty), tr(col_names2m), tr(col_vals2m)])
+	str += p('Наиболее вероятный тип по когнитивным функциям: ' + bold(mbti[15][1]) + ' (' + namem.get(mbti[15][1]) + ')')
+	str += p('Возможный разброс баллов от -180 до 360. Результат достовернее, если общий разброс больше, максимум больше, отрыв максимума от соседних типов сильнее')
 
 	str += h3('Лупы и грипы')
-	str += p('TODO: допилить описание и разлить воды по типу "ты в лупе как ЕНТП а в грипе как ИНФП" и добавить сортировку')
-	str += table([
-		tr([th('Тип' ), td('NiFe'), td('NiTe'), td('NeFi'), td('NeTi'), td('SiFe'), td('SiTe'), td('SeFi'), td('SeTi')]),
-		tr([th('Луп' ), td(lNiFe ), td(lNiTe ), td(lNeTi ), td(lNeTi ), td(lSiFe ), td(lSiTe ), td(lSeFi ), td(lSeTi )]),
-		tr(col_empty),
-		tr([th('Тип' ), td('FiNe'), td('FiSe'), td('FeNi'), td('FeSi'), td('TiNe'), td('TiSe'), td('TeNi'), td('TeSi')]),
-		tr([th('Луп' ), td(lFiNe ), td(lFiSe ), td(lFeNi ), td(lFeSi ), td(lTiNe ), td(lTiSe ), td(lTeNi ), td(lTeSi )]),
-	])
-	str += table([
-		tr([th('Тип' ), td('Ni inf'), td('Ne inf'), td('Si inf'), td('Se inf'), td('Fi inf'), td('Fe inf'), td('Ti inf'), td('Te inf')]),
-		tr([th('Грип'), td(gNi     ), td(gNe     ), td(gSi     ), td(gSe     ), td(gFi     ), td(gFe     ), td(gTi     ), td(gTe     )]),
+	str += p('Самый вероятный тип имеет наибольший счёт. ' + test_ver)
+	str += table([tr(col_names1l), tr(col_vals1l), tr(col_empty), tr(col_names2l), tr(col_vals2l), tr(col_empty), tr(col_names1g), tr(col_vals1g)])
+	str += p('Наиболее вероятный луп: ' + bold(loop[15][1]) + ' (' + namel.get(mbti[15][1]) + ')')
+	str += p('Наиболее вероятный грип: ' + bold(grip[7][1]) + ' (' + nameg.get(grip[7][1]) + ')')
+	str += p('Возможный разброс баллов от -7 до 14. Результат достовернее, если общий разброс больше, максимум больше, отрыв максимума от соседних типов сильнее')
 	])
 
 	document.getElementById('res').innerHTML = str
