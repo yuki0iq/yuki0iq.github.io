@@ -1,11 +1,11 @@
-# Тест на когнитивные функции (отладка)
+# Yuki's cognitive functions test (debug version)
 
-В этом тесте 206+втораягруппа вопросов. Для работы теста требуется поддержка JavaScript.
+This test requires JavaScript enabled to be run correctly. Для работы теста требуется поддержка JavaScript.
 
 <div id="test_contents">
 </div>
 
-## Результат
+## Result
 
 <div id="res">
 </div>

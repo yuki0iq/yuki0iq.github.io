@@ -30,6 +30,9 @@ function RA(an) {
 	return ans
 }
 
+function GET(arr, key) { return (new Map(arr)).get(key) || arr[0][1] || '' }
+function TRANS(arr) { return GET(arr, lang) }
+
 function _begin(s, arg='') { return '<' + s + ' ' + arg + '>' }
 function _beginv(s, arg=[]) { return _begin(s, arg.join('')) }
 function _end(s) { return _begin('/' + s) }
@@ -142,12 +145,132 @@ function create(data) {
 	document.getElementById('test_contents').innerHTML = str;
 }
 
-create_question_sets = "for (i = 0; i < question_sets.length; i += 1) shuffle(question_sets[i][4])\n" +
+randomize_questions = "for (i = 0; i < question_sets.length; i += 1) shuffle(question_sets[i][4])\n" +
 	"for (i = 0; i < question_sets.length; i += 1) if (question_sets[i][3] == 2) for (j = 0; j < question_sets[i][4].length; j += 1) if (Math.random() > 0.5) {" +
 		"[question_sets[i][4][j][0], question_sets[i][4][j][2]] = [question_sets[i][4][j][2], question_sets[i][4][j][0]];" +
-		"for (k = 0; k < question_sets[i][4][j][1].length; k += 1) question_sets[i][4][j][1][k] = RA(question_sets[i][4][j][1][k])" +
-	"}\ncreate(question_sets)"
+		"for (k = 0; k < question_sets[i][4][j][1].length; k += 1) question_sets[i][4][j][1][k] = RA(question_sets[i][4][j][1][k]) }"
+create_question_sets = "eval(randomize_questions); create(question_sets)"
 
 pull_results = "for (i = 0; i < question_sets.length; i += 1) for (j = 0; j < question_sets[i][4].length; j += 1)" +
 	"{ v_sub = $('input[name=i' + i + '-' + j + ']:checked'); if (v_sub.length != 0) eval(v_sub[0].value) }"
 
+
+
+function create2(data, lang, qc) {
+	str = ''
+
+	txt = [
+		['help', [
+			['ru',
+				p('Этот тест содержит ' + qc + ' вопросов') +
+				p('Тест может быть удобнее проходить с ландшафтной (горизонтальной) ориентацией экрана') +
+				p('Результат автоматически пересчитывается при изменении ответа - можно проходить тест не полностью') +
+				p('При перезагрузке страницы введённые ответы пропадают!') +
+				p('Варианты ответов (если 4 варианта):' + ol([
+					li('Это очень похоже на меня'),
+					li('Это немного похоже на меня'),
+					li('Это не слишком похоже на меня'),
+					li('Совсем не похоже на меня')
+				])) +
+				p('Варианты ответов (если 5 вариантов):' + ol([
+					li('Левый вариант очень похож на меня'),
+					li('Левый вариант немного похож на меня'),
+					li('Оба варианта одинаково схожи со мной'),
+					li('Правый вариант немного похож на меня'),
+					li('Правый вариант очень похож на меня'),
+				])) +
+				p('В остальных случаях 1 - наибольшее сходство, большая цифра - наименьшее сходство. Для того, чтобы пропустить вопрос, не отвечай ничего или отвечай 3')
+			],
+			['en',
+				p('This test has ' + qc + ' questions') +
+				p('Landscaoe screen orientation may be better for taking this test') +
+				p('Result is recalculated automatically giving you ability to take only a part of this test') +
+				p('Reloading the page leads to answers loss!') +
+				p('Answer options (when 4):' + ol([
+					li('This is really me'),
+					li('This looks like me'),
+					li('This doesn\'t look like me'),
+					li('This is definitely not me')
+				])) +
+				p('Answer options (when 5):' + ol([
+					li('Left if really me'),
+					li('Left is kinda me'),
+					li('Left is same as right'),
+					li('Right is kinda me'),
+					li('Right is really me'),
+				])) +
+				p('To skip question don\'t answer or press 3')
+			],
+		],
+		['question', [['ru': 'Вопрос'], ['en': 'Question']]],
+		['yes', [['ru': 'Да'], ['en': 'Yes']]],
+		['no', [['ru': 'Нет'], ['en': 'No']]],
+		['num', [['ru': 'No'], ['en': 'No']]],
+	]
+
+	str += TRANS(GET(txt, 'help'))
+
+	i = 0
+	for (const entry of data) {
+		group_name = TRANS(GET(entry, 'name'))
+		group_desc = TRANS(GET(entry, 'desc'))
+		cnt_answers = parseInt(GET(entry, 'cnt_a'))
+		cnt_questions = parseInt(GET(entry, 'cnt_q'))
+		questions = GET(entry, 'questions')
+
+		str += h3(group_name)
+		if (entry[1] != '') { str += p(group_desc) }
+
+		rows = []
+		cols = [td(TRANS(GET(txt, 'number'))), td(TRANS(GET(txt, 'question')))]
+		for (k = 0; k < type; k += 1) { cols.push(td(1+k)) }
+		if (cntq == 2) { cols.push(td(TRANS(GET(txt, 'questions')))) }
+		rows.push(tr(cols))
+
+		j = 0
+		for (const question of questions) {
+			question_left = TRANS(GET(question, 'le'))
+			question_res = GET(question, 'res'))
+
+			cols = [td(1+j), td(question_left)]
+			for (k = 0; k < type; k += 1) {
+				radio_name = 'i' + i + '-' + j
+				radio_id = radio_name + '-' + k
+				val = ''
+				for (const ans_updater of question_res) {
+					ans_name = ans_updater[0]
+					ans_delta = ans_updater[parseInt(k) + 1]
+					val += ans_name + ' += ' + ans_delta + '; '
+				}
+
+				radio_text = (1+k).toString()
+				if (cnt_questions == 1) {
+					if (k == 0) {
+						radio_text += ' (' + TRANS(GET(txt, 'yes')) + ')'
+					}
+					if (k == cnt_answers - 1) {
+						radio_text += ' (' + TRANS(GET(txt, 'no')) + ')'
+					}
+				}
+
+				cols.push(td(radiol(radio_id, radio_name, val, 'recalc()', radio_text)))
+			}
+			if (cnt_questions == 2) {
+				question_right = TRANS(GET(question, 'ri'))
+				cols.push(td(question_right))
+			}
+
+			rows.push(tr(cols))
+
+			j -= (-1)
+		}
+		str += table(rows)
+
+		i -= (-1)
+	}
+
+	document.getElementById('test_contents').innerHTML = str;
+}
+
+randomize_questions2 = ""
+pull_results2 = ""
