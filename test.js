@@ -205,7 +205,7 @@ function create2(data, lang, qc) {
 		['question', [['ru', 'Вопрос'], ['en', 'Question']]],
 		['yes', [['ru', 'Да'], ['en', 'Yes']]],
 		['no', [['ru', 'Нет'], ['en', 'No']]],
-		['num', [['ru', 'No'], ['en', 'No']]],
+		['number', [['ru', 'No'], ['en', 'No']]],
 	]
 
 	str += TRANS(GET(txt, 'help'))
@@ -223,7 +223,7 @@ function create2(data, lang, qc) {
 
 		rows = []
 		cols = [td(TRANS(GET(txt, 'number'))), td(TRANS(GET(txt, 'question')))]
-		for (k = 0; k < cnt_questions; k += 1) { cols.push(td(1+k)) }
+		for (k = 0; k < cnt_answers; k += 1) { cols.push(td(1+k)) }
 		if (cnt_questions == 2) { cols.push(td(TRANS(GET(txt, 'questions')))) }
 		rows.push(tr(cols))
 
@@ -233,7 +233,7 @@ function create2(data, lang, qc) {
 			question_res = GET(question, 'res')
 
 			cols = [td(1+j), td(question_left)]
-			for (k = 0; k < cnt_questions; k += 1) {
+			for (k = 0; k < cnt_answers; k += 1) {
 				radio_name = 'i' + i + '-' + j
 				radio_id = radio_name + '-' + k
 				val = ''
