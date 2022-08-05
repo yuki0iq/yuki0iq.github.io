@@ -133,6 +133,7 @@ function recalc() {
 	str += '<table>'
 	str += '<tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>Группа</th></tr>'
 
+	E1 = 0, E2 = 0, E3 = 0, E4 = 0, E5 = 0, E6 = 0, E7 = 0, E8 = 0, E9 = 0
 	eval(pull_results)
 	mx = Math.max(E1, E2, E3, E4, E5, E6, E7, E8, E9)
 	str += '<tr>'
