@@ -8,9 +8,6 @@ aNi = ['Ni', 2, 1, 0, 0, -1], aNe = ['Ne', 2, 1, 0, 0, -1], aSi = ['Si', 2, 1, 0
 aFi = ['Fi', 2, 1, 0, 0, -1], aFe = ['Fe', 2, 1, 0, 0, -1], aTi = ['Ti', 2, 1, 0, 0, -1], aTe = ['Te', 2, 1, 0, 0, -1]
 // Axes
 aNiSe = ['NiSe', 2, 1, 0, 0, -1], aNeSi = ['NeSi', 2, 1, 0, 0, -1], aFiTe = ['FiTe', 2, 1, 0, 0, -1], aFeTi = ['FeTi', 2, 1, 0, 0, -1]
-// Preference
-aNiP = ['NiP', 2, 1, 0, -1], aNeP = ['NeP', 2, 1, 0, -1], aSiP = ['SiP', 2, 1, 0, -1], aSeP = ['SeP', 2, 1, 0, -1]
-aFiP = ['FiP', 2, 1, 0, -1], aFeP = ['FeP', 2, 1, 0, -1], aTiP = ['TiP', 2, 1, 0, -1], aTeP = ['TeP', 2, 1, 0, -1]
 // Vertigo
 aNiV = ['NiV', 2, 1, 0, -1], aNeV = ['NeV', 2, 1, 0, -1], aSiV = ['SiV', 2, 1, 0, -1], aSeV = ['SeV', 2, 1, 0, -1]
 // loops
@@ -1431,7 +1428,6 @@ function recalc() {
 
 	Ni = 0, Ne = 0, Si = 0, Se = 0, Fi = 0, Fe = 0, Ti = 0, Te = 0
 	NiSe = 0, NeSi = 0, FiTe = 0, FeTi = 0
-	NiP = 0, NeP = 0, SiP = 0, SeP = 0, FiP = 0, FeP = 0, TiP = 0, TeP = 0
 	NiV = 0, NeV = 0, SiV = 0, SeV = 0
 	lNiFe = 0, lNiTe = 0, lNeFi = 0, lNeTi = 0
 	lSiFe = 0, lSiTe = 0, lSeFi = 0, lSeTi = 0
@@ -1446,7 +1442,6 @@ function recalc() {
 		['cog', [['ru', 'Когнитивные функции'], ['en', 'Cognitive functions score']]],
 		['group', [['ru', 'Группа'], ['en', 'Group']]],
 		['axcmp', [['ru', 'Сравнение по осям'], ['en', 'Axes compare']]],
-		['inaxcmp', [['ru', 'Сравнение внутри оси'], ['en', 'In-axe compare']]],
 		['vertigo', [['ru', 'Головокружение'], ['en', 'Vertigo']]],
 		['cogax', [['ru', 'Когнитивные оси'], ['en', 'Cognitive axes']]],
 		['INTJ', [['ru', 'Стратег'], ['en', 'Architect']]],
@@ -1488,7 +1483,6 @@ function recalc() {
 	str += table([
 		tr([th('Ni'), th('Ne'), th('Si'), th('Se'), th('Fi'), th('Fe'), th('Ti'), th('Te'), th(TR('group'))]),
 		tr([td( Ni ), td( Ne ), td( Si ), td( Se ), td( Fi ), td( Fe ), td( Ti ), td( Te ), td(TR('axcmp'))]),
-		tr([td( NiP), td( NeP), td( SiP), td( SeP), td( FiP), td( FeP), td( TiP), td( TeP), td(TR('inaxcmp'))]),
 		tr([td( NiV), td( NeV), td( SiV), td( SeV), td('--'), td('--'), td('--'), td('--'), td(TR('vertigo'))]),
 	])
 	str += p(TR('cogax'))
@@ -1515,30 +1509,29 @@ function recalc() {
 	// cogn: -1 to 2; up to 7 qs -> range -7 to 14 -> apply -112 to 224
 	// axNS: -1 to 2; up to 4 qs -> range -4 to  8 -> apply  -24 to 48
 	// axFT: -1 to 2; up to 5 qs -> range -5 to 10 -> apply  -30 to 60
-	// cogP: -1 to 2; up to 0 qs -> range  0 to  0 -> apply    0 to 0
 	// vert: -1 to 2; up to 2 qs -> range -2 to  4 -> apply  -14 to 28
 	// sum:                                        -> apply -180 to 360
 	// loop: -1 to 2; up to 7 qs -> range -7 to 14
 	// grip: -1 to 2; up to 7 qs -> range -7 to 14
 
-	//   7dom + 5aux + 3ter + 1inf + 6domax + 6auxax + 6domp + 4auxp + 7domv, 'type'
+	//   7dom + 5aux + 3ter + 1inf + 6domax + 6auxax + 7domv, 'type'
 	mbti = [
-		[7*Ni + 5*Fe + 3*Ti + 1*Se + 6*NiSe + 6*FeTi + 6*NiP + 4*FeP + 7*NiV, 'INFJ'],
-		[7*Ni + 5*Te + 3*Fi + 1*Se + 6*NiSe + 6*FiTe + 6*NiP + 4*TeP + 7*NiV, 'INTJ'],
-		[7*Fi + 5*Ne + 3*Si + 1*Te + 6*FiTe + 6*NeSi + 6*FiP + 4*NeP + 7*NeV, 'INFP'],
-		[7*Ti + 5*Ne + 3*Si + 1*Fe + 6*FeTi + 6*NeSi + 6*TiP + 4*NeP + 7*NeV, 'INTP'],
-		[7*Si + 5*Fe + 3*Ti + 1*Ne + 6*NeSi + 6*FeTi + 6*SiP + 4*FeP + 7*SiV, 'ISFJ'],
-		[7*Si + 5*Te + 3*Fi + 1*Ne + 6*NeSi + 6*FiTe + 6*SiP + 4*TeP + 7*SiV, 'ISTJ'],
-		[7*Fi + 5*Se + 3*Ni + 1*Te + 6*FiTe + 6*NiSe + 6*FiP + 4*SeP + 7*SeV, 'ISFP'],
-		[7*Ti + 5*Se + 3*Ni + 1*Fe + 6*FeTi + 6*NiSe + 6*TiP + 4*SeP + 7*SeV, 'ISTP'],
-		[7*Fe + 5*Ni + 3*Se + 1*Ti + 6*FeTi + 6*NiSe + 6*FeP + 4*NiP + 7*NiV, 'ENFJ'],
-		[7*Te + 5*Ni + 3*Se + 1*Fi + 6*FiTe + 6*NiSe + 6*TeP + 4*NiP + 7*NiV, 'ENTJ'],
-		[7*Ne + 5*Fi + 3*Te + 1*Si + 6*NeSi + 6*FiTe + 6*NeP + 4*FiP + 7*NeV, 'ENFP'],
-		[7*Ne + 5*Ti + 3*Fe + 1*Si + 6*NeSi + 6*FeTi + 6*NeP + 4*TiP + 7*NeV, 'ENTP'],
-		[7*Fe + 5*Si + 3*Ne + 1*Ti + 6*FeTi + 6*NeSi + 6*FeP + 4*SiP + 7*SiV, 'ESFJ'],
-		[7*Te + 5*Si + 3*Ne + 1*Fi + 6*FiTe + 6*NeSi + 6*TeP + 4*SiP + 7*SiV, 'ESTJ'],
-		[7*Se + 5*Fi + 3*Te + 1*Ni + 6*NiSe + 6*FiTe + 6*SeP + 4*FiP + 7*SeV, 'ESFP'],
-		[7*Se + 5*Ti + 3*Fe + 1*Ni + 6*NiSe + 6*FeTi + 6*SeP + 4*TiP + 7*SeV, 'ESTP'],
+		[7*Ni + 5*Fe + 3*Ti + 1*Se + 6*NiSe + 6*FeTi + 7*NiV, 'INFJ'],
+		[7*Ni + 5*Te + 3*Fi + 1*Se + 6*NiSe + 6*FiTe + 7*NiV, 'INTJ'],
+		[7*Fi + 5*Ne + 3*Si + 1*Te + 6*FiTe + 6*NeSi + 7*NeV, 'INFP'],
+		[7*Ti + 5*Ne + 3*Si + 1*Fe + 6*FeTi + 6*NeSi + 7*NeV, 'INTP'],
+		[7*Si + 5*Fe + 3*Ti + 1*Ne + 6*NeSi + 6*FeTi + 7*SiV, 'ISFJ'],
+		[7*Si + 5*Te + 3*Fi + 1*Ne + 6*NeSi + 6*FiTe + 7*SiV, 'ISTJ'],
+		[7*Fi + 5*Se + 3*Ni + 1*Te + 6*FiTe + 6*NiSe + 7*SeV, 'ISFP'],
+		[7*Ti + 5*Se + 3*Ni + 1*Fe + 6*FeTi + 6*NiSe + 7*SeV, 'ISTP'],
+		[7*Fe + 5*Ni + 3*Se + 1*Ti + 6*FeTi + 6*NiSe + 7*NiV, 'ENFJ'],
+		[7*Te + 5*Ni + 3*Se + 1*Fi + 6*FiTe + 6*NiSe + 7*NiV, 'ENTJ'],
+		[7*Ne + 5*Fi + 3*Te + 1*Si + 6*NeSi + 6*FiTe + 7*NeV, 'ENFP'],
+		[7*Ne + 5*Ti + 3*Fe + 1*Si + 6*NeSi + 6*FeTi + 7*NeV, 'ENTP'],
+		[7*Fe + 5*Si + 3*Ne + 1*Ti + 6*FeTi + 6*NeSi + 7*SiV, 'ESFJ'],
+		[7*Te + 5*Si + 3*Ne + 1*Fi + 6*FiTe + 6*NeSi + 7*SiV, 'ESTJ'],
+		[7*Se + 5*Fi + 3*Te + 1*Ni + 6*NiSe + 6*FiTe + 7*SeV, 'ESFP'],
+		[7*Se + 5*Ti + 3*Fe + 1*Ni + 6*NiSe + 6*FeTi + 7*SeV, 'ESTP'],
 	]
 	loop = [
 		[lNiFe, 'INFJ'], [lNiTe, 'INTJ'], [lFiNe, 'INFP'], [lTiNe, 'INTP'],
@@ -1551,10 +1544,10 @@ function recalc() {
 	loop.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];})
 	grip.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];})
 
-	col_names1m = [td(TR('type'))], col_names2m = [td(TR('type'))]
-	col_names1l = [td(TR('type'))], col_names2l = [td(TR('type'))], col_names1g = [td(TR('type'))]
-	col_vals1m = [td(TR('score'))], col_vals2m = [td(TR('score'))]
-	col_vals1l = [td(TR('loop'))], col_vals2l = [td(TR('loop'))], col_vals1g = [td(TR('grip'))]
+	col_names1m = [th(TR('type'))], col_names2m = [th(TR('type'))]
+	col_names1l = [th(TR('type'))], col_names2l = [th(TR('type'))], col_names1g = [th(TR('type'))]
+	col_vals1m = [th(TR('score'))], col_vals2m = [th(TR('score'))]
+	col_vals1l = [th(TR('loop'))], col_vals2l = [th(TR('loop'))], col_vals1g = [th(TR('grip'))]
 	col_empty = [td('')]
 	for (i = 0; i < 8; i += 1) { col_empty.push(td('')) }
 	for (i = 0; i < 8; i += 1) {
