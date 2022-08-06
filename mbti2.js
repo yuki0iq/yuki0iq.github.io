@@ -1,4 +1,4 @@
-test_ver = '[mbti-debug v220805.01]'
+test_ver = '[mbti-debug v220806.19]'
 default_lang = 'ru'
 question_count = '205'
 
