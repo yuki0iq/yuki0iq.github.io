@@ -1,10 +1,7 @@
 test_ver = '[mbti-debug v220808.14]'
 default_lang = 'ru'
 question_count = '205'
-authors_test = [
-	['ru', 'yuki0iq, dazzydraw, narrateee, GunterXR'],
-	['en', ''],
-]
+authors_test = 'yuki0iq, dazzydraw, narrateee, GunterXR - <a href="https://vk.com/itsapartywithmbti">тусовка мбти</a>'
 authors_tr = [
 	['ru', ''],
 	['en', 'yuki0iq, ...'],
