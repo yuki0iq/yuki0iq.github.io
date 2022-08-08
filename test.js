@@ -161,9 +161,8 @@ tr_helper = "" +
 function create2(data, lang, test_ver, authors_test, authors_tr, qc) {
 	str = ''
 
-	authors_tr = GET(authors_tr, lang)
-
 	eval(tr_helper)
+	authors_tr = GET(authors_tr, lang)
 	txt = [
 		['help', [
 			['ru',
