@@ -1,6 +1,11 @@
-test_ver = '[mbti-debug v220806.19]'
+test_ver = '[mbti-debug v220808.14]'
 default_lang = 'ru'
 question_count = '205'
+authors_test = 'yuki0iq, dazzydraw, narrateee, GunterXR'
+authors_tr = [
+	['ru', ''],
+	['en', 'yuki0iq, ...'],
+]
 
 
 // Cognitive functions
@@ -1438,43 +1443,145 @@ function recalc() {
 
 	eval(tr_helper)
 	txt = [
-		['raw', [['ru', 'Исходный результат'], ['en', 'Raw test score']]],
-		['cog', [['ru', 'Когнитивные функции'], ['en', 'Cognitive functions score']]],
-		['group', [['ru', 'Группа'], ['en', 'Group']]],
-		['axcmp', [['ru', 'Сравнение по осям'], ['en', 'Axes compare']]],
-		['vertigo', [['ru', 'Головокружение'], ['en', 'Vertigo']]],
-		['cogax', [['ru', 'Когнитивные оси'], ['en', 'Cognitive axes']]],
-		['INTJ', [['ru', 'Стратег'], ['en', 'Architect']]],
-		['INTP', [['ru', 'Учёный'], ['en', 'Logician']]],
-		['ENTJ', [['ru', 'Командир'], ['en', 'Commander']]],
-		['ENTP', [['ru', 'Полемист'], ['en', 'Debater']]],
-		['INFJ', [['ru', 'Активист'], ['en', 'Advocate']]],
-		['INFP', [['ru', 'Посредник'], ['en', 'Mediator']]],
-		['ENFJ', [['ru', 'Тренер'], ['en', 'Protagonist']]],
-		['ENFP', [['ru', 'Борец'], ['en', 'Campaigner']]],
-		['ISTJ', [['ru', 'Администратор'], ['en', 'Logistician']]],
-		['ISFJ', [['ru', 'Защитник'], ['en', 'Defender']]],
-		['ESTJ', [['ru', 'Менеджер'], ['en', 'Executive']]],
-		['ESTP', [['ru', 'Консул'], ['en', 'Consul']]],
-		['ISTP', [['ru', 'Виртуоз'], ['en', 'Virtuoso']]],
-		['ISFP', [['ru', 'Артист'], ['en', 'Adventurer']]],
-		['ESTP', [['ru', 'Делец'], ['en', 'Enterpreneur']]],
-		['ESFP', [['ru', 'Развлекатель'], ['en', 'Entertainer']]],
-		['type', [['ru', 'Тип'], ['en', 'Type']]],
-		['score', [['ru', 'Счёт'], ['en', 'Score']]],
-		['loop', [['ru', 'Луп'], ['en', 'Loop']]],
-		['grip', [['ru', 'Грип'], ['en', 'Grip']]],
-		['cogtype', [['ru', 'Тип по когнитивкам'], ['en', 'Cognitive functions type']]],
-		['lgtype', [['ru', 'Лупы и грипы'], ['en', 'Loops and grips']]],
-		['probable', [['ru', 'Самый вероятный тип имеет наибольший счёт. '], ['en', 'Best fit type has maximal score. ']]],
-		['cogans', [['ru', 'Наиболее вероятный тип по когнитивным функциям: '], ['en', 'Best fit type is ']]],
-		['loopans', [['ru', 'Наиболее вероятный луп: '], ['en', 'Best fit loop is ']]],
-		['gripans', [['ru', 'Наиболее вероятный грип: '], ['en', 'Best fit grip is ']]],
-		['rangem', [['ru', 'Возможный разброс баллов от -180 до 360. '], ['en', 'Maximal score range is from -180 to 360. ']]],
-		['rangelg', [['ru', 'Возможный разброс баллов от -7 до 14. '], ['en', 'Maximal score range is from -7 to 14. ']]],
+		['raw', [
+			['ru', 'Исходный результат'],
+			['en', 'Raw test score'],
+		]],
+		['cog', [
+			['ru', 'Когнитивные функции'],
+			['en', 'Cognitive functions score'],
+		]],
+		['group', [
+			['ru', 'Группа'],
+			['en', 'Group'],
+		]],
+		['axcmp', [
+			['ru', 'Сравнение по осям'],
+			['en', 'Axes compare'],
+		]],
+		['vertigo', [
+			['ru', 'Головокружение'],
+			['en', 'Vertigo'],
+		]],
+		['cogax', [
+			['ru', 'Когнитивные оси'],
+			['en', 'Cognitive axes'],
+		]],
+		['INTJ', [
+			['ru', 'Стратег'],
+			['en', 'Architect'],
+		]],
+		['INTP', [
+			['ru', 'Учёный'],
+			['en', 'Logician'],
+		]],
+		['ENTJ', [
+			['ru', 'Командир'],
+			['en', 'Commander'],
+		]],
+		['ENTP', [
+			['ru', 'Полемист'],
+			['en', 'Debater'],
+		]],
+		['INFJ', [
+			['ru', 'Активист'],
+			['en', 'Advocate'],
+		]],
+		['INFP', [
+			['ru', 'Посредник'],
+			['en', 'Mediator'],
+		]],
+		['ENFJ', [
+			['ru', 'Тренер'],
+			['en', 'Protagonist'],
+		]],
+		['ENFP', [
+			['ru', 'Борец'],
+			['en', 'Campaigner'],
+		]],
+		['ISTJ', [
+			['ru', 'Администратор'],
+			['en', 'Logistician'],
+		]],
+		['ISFJ', [
+			['ru', 'Защитник'],
+			['en', 'Defender'],
+		]],
+		['ESTJ', [
+			['ru', 'Менеджер'],
+			['en', 'Executive'],
+		]],
+		['ESTP', [
+			['ru', 'Консул'],
+			['en', 'Consul'],
+		]],
+		['ISTP', [
+			['ru', 'Виртуоз'],
+			['en', 'Virtuoso'],
+		]],
+		['ISFP', [
+			['ru', 'Артист'],
+			['en', 'Adventurer'],
+		]],
+		['ESTP', [
+			['ru', 'Делец'],
+			['en', 'Enterpreneur'],
+		]],
+		['ESFP', [
+			['ru', 'Развлекатель'],
+			['en', 'Entertainer'],
+		]],
+		['type', [
+			['ru', 'Тип'],
+			['en', 'Type'],
+		]],
+		['score', [
+			['ru', 'Счёт'],
+			['en', 'Score'],
+		]],
+		['loop', [
+			['ru', 'Луп'],
+			['en', 'Loop'],
+		]],
+		['grip', [
+			['ru', 'Грип'],
+			['en', 'Grip'],
+		]],
+		['cogtype', [
+			['ru', 'Тип по когнитивкам'],
+			['en', 'Cognitive functions type'],
+		]],
+		['lgtype', [
+			['ru', 'Лупы и грипы'],
+			['en', 'Loops and grips'],
+		]],
+		['probable', [
+			['ru', 'Самый вероятный тип имеет наибольший счёт. '],
+			['en', 'Best fit type has maximal score. '],
+		]],
+		['cogans', [
+			['ru', 'Наиболее вероятный тип по когнитивным функциям: '],
+			['en', 'Best fit type is '],
+		]],
+		['loopans', [
+			['ru', 'Наиболее вероятный луп: '],
+			['en', 'Best fit loop is '],
+		]],
+		['gripans', [
+			['ru', 'Наиболее вероятный грип: '],
+			['en', 'Best fit grip is '],
+		]],
+		['rangem', [
+			['ru', 'Возможный разброс баллов от -180 до 360. '],
+			['en', 'Maximal score range is from -180 to 360. '],
+		]],
+		['rangelg', [
+			['ru', 'Возможный разброс баллов от -7 до 14. '],
+			['en', 'Maximal score range is from -7 to 14. '],
+		]],
 		['besthint', [
 			['ru', 'Результат достовернее, если общий разброс больше, максимум больше, отрыв максимума от соседних типов сильнее'],
-			['en', 'Better result has wider score rande, greater maximum and greateness of maximal score over its neighbors']
+			['en', 'Better result has wider score rande, greater maximum and greateness of maximal score over its neighbors'],
 		]],
 	]
 

@@ -158,14 +158,18 @@ tr_helper = "" +
 	"TRANS = function(arr) { return GET(arr, lang) }\n"+
 	"TR = function(key) { return TRANS(GET(txt, key)) }\n"
 
-function create2(data, lang, test_ver, qc) {
+function create2(data, lang, test_ver, authors_test, authors_tr, qc) {
 	str = ''
+
+	authors_tr = GET(authors_tr, lang)
 
 	eval(tr_helper)
 	txt = [
 		['help', [
 			['ru',
 				p('Версия теста ' + test_ver) +
+				p('Авторы теста: ' + authors_test) +
+				(authors_tr == '' ? '' : p('Авторы перевода: ' + authors_tr)) +
 				p('Этот тест содержит ' + qc + ' вопросов. Тест может быть удобнее проходить с ландшафтной (горизонтальной) ориентацией экрана. Результат автоматически пересчитывается при изменении ответа - можно проходить тест не полностью. При перезагрузке страницы или смене языка введённые ответы пропадают!') +
 				p('Варианты ответов (если 4 варианта):' + ol([
 					li('Это очень похоже на меня'),
@@ -184,6 +188,8 @@ function create2(data, lang, test_ver, qc) {
 			],
 			['en',
 				p('This test is ' + test_ver) +
+				p('Test created by ' + authors_test) +
+				(authors_tr == '' ? '' : p('Translated by ' + authors_tr)) +
 				p('This test has ' + qc + ' questions. Landscape screen orientation may be better for taking this test. Result is recalculated automatically giving you ability to take only a part of this test. Reloading the page or changing its language leads to answers loss!') +
 				p('Answer options (when 4):' + ol([
 					li('This is really me'),
