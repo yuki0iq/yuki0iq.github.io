@@ -19,6 +19,13 @@ This test requires JavaScript enabled to be run correctly. Для работы �
 <div id="res">
 </div>
 
+## Sources
+
+- todo
+- add
+- sources
+- list
+
 <script src="jquery.js"></script>
 <script src="test.js"></script>
 <script src="mbti2.js"></script>
