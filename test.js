@@ -324,5 +324,5 @@ get_lang = "" +
 	"res_lang = (langsel.value ? $('option[name=lang]:selected')[0].value : undefined) || shortLang || default_lang\n" +
 	"langsel.value = 1\n" +
 	"if ($('option[name=lang]:selected')[0]) $('option[name=lang]:selected')[0].selected = false\n" +
-	"$('option[value=' + res_lang + ']')[0].selected = true\n" +
+	"$('option[value=\"' + res_lang + '\"]')[0].selected = true\n" +
 	"res_lang"
