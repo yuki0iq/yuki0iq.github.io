@@ -327,5 +327,6 @@ function get_lang() {
 		lang_arr.push(oklang.value);
 	}
 	$('select[id=lang]').kek = 1;
+	$('option[value="' + lang_arr[0] + '"]').selected = true;
 	return lang_arr;
 }
