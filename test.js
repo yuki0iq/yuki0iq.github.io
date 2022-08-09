@@ -308,7 +308,9 @@ pull_results2 = "" +
 	"}"
 
 function get_lang() {
-	let lang_array = window.navigator.languages ? [...window.navigator.languages] : [];
+	let lang_array = [];
+	if ($('select[id=lang]').kek) lang_array.push($('option[name=lang]:selected')[0].value);
+	if (window.navigator.languages) lang_array = lang_array.concat(window.navigator.languages);
 	if (window.navigator.language) lang_array.push(window.navigator.language);
 	if (window.navigator.browserLanguage) lang_array.push(window.navigator.browserLanguage);
 	if (window.navigator.userLanguage) lang_array.push(window.navigator.userLanguage);
@@ -324,5 +326,6 @@ function get_lang() {
 	for (const oklang of $('option[name=lang]')) {
 		lang_arr.push(oklang.value);
 	}
+	$('select[id=lang]').kek = 1;
 	return lang_arr;
 }
