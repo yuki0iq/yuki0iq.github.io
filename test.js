@@ -308,7 +308,7 @@ pull_results2 = "" +
 	"}"
 
 function get_lang() {
-	let lang_array = window.navigator.languages ? window.navigator.languages : [];
+	let lang_array = window.navigator.languages ? [...window.navigator.languages] : [];
 	if (window.navigator.language) lang_array.push(window.navigator.language);
 	if (window.navigator.browserLanguage) lang_array.push(window.navigator.browserLanguage);
 	if (window.navigator.userLanguage) lang_array.push(window.navigator.userLanguage);
