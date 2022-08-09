@@ -321,8 +321,7 @@ get_lang = "" +
 	"if (shortLang.indexOf('-') !== -1) shortLang = shortLang.split('-')[0];\n" +
 	"if (shortLang.indexOf('_') !== -1) shortLang = shortLang.split('_')[0];\n" +
 	"langsel = $('select[id=lang]')[0]\n" +
-	"res_lang = (langsel.value ? $('option[name=lang]:selected')[0].value : undefined) || shortLang || default_lang\n" +
-	"langsel.value = 1\n" +
-	"if ($('option[name=lang]:selected')[0]) $('option[name=lang]:selected')[0].selected = false\n" +
+	"res_lang = (langsel.kek ? $('option[name=lang]:selected')[0].value : undefined) || shortLang || default_lang\n" +
+	"langsel.kek = 1\n" +
 	"$('option[value=\"' + res_lang + '\"]')[0].selected = true\n" +
 	"res_lang"
