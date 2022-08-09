@@ -197,7 +197,7 @@ function create2(data, lang, test_ver, authors_test, authors_tr, qc) {
 					li('This is definitely not me')
 				])) +
 				p('Answer options (when 5):' + ol([
-					li('Left if really me'),
+					li('Left is really me'),
 					li('Left is kinda me'),
 					li('Left is same as right'),
 					li('Right is kinda me'),
