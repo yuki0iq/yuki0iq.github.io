@@ -161,7 +161,7 @@ function create2(data, lang, test_ver, authors_test, authors_tr, qc) {
 	let str = '';
 
 	eval(tr_helper);
-	let authors_tr = TRANS(authors_tr);
+	authors_tr = TRANS(authors_tr);
 	let txt = [
 		['help', [
 			['ru',
