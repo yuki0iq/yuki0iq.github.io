@@ -1,4 +1,4 @@
-test_ver = '[mbti-debug v220808.18]'
+test_ver = '[mbti-debug v220809.22]'
 default_lang = 'ru'
 question_count = '205'
 authors_test = link('https://vk.com/itsapartywithmbti', 'тусовка mbti') + ' - yuki0iq, dazzydraw, narrateee, GunterXR'
