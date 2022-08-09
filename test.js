@@ -322,4 +322,5 @@ get_lang = "" +
 	"if (shortLang.indexOf('_') !== -1) shortLang = shortLang.split('_')[0];\n" +
 	"res_lang = $('option[name=lang]:selected')[0].value || shortLang || default_lang\n" +
 	"$('option[name=lang]:selected')[0].selected = false\n" +
-	"$('option[value=' + res_lang + ']')[0].selected = true\n"
+	"$('option[value=' + res_lang + ']')[0].selected = true\n" +
+	"res_lang"
