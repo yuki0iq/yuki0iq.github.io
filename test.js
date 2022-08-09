@@ -1,58 +1,49 @@
 function shuffle(array) {
-	for (let iij = array.length - 1; iij > 0; iij--) {
-		let jij = Math.floor(Math.random() * (iij + 1));
-		[array[iij], array[jij]] = [array[jij], array[iij]];
+	for (let i = array.length - 1; i > 0; i--) {
+		let j = Math.floor(Math.random() * (i + 1));
+		[array[i], array[j]] = [array[j], array[i]];
 	}
 }
 
 function rjust(s, v) {
-	nn = s.length
-	for (iii = 0; iii < (v - nn); iii += 1) {
-		s = ' ' + s
-	}
-	return s
+	for (let i = 0; i < (v - s.length); i += 1) s = ' ' + s;
+	return s;
 }
 
 function ljust(s, v) {
-	nn = s.length
-	for (iii = 0; iii < (v - nn); iii += 1) {
-		s = s + ' '
-	}
-	return s
+	for (let i = 0; i < (v - s.length); i += 1) s = s + ' ';
+	return s;
 }
 
 function RA(an) {
-	n = an.length - 1
-	ans = [an[0]]
-	for (ij = n; ij > 0; ij -= 1) {
-		ans.push(an[ij])
-	}
-	return ans
+	let ans = [an[0]];
+	for (let i = an.length - 1; i > 0; i -= 1) ans.push(an[i]);
+	return ans;
 }
 
-function _begin(s, arg='') { return '<' + s + ' ' + arg + '>' }
-function _beginv(s, arg=[]) { return _begin(s, arg.join('')) }
-function _end(s) { return _begin('/' + s) }
-function _enclose(s, v, arg=[]) { return _beginv(s, arg) + v + _end(s) }
-function _table(s) { return _enclose('table', s) }
-function _tr(s) { return _enclose('tr', s) }
-function _ol(s) { return _enclose('ol', s) }
-function _param(k, v) { return k + '="' + v + '" ' }
+function _begin(s, arg='') { return '<' + s + ' ' + arg + '>'; }
+function _beginv(s, arg=[]) { return _begin(s, arg.join('')); }
+function _end(s) { return _begin('/' + s); }
+function _enclose(s, v, arg=[]) { return _beginv(s, arg) + v + _end(s); }
+function _table(s) { return _enclose('table', s); }
+function _tr(s) { return _enclose('tr', s); }
+function _ol(s) { return _enclose('ol', s); }
+function _param(k, v) { return k + '="' + v + '" '; }
 
-function table(s) { return _table(s.join('')) }
-function tr(s) { return _tr(s.join('')) }
-function th(s) { return _enclose('th', s) }
-function td(s) { return _enclose('td', s) }
-function h3(s) { return _enclose('h3', s) }
-function bold(s) { return _enclose('b', s) }
-function link(ref, s) { return _enclose('a', s, [_param('href', ref)]) }
-function ol(s) { return _ol(s.join('')) }
-function li(s) { return _enclose('li', s) }
-function p(s) { return _enclose('p', s) }
-function br() { return _begin('br') }
-function label(s, f) { return _enclose('label', s, [_param('for', f)]) }
-function radio(id, nm, vl, oc) { return _beginv('input', [_param('id', id), _param('name', nm), _param('value', vl), _param('onclick', oc), _param('type', 'radio')]) }
-function radiol(id, nm, vl, oc, s) { return radio(id, nm, vl, oc) + label(s, id) }
+function table(s) { return _table(s.join('')); }
+function tr(s) { return _tr(s.join('')); }
+function th(s) { return _enclose('th', s); }
+function td(s) { return _enclose('td', s); }
+function h3(s) { return _enclose('h3', s); }
+function bold(s) { return _enclose('b', s); }
+function link(ref, s) { return _enclose('a', s, [_param('href', ref)]); }
+function ol(s) { return _ol(s.join('')); }
+function li(s) { return _enclose('li', s); }
+function p(s) { return _enclose('p', s); }
+function br() { return _begin('br'); }
+function label(s, f) { return _enclose('label', s, [_param('for', f)]); }
+function radio(id, nm, vl, oc) { return _beginv('input', [_param('id', id), _param('name', nm), _param('value', vl), _param('onclick', oc), _param('type', 'radio')]); }
+function radiol(id, nm, vl, oc, s) { return radio(id, nm, vl, oc) + label(s, id); }
 
 function create(data) {
 	// data = [name, desc, cnt, cntans, [name, [ans, d1, d2, ...], name2]]
@@ -153,17 +144,25 @@ pull_results = "for (i = 0; i < question_sets.length; i += 1) for (j = 0; j < qu
 
 
 
+function GET(arr, key) {
+	if (typeof arr == typeof '1') return arr;
+	if (typeof key == typeof '1') return (new Map(arr)).get(key) || arr[0][1] || '';
+	let res = undefined;
+	let map = new Map(arr);
+	for (const k of key) res = res || map.get(k);
+	return res || arr[0][1] || '';
+}
+
 tr_helper = "" +
-	"GET = function(arr, key) { return (new Map(arr)).get(key) || arr[0][1] || '' }\n"+
 	"TRANS = function(arr) { return GET(arr, lang) }\n"+
-	"TR = function(key) { return TRANS(GET(txt, key)) }\n"
+	"TR = function(key) { return TRANS(GET(txt, key)) }\n";
 
 function create2(data, lang, test_ver, authors_test, authors_tr, qc) {
-	str = ''
+	let str = '';
 
-	eval(tr_helper)
-	authors_tr = GET(authors_tr, lang)
-	txt = [
+	eval(tr_helper);
+	let authors_tr = TRANS(authors_tr);
+	let txt = [
 		['help', [
 			['ru',
 				p('Версия теста ' + test_ver) +
@@ -210,97 +209,92 @@ function create2(data, lang, test_ver, authors_test, authors_tr, qc) {
 		['yes', [['ru', 'Да'], ['en', 'Yes']]],
 		['no', [['ru', 'Нет'], ['en', 'No']]],
 		['number', [['ru', 'No'], ['en', 'No']]],
-	]
+	];
 
-	str += TRANS(GET(txt, 'help'))
+	str += TRANS(GET(txt, 'help'));
 
-	i = 0
+	let i = 0;
 	for (const entry of data) {
-		group_name = TRANS(GET(entry, 'name'))
-		group_desc = TRANS(GET(entry, 'desc'))
-		cnt_answers = parseInt(GET(entry, 'cnt_a'))
-		cnt_questions = parseInt(GET(entry, 'cnt_q'))
-		questions = GET(entry, 'questions')
+		let group_name = TRANS(GET(entry, 'name'));
+		let group_desc = TRANS(GET(entry, 'desc'));
+		let cnt_answers = parseInt(GET(entry, 'cnt_a'));
+		let cnt_questions = parseInt(GET(entry, 'cnt_q'));
+		let questions = GET(entry, 'questions');
 
-		str += h3(group_name)
-		if (entry[1] != '') { str += p(group_desc) }
+		str += h3(group_name);
+		if (entry[1] != '') str += p(group_desc);
 
-		rows = []
-		cols = [td(TR('number')), td(TR('question'))]
-		for (k = 0; k < cnt_answers; k += 1) { cols.push(td(1+k)) }
-		if (cnt_questions == 2) { cols.push(td(TR('question'))) }
-		rows.push(tr(cols))
+		let rows = [];
+		let cols = [td(TR('number')), td(TR('question'))];
+		for (let k = 0; k < cnt_answers; k += 1) cols.push(td(1+k));
+		if (cnt_questions == 2) cols.push(td(TR('question')));
+		rows.push(tr(cols));
 
-		j = 0
+		let j = 0;
 		for (const question of questions) {
-			question_left = TRANS(GET(question, 'le'))
-			question_res = GET(question, 'res')
+			let question_left = TRANS(GET(question, 'le'));
+			let question_res = GET(question, 'res');
 
-			cols = [td(1+j), td(question_left)]
-			for (k = 0; k < cnt_answers; k += 1) {
-				radio_name = 'i' + i + '-' + j
-				radio_id = radio_name + '-' + k
-				val = ''
+			let cols = [td(1+j), td(question_left)];
+			for (let k = 0; k < cnt_answers; k += 1) {
+				let radio_name = 'i' + i + '-' + j;
+				let radio_id = radio_name + '-' + k;
+				let val = '';
 				for (const ans_updater of question_res) {
-					ans_name = ans_updater[0]
-					ans_delta = ans_updater[parseInt(k) + 1]
-					val += ans_name + ' += ' + ans_delta + '; '
+					let ans_name = ans_updater[0];
+					let ans_delta = ans_updater[parseInt(k) + 1];
+					val += ans_name + ' += ' + ans_delta + '; ';
 				}
 
-				radio_text = (1+k).toString()
+				let radio_text = (1+k).toString();
 				if (cnt_questions == 1) {
-					if (k == 0) {
-						radio_text += ' (' + TR('yes') + ')'
-					}
-					if (k == cnt_answers - 1) {
-						radio_text += ' (' + TR('no') + ')'
-					}
+					if (k == 0) radio_text += ' (' + TR('yes') + ')';
+					if (k == cnt_answers - 1) radio_text += ' (' + TR('no') + ')';
 				}
 
-				cols.push(td(radiol(radio_id, radio_name, val, 'recalc()', radio_text)))
+				cols.push(td(radiol(radio_id, radio_name, val, 'recalc()', radio_text)));
 			}
 			if (cnt_questions == 2) {
-				question_right = TRANS(GET(question, 'ri'))
-				cols.push(td(question_right))
+				let question_right = TRANS(GET(question, 'ri'));
+				cols.push(td(question_right));
 			}
 
-			rows.push(tr(cols))
-
-			j -= (-1)
+			rows.push(tr(cols));
+			j += 1;
 		}
-		str += table(rows)
 
-		i -= (-1)
+		str += table(rows);
+		i += 1;
 	}
 
 	document.getElementById('test_contents').innerHTML = str;
 }
 
-randomize_questions2 = "" +
-	"for (i = 0; i < question_sets.length; i += 1) {\n" +
-	"	question_set = new Map(question_sets[i])\n" +
-	"	questions = question_set.get('questions')\n" +
-	"	shuffle(questions)\n" +
-	"	if (2 == question_set.get('cnt_q')) {\n" +
-	"		for (j = 0; j < questions.length; j += 1) {\n" +
-	"			if (Math.random() > 0.5) {\n" +
-	"				question = new Map(questions[j])\n" +
-	"				left = question.get('le')\n" +
-	"				right = question.get('ri')\n" +
-	"				res = question.get('res')\n" +
-	"				for (k = 0; k < res.length; k += 1) {\n" +
-	"					res[k] = RA(res[k])\n" +
-	"				}\n" +
-	"				question.set('le', right)\n" +
-	"				question.set('ri', left)\n" +
-	"				question.set('res', res)\n" +
-	"				questions[j] = [...question]\n" +
-	"			}\n" +
-	"		}\n" +
-	"	}\n" +
-	"	question_set.set('questions', questions)\n" +
-	"	question_sets[i] = [...question_set]\n" +
-	"}"
+function shuffle_questions() {
+	for (let i = 0; i < question_sets.length; i += 1) {
+		question_set = new Map(question_sets[i]);
+		questions = question_set.get('questions');
+		shuffle(questions);
+		if (2 == question_set.get('cnt_q')) {
+			for (let j = 0; j < questions.length; j += 1) {
+				if (Math.random() > 0.5) {
+					question = new Map(questions[j]);
+					left = question.get('le');
+					right = question.get('ri');
+					res = question.get('res');
+					for (k = 0; k < res.length; k += 1) res[k] = RA(res[k]);
+					question.set('le', right);
+					question.set('ri', left);
+					question.set('res', res);
+					questions[j] = [...question];
+				}
+			}
+		}
+		question_set.set('questions', questions);
+		question_sets[i] = [...question_set];
+	}
+}
+
 pull_results2 = "" +
 	"for (i = 0; i < question_sets.length; i += 1) {\n" +
 	"	question_set = new Map(question_sets[i])\n" +
@@ -313,15 +307,22 @@ pull_results2 = "" +
 	"	}\n" +
 	"}"
 
-// https://stackoverflow.com/a/26889118
-get_lang = "" +
-	"let lang = window.navigator.languages ? window.navigator.languages[0] : null;\n" +
-	"lang = lang || window.navigator.language || window.navigator.browserLanguage || window.navigator.userLanguage;\n" +
-	"let shortLang = lang;\n" +
-	"if (shortLang.indexOf('-') !== -1) shortLang = shortLang.split('-')[0];\n" +
-	"if (shortLang.indexOf('_') !== -1) shortLang = shortLang.split('_')[0];\n" +
-	"langsel = $('select[id=lang]')[0]\n" +
-	"res_lang = (langsel.kek ? $('option[name=lang]:selected')[0].value : undefined) || shortLang || default_lang\n" +
-	"langsel.kek = 1\n" +
-	"$('option[value=\"' + res_lang + '\"]')[0].selected = true\n" +
-	"res_lang"
+function get_lang() {
+	let lang_array = window.navigator.languages ? window.navigator.languages : [];
+	if (window.navigator.language) lang_array.push(window.navigator.language);
+	if (window.navigator.browserLanguage) lang_array.push(window.navigator.browserLanguage);
+	if (window.navigator.userLanguage) lang_array.push(window.navigator.userLanguage);
+	if (typeof default_lang != 'undefined') lang_array.push(default_lang);
+	let lang_arr = [];
+	for (let i = 0; i < lang_array.length; i += 1) {
+		let lang_name = lang_array[i];
+		if ($('option[value="' + lang_name + '"]')[0]) lang_arr.push(lang_name);
+		if (lang_name.indexOf('-') !== -1) lang_name = lang_name.split('-')[0];
+		if (lang_name.indexOf('_') !== -1) lang_name = lang_name.split('_')[0];
+		if ($('option[value="' + lang_name + '"]')[0]) lang_arr.push(lang_name);
+	}
+	for (const oklang of $('option[name=lang]')) {
+		lang_arr.push(oklang.value);
+	}
+	return lang_arr;
+}

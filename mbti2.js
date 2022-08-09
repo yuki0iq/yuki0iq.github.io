@@ -1,29 +1,29 @@
-test_ver = '[mbti-debug v220809.22]'
-default_lang = 'ru'
-question_count = '205'
-authors_test = link('https://vk.com/itsapartywithmbti', 'тусовка mbti') + ' - yuki0iq, dazzydraw, narrateee, GunterXR'
+test_ver = '[mbti-debug v220809.22]';
+default_lang = 'ru';
+question_count = '205';
+authors_test = link('https://vk.com/itsapartywithmbti', 'тусовка mbti') + ' - yuki0iq, dazzydraw, narrateee, GunterXR';
 authors_tr = [
 	['ru', ''],
 	['en', 'yuki0iq, ...'],
 	['uk', '...'],
-]
+];
 
 
 // Cognitive functions
 aNi = ['Ni', 2, 1, 0, 0, -1], aNe = ['Ne', 2, 1, 0, 0, -1], aSi = ['Si', 2, 1, 0, 0, -1], aSe = ['Se', 2, 1, 0, 0, -1]
-aFi = ['Fi', 2, 1, 0, 0, -1], aFe = ['Fe', 2, 1, 0, 0, -1], aTi = ['Ti', 2, 1, 0, 0, -1], aTe = ['Te', 2, 1, 0, 0, -1]
+aFi = ['Fi', 2, 1, 0, 0, -1], aFe = ['Fe', 2, 1, 0, 0, -1], aTi = ['Ti', 2, 1, 0, 0, -1], aTe = ['Te', 2, 1, 0, 0, -1];
 // Axes
-aNiSe = ['NiSe', 2, 1, 0, 0, -1], aNeSi = ['NeSi', 2, 1, 0, 0, -1], aFiTe = ['FiTe', 2, 1, 0, 0, -1], aFeTi = ['FeTi', 2, 1, 0, 0, -1]
+aNiSe = ['NiSe', 2, 1, 0, 0, -1], aNeSi = ['NeSi', 2, 1, 0, 0, -1], aFiTe = ['FiTe', 2, 1, 0, 0, -1], aFeTi = ['FeTi', 2, 1, 0, 0, -1];
 // Vertigo
-aNiV = ['NiV', 2, 1, 0, -1], aNeV = ['NeV', 2, 1, 0, -1], aSiV = ['SiV', 2, 1, 0, -1], aSeV = ['SeV', 2, 1, 0, -1]
+aNiV = ['NiV', 2, 1, 0, -1], aNeV = ['NeV', 2, 1, 0, -1], aSiV = ['SiV', 2, 1, 0, -1], aSeV = ['SeV', 2, 1, 0, -1];
 // loops
-alNiFe = ['lNiFe', 2, 1, 0, -1], alNiTe = ['lNiTe', 2, 1, 0, -1], alNeFi = ['lNeFi', 2, 1, 0, -1], alNeTi = ['lNeTi', 2, 1, 0, -1]
-alSiFe = ['lSiFe', 2, 1, 0, -1], alSiTe = ['lSiTe', 2, 1, 0, -1], alSeFi = ['lSeFi', 2, 1, 0, -1], alSeTi = ['lSeTi', 2, 1, 0, -1]
-alFiNe = ['lFiNe', 2, 1, 0, -1], alFiSe = ['lFiSe', 2, 1, 0, -1], alFeNi = ['lFeNi', 2, 1, 0, -1], alFeSi = ['lFeSi', 2, 1, 0, -1]
-alTiNe = ['lTiNe', 2, 1, 0, -1], alTiSe = ['lTiSe', 2, 1, 0, -1], alTeNi = ['lTeNi', 2, 1, 0, -1], alTeSi = ['lTeSi', 2, 1, 0, -1]
+alNiFe = ['lNiFe', 2, 1, 0, -1], alNiTe = ['lNiTe', 2, 1, 0, -1], alNeFi = ['lNeFi', 2, 1, 0, -1], alNeTi = ['lNeTi', 2, 1, 0, -1];
+alSiFe = ['lSiFe', 2, 1, 0, -1], alSiTe = ['lSiTe', 2, 1, 0, -1], alSeFi = ['lSeFi', 2, 1, 0, -1], alSeTi = ['lSeTi', 2, 1, 0, -1];
+alFiNe = ['lFiNe', 2, 1, 0, -1], alFiSe = ['lFiSe', 2, 1, 0, -1], alFeNi = ['lFeNi', 2, 1, 0, -1], alFeSi = ['lFeSi', 2, 1, 0, -1];
+alTiNe = ['lTiNe', 2, 1, 0, -1], alTiSe = ['lTiSe', 2, 1, 0, -1], alTeNi = ['lTeNi', 2, 1, 0, -1], alTeSi = ['lTeSi', 2, 1, 0, -1];
 // grips
-agNi = ['gNi', 2, 1, 0, -1], agNe = ['gNe', 2, 1, 0, -1], agSi = ['gSi', 2, 1, 0, -1], agSe = ['gSe', 2, 1, 0, -1]
-agTi = ['gTi', 2, 1, 0, -1], agTe = ['gTe', 2, 1, 0, -1], agFi = ['gFi', 2, 1, 0, -1], agFe = ['gFe', 2, 1, 0, -1]
+agNi = ['gNi', 2, 1, 0, -1], agNe = ['gNe', 2, 1, 0, -1], agSi = ['gSi', 2, 1, 0, -1], agSe = ['gSe', 2, 1, 0, -1];
+agTi = ['gTi', 2, 1, 0, -1], agTe = ['gTe', 2, 1, 0, -1], agFi = ['gFi', 2, 1, 0, -1], agFe = ['gFe', 2, 1, 0, -1];
 
 
 question_sets = [
@@ -1424,26 +1424,24 @@ question_sets = [
 			],
 		]],
 	],
-]
-eval(randomize_questions2)
+];
+shuffle_questions();
 
 function recalc() {
-	str = ''
+	let str = '';
 
-	lang = eval(get_lang)
+	let lang = get_lang();
 
-	Ni = 0, Ne = 0, Si = 0, Se = 0, Fi = 0, Fe = 0, Ti = 0, Te = 0
-	NiSe = 0, NeSi = 0, FiTe = 0, FeTi = 0
-	NiV = 0, NeV = 0, SiV = 0, SeV = 0
-	lNiFe = 0, lNiTe = 0, lNeFi = 0, lNeTi = 0
-	lSiFe = 0, lSiTe = 0, lSeFi = 0, lSeTi = 0
-	lFiNe = 0, lFiSe = 0, lFeNi = 0, lFeSi = 0
-	lTiNe = 0, lTiSe = 0, lTeNi = 0, lTeSi = 0
-	gNi = 0, gNe = 0, gSi = 0, gSe = 0, gFi = 0, gFe = 0, gTi = 0, gTe = 0
-	eval(pull_results2)
+	var Ni = 0, Ne = 0, Si = 0, Se = 0, Fi = 0, Fe = 0, Ti = 0, Te = 0;
+	var NiSe = 0, NeSi = 0, FiTe = 0, FeTi = 0;
+	var NiV = 0, NeV = 0, SiV = 0, SeV = 0;
+	var lNiFe = 0, lNiTe = 0, lNeFi = 0, lNeTi = 0, lSiFe = 0, lSiTe = 0, lSeFi = 0, lSeTi = 0;
+	var lFiNe = 0, lFiSe = 0, lFeNi = 0, lFeSi = 0, lTiNe = 0, lTiSe = 0, lTeNi = 0, lTeSi = 0;
+	var gNi = 0, gNe = 0, gSi = 0, gSe = 0, gFi = 0, gFe = 0, gTi = 0, gTe = 0;
+	eval(pull_results2);
 
-	eval(tr_helper)
-	txt = [
+	eval(tr_helper);
+	let txt = [
 		['raw', [
 			['ru', 'Исходный результат'],
 			['en', 'Raw test score'],
@@ -1584,34 +1582,34 @@ function recalc() {
 			['ru', 'Результат достовернее, если общий разброс больше, максимум больше, отрыв максимума от соседних типов сильнее'],
 			['en', 'Better result has wider score range, greater maximum and greateness of maximal score over its neighbors'],
 		]],
-	]
+	];
 
-	str += h3(TR('raw'))
-	str += p(TR('cog'))
+	str += h3(TR('raw'));
+	str += p(TR('cog'));
 	str += table([
 		tr([th('Ni'), th('Ne'), th('Si'), th('Se'), th('Fi'), th('Fe'), th('Ti'), th('Te'), th(TR('group'))]),
 		tr([td( Ni ), td( Ne ), td( Si ), td( Se ), td( Fi ), td( Fe ), td( Ti ), td( Te ), td(TR('axcmp'))]),
 		tr([td( NiV), td( NeV), td( SiV), td( SeV), td('--'), td('--'), td('--'), td('--'), td(TR('vertigo'))]),
-	])
+	]);
 	str += p(TR('cogax'))
 	str += table([
 		tr([th('NiSe'), th('NeSi'), th('FiTe'), th('FeTi')]),
 		tr([td( NiSe ), td( NeSi ), td( FiTe ), td( FeTi )]),
-	])
+	]);
 
-	namem = new Map()
-	namem.set('INTJ', TR('INTJ')); namem.set('INTP', TR('INTP')); namem.set('ENTJ', TR('ENTJ')); namem.set('ENTP', TR('ENTP'))
-	namem.set('INFJ', TR('INFJ')); namem.set('INFP', TR('INFP')); namem.set('ENFJ', TR('ENFJ')); namem.set('ENFP', TR('ENFP'))
-	namem.set('ISTJ', TR('ISTJ')); namem.set('ISFJ', TR('ISFJ')); namem.set('ESTJ', TR('ESTJ')); namem.set('ESTP', TR('ESTP'))
-	namem.set('ISTP', TR('ISTP')); namem.set('ISFP', TR('ISFP')); namem.set('ESTP', TR('ESTP')); namem.set('ESFP', TR('ESFP'))
-	namel = new Map()
-	namel.set('INTJ', 'Ni-Ti'); namel.set('INTP', 'Ti-Si'); namel.set('ENTJ', 'Te-Se'); namel.set('ENTP', 'Ne-Fe')
-	namel.set('INFJ', 'Ni-Fi'); namel.set('INFP', 'Fi-Si'); namel.set('ENFJ', 'Fe-Se'); namel.set('ENFP', 'Ne-Te')
-	namel.set('ISTJ', 'Si-Fi'); namel.set('ISFJ', 'Si-Ti'); namel.set('ESTJ', 'Te-Ne'); namel.set('ESTP', 'Se-Fe')
-	namel.set('ISTP', 'Ti-Ni'); namel.set('ISFP', 'Fi-Ni'); namel.set('ESTP', 'Se-Fe'); namel.set('ESFP', 'Se-Te')
-	nameg = new Map()
-	nameg.set('INxJ', 'Se grip'); nameg.set('ENxP', 'Si grip'); nameg.set('ISxJ', 'Ne grip'); nameg.set('ESxP', 'Ni grip')
-	nameg.set('IxFP', 'Te grip'); nameg.set('ExFJ', 'Ti grip'); nameg.set('IxTP', 'Fe grip'); nameg.set('ExTJ', 'Fi grip')
+	let namem = new Map();
+	namem.set('INTJ', TR('INTJ')); namem.set('INTP', TR('INTP')); namem.set('ENTJ', TR('ENTJ')); namem.set('ENTP', TR('ENTP'));
+	namem.set('INFJ', TR('INFJ')); namem.set('INFP', TR('INFP')); namem.set('ENFJ', TR('ENFJ')); namem.set('ENFP', TR('ENFP'));
+	namem.set('ISTJ', TR('ISTJ')); namem.set('ISFJ', TR('ISFJ')); namem.set('ESTJ', TR('ESTJ')); namem.set('ESTP', TR('ESTP'));
+	namem.set('ISTP', TR('ISTP')); namem.set('ISFP', TR('ISFP')); namem.set('ESTP', TR('ESTP')); namem.set('ESFP', TR('ESFP'));
+	let namel = new Map();
+	namel.set('INTJ', 'Ni-Ti'); namel.set('INTP', 'Ti-Si'); namel.set('ENTJ', 'Te-Se'); namel.set('ENTP', 'Ne-Fe');
+	namel.set('INFJ', 'Ni-Fi'); namel.set('INFP', 'Fi-Si'); namel.set('ENFJ', 'Fe-Se'); namel.set('ENFP', 'Ne-Te');
+	namel.set('ISTJ', 'Si-Fi'); namel.set('ISFJ', 'Si-Ti'); namel.set('ESTJ', 'Te-Ne'); namel.set('ESTP', 'Se-Fe');
+	namel.set('ISTP', 'Ti-Ni'); namel.set('ISFP', 'Fi-Ni'); namel.set('ESTP', 'Se-Fe'); namel.set('ESFP', 'Se-Te');
+	let nameg = new Map();
+	nameg.set('INxJ', 'Se grip'); nameg.set('ENxP', 'Si grip'); nameg.set('ISxJ', 'Ne grip'); nameg.set('ESxP', 'Ni grip');
+	nameg.set('IxFP', 'Te grip'); nameg.set('ExFJ', 'Ti grip'); nameg.set('IxTP', 'Fe grip'); nameg.set('ExTJ', 'Fi grip');
 
 	// 16cogn + 6axNS + 6axFT + 10cogP + 5loop + 5grip + 14vert
 	// cogn: -1 to 2; up to 7 qs -> range -7 to 14 -> apply -112 to 224
@@ -1623,7 +1621,7 @@ function recalc() {
 	// grip: -1 to 2; up to 7 qs -> range -7 to 14
 
 	//   7dom + 5aux + 3ter + 1inf + 6domax + 6auxax + 7domv, 'type'
-	mbti = [
+	let mbti = [
 		[7*Ni + 5*Fe + 3*Ti + 1*Se + 6*NiSe + 6*FeTi + 7*NiV, 'INFJ'],
 		[7*Ni + 5*Te + 3*Fi + 1*Se + 6*NiSe + 6*FiTe + 7*NiV, 'INTJ'],
 		[7*Fi + 5*Ne + 3*Si + 1*Te + 6*FiTe + 6*NeSi + 7*NeV, 'INFP'],
@@ -1640,59 +1638,59 @@ function recalc() {
 		[7*Te + 5*Si + 3*Ne + 1*Fi + 6*FiTe + 6*NeSi + 7*SiV, 'ESTJ'],
 		[7*Se + 5*Fi + 3*Te + 1*Ni + 6*NiSe + 6*FiTe + 7*SeV, 'ESFP'],
 		[7*Se + 5*Ti + 3*Fe + 1*Ni + 6*NiSe + 6*FeTi + 7*SeV, 'ESTP'],
-	]
-	loop = [
+	];
+	let loop = [
 		[lNiFe, 'INFJ'], [lNiTe, 'INTJ'], [lFiNe, 'INFP'], [lTiNe, 'INTP'],
 		[lSiFe, 'ISFJ'], [lSiTe, 'ISTJ'], [lFiSe, 'ISFP'], [lTiSe, 'ISTP'],
 		[lFeNi, 'ENFJ'], [lTeNi, 'ENTJ'], [lNeFi, 'ENFP'], [lNeTi, 'ENTP'],
 		[lFeSi, 'ESFJ'], [lTeSi, 'ESTJ'], [lSeFi, 'ESFP'], [lSeTi, 'ESTP'],
-	]
-	grip = [ [gSe, 'INxJ'], [gTe, 'IxFP'], [gFe, 'IxTP'], [gNe, 'ISxJ'], [gTi, 'ExFJ'], [gFi, 'ExTJ'], [gSi, 'ENxP'], [gNi, 'ESxP'], ]
-	mbti.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];})
-	loop.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];})
-	grip.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];})
+	];
+	let grip = [ [gSe, 'INxJ'], [gTe, 'IxFP'], [gFe, 'IxTP'], [gNe, 'ISxJ'], [gTi, 'ExFJ'], [gFi, 'ExTJ'], [gSi, 'ENxP'], [gNi, 'ESxP'], ];
+	mbti.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];});
+	loop.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];});
+	grip.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];});
 
-	col_names1m = [th(TR('type'))], col_names2m = [th(TR('type'))]
-	col_names1l = [th(TR('type'))], col_names2l = [th(TR('type'))], col_names1g = [th(TR('type'))]
-	col_vals1m = [th(TR('score'))], col_vals2m = [th(TR('score'))]
-	col_vals1l = [th(TR('loop'))], col_vals2l = [th(TR('loop'))], col_vals1g = [th(TR('grip'))]
-	col_empty = [td('')]
-	for (i = 0; i < 8; i += 1) { col_empty.push(td('')) }
-	for (i = 0; i < 8; i += 1) {
-		nm = mbti[i][1], vm = parseInt(mbti[i][0])
-		nl = loop[i][1], vl = parseInt(loop[i][0])
-		ng = grip[i][1], vg = parseInt(grip[i][0])
-		col_names1m.push(td(nm)), col_vals1m.push(td(vm))
-		col_names1l.push(td(nl)), col_vals1l.push(td(vl))
-		col_names1g.push(td(ng)), col_vals1g.push(td(vg))
+	let col_names1m = [th(TR('type'))], col_names2m = [th(TR('type'))];
+	let col_names1l = [th(TR('type'))], col_names2l = [th(TR('type'))], col_names1g = [th(TR('type'))];
+	let col_vals1m = [th(TR('score'))], col_vals2m = [th(TR('score'))];
+	let col_vals1l = [th(TR('loop'))], col_vals2l = [th(TR('loop'))], col_vals1g = [th(TR('grip'))];
+	let col_empty = [td('')];
+	for (let i = 0; i < 8; i += 1) col_empty.push(td(''));
+	for (let i = 0; i < 8; i += 1) {
+		nm = mbti[i][1], vm = parseInt(mbti[i][0]);
+		nl = loop[i][1], vl = parseInt(loop[i][0]);
+		ng = grip[i][1], vg = parseInt(grip[i][0]);
+		col_names1m.push(td(nm)), col_vals1m.push(td(vm));
+		col_names1l.push(td(nl)), col_vals1l.push(td(vl));
+		col_names1g.push(td(ng)), col_vals1g.push(td(vg));
 	}
-	for (i = 8; i < 16; i += 1) {
-		nm = mbti[i][1], vm = parseInt(mbti[i][0])
-		nl = loop[i][1], vl = parseInt(loop[i][0])
-		col_names2m.push(td(nm)), col_vals2m.push(td(vm))
-		col_names2l.push(td(nl)), col_vals2l.push(td(vl))
+	for (let i = 8; i < 16; i += 1) {
+		nm = mbti[i][1], vm = parseInt(mbti[i][0]);
+		nl = loop[i][1], vl = parseInt(loop[i][0]);
+		col_names2m.push(td(nm)), col_vals2m.push(td(vm));
+		col_names2l.push(td(nl)), col_vals2l.push(td(vl));
 	}
 
-	str += h3(TR('cogtype'))
-	str += p(TR('probable') + test_ver)
-	str += table([tr(col_names1m), tr(col_vals1m), tr(col_empty), tr(col_names2m), tr(col_vals2m)])
-	str += p(TR('cogans') + bold(mbti[15][1]) + ' (' + namem.get(mbti[15][1]) + ')')
-	str += p(TR('rangem') + TR('besthint'))
+	str += h3(TR('cogtype'));
+	str += p(TR('probable') + test_ver);
+	str += table([tr(col_names1m), tr(col_vals1m), tr(col_empty), tr(col_names2m), tr(col_vals2m)]);
+	str += p(TR('cogans') + bold(mbti[15][1]) + ' (' + namem.get(mbti[15][1]) + ')');
+	str += p(TR('rangem') + TR('besthint'));
 
-	str += h3(TR('lgtype'))
-	str += p(TR('probable') + test_ver)
-	str += table([tr(col_names1l), tr(col_vals1l), tr(col_empty), tr(col_names2l), tr(col_vals2l), tr(col_empty), tr(col_names1g), tr(col_vals1g)])
-	str += p(TR('loopans') + bold(loop[15][1]) + ' (' + namel.get(loop[15][1]) + ')')
-	str += p(TR('gripans') + bold(grip[7][1]) + ' (' + nameg.get(grip[7][1]) + ')')
-	str += p(TR('rangelg') + TR('besthint'))
+	str += h3(TR('lgtype'));
+	str += p(TR('probable') + test_ver);
+	str += table([tr(col_names1l), tr(col_vals1l), tr(col_empty), tr(col_names2l), tr(col_vals2l), tr(col_empty), tr(col_names1g), tr(col_vals1g)]);
+	str += p(TR('loopans') + bold(loop[15][1]) + ' (' + namel.get(loop[15][1]) + ')');
+	str += p(TR('gripans') + bold(grip[7][1]) + ' (' + nameg.get(grip[7][1]) + ')');
+	str += p(TR('rangelg') + TR('besthint'));
 
-	document.getElementById('res').innerHTML = str
+	document.getElementById('res').innerHTML = str;
 }
 
 function chlang() {
-	lang = eval(get_lang)
-	create2(question_sets, lang, test_ver, authors_test, authors_tr, question_count)
+	let lang = get_lang();
+	create2(question_sets, lang, test_ver, authors_test, authors_tr, question_count);
 	recalc();  // Initial recalc
 }
 
-chlang()  // Initial set lang + recalc
+chlang();  // Initial set lang + recalc
