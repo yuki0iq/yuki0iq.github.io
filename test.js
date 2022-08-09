@@ -312,4 +312,14 @@ pull_results2 = "" +
 	"		}\n" +
 	"	}\n" +
 	"}"
-get_lang = "$('option[name=lang]:selected')[0].value || default_lang"
+
+// https://stackoverflow.com/a/26889118
+get_lang = "" +
+	"let lang = window.navigator.languages ? window.navigator.languages[0] : null;\n" +
+	"lang = lang || window.navigator.language || window.navigator.browserLanguage || window.navigator.userLanguage;\n" +
+	"let shortLang = lang;\n" +
+	"if (shortLang.indexOf('-') !== -1) shortLang = shortLang.split('-')[0];\n" +
+	"if (shortLang.indexOf('_') !== -1) shortLang = shortLang.split('_')[0];\n" +
+	"res_lang = $('option[name=lang]:selected')[0].value || shortLang || default_lang\n" +
+	"$('option[name=lang]:selected')[0].selected = false\n" +
+	"$('option[value=' + res_lang + ']')[0].selected = true\n"
