@@ -1603,8 +1603,8 @@ function recalc() {
 	namem.set('ISTJ', TR('ISTJ')); namem.set('ISFJ', TR('ISFJ')); namem.set('ESTJ', TR('ESTJ')); namem.set('ESTP', TR('ESTP'));
 	namem.set('ISTP', TR('ISTP')); namem.set('ISFP', TR('ISFP')); namem.set('ESTP', TR('ESTP')); namem.set('ESFP', TR('ESFP'));
 	let namel = new Map();
-	namel.set('INTJ', 'Ni-Ti'); namel.set('INTP', 'Ti-Si'); namel.set('ENTJ', 'Te-Se'); namel.set('ENTP', 'Ne-Fe');
-	namel.set('INFJ', 'Ni-Fi'); namel.set('INFP', 'Fi-Si'); namel.set('ENFJ', 'Fe-Se'); namel.set('ENFP', 'Ne-Te');
+	namel.set('INTJ', 'Ni-Fi'); namel.set('INTP', 'Ti-Si'); namel.set('ENTJ', 'Te-Se'); namel.set('ENTP', 'Ne-Fe');
+	namel.set('INFJ', 'Ni-Ti'); namel.set('INFP', 'Fi-Si'); namel.set('ENFJ', 'Fe-Se'); namel.set('ENFP', 'Ne-Te');
 	namel.set('ISTJ', 'Si-Fi'); namel.set('ISFJ', 'Si-Ti'); namel.set('ESTJ', 'Te-Ne'); namel.set('ESTP', 'Se-Fe');
 	namel.set('ISTP', 'Ti-Ni'); namel.set('ISFP', 'Fi-Ni'); namel.set('ESTP', 'Se-Fe'); namel.set('ESFP', 'Se-Te');
 	let nameg = new Map();
