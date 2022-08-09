@@ -309,7 +309,7 @@ pull_results2 = "" +
 
 function get_lang() {
 	let lang_array = [];
-	if ($('select[id=lang]')[0].name) lang_array.push($('option[name=lang]:selected')[0].value);
+	if ($('select[id=lang]')[0].name == 0) lang_array.push($('option[name=lang]:selected')[0].value);
 	if (window.navigator.languages) lang_array = lang_array.concat(window.navigator.languages);
 	if (window.navigator.language) lang_array.push(window.navigator.language);
 	if (window.navigator.browserLanguage) lang_array.push(window.navigator.browserLanguage);
