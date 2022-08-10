@@ -1,4 +1,4 @@
-test_ver = '[mbti-debug v220809.22]';
+test_ver = '[mbti-debug v220810.17]';
 default_lang = 'ru';
 question_count = '205';
 authors_test = link('https://vk.com/itsapartywithmbti', 'тусовка mbti') + ' - yuki0iq, dazzydraw, narrateee, GunterXR';
@@ -376,8 +376,8 @@ question_sets = [
 	],
 	[
 		['name', [
-			['ru', 'Головокружение'],
-			['en', 'Vertigo'],
+			['ru', 'Опиши головокружение'],
+			['en', 'Descripbe a vertigo'],
 		]],
 		['desc', [
 			['ru', 'Опиши головокружение и сравни его с четырьмя примерами'],
