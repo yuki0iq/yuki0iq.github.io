@@ -387,25 +387,25 @@ question_sets = [
 		['cnt_q', 1],
 		['questions', [
 			[
-				['res', [aNeV, aSiV]],
+				['res', [aNeV]],
 				['le', [
 					['ru', 'Описывая головокружение, привожу подробные ассоциации, связанные с моими ощущениями (Пример: "Головокружение словно черный нимб над головой человека", "Головокружение словно карусель")'],
 				]],
 			],
 			[
-				['res', [aNiV, aSeV]],
+				['res', [aNiV]],
 				['le', [
 					['ru', 'Описывая головокружение, обращаю внимание на всплывающие в моей голове внутренние образы, мысли, на визуализированные внутренние объекты (Пример: "Когда я представляю головокружение, у меня появляется визуальный образ размытого кистью изображения", "Когда я описывал головокружение, в моей голове всплыла картинка человечка из комикса со звёздочками вокруг своей головы")'],
 				]],
 			],
 			[
-				['res', [aNiV, aSeV]],
+				['res', [aNiV]],
 				['le', [
 					['ru', 'Описание головокружения вызывает у меня трудности, обычно я просто перечисляю основные физические ощущения (Пример: Голова кружится, болит. Глаза болят. Тошнит)'],
 				]],
 			],
 			[
-				['res', [aNeV, aSiV]],
+				['res', [aNeV]],
 				['le', [
 					['ru', 'Описывая головокружение, рассказываю точные подробные физические ощущения, расписывая их до мелочей (Пример: Голова кружится, и небольшая боль в затылке, руки дрожат, сильно тошнит и темнеет в глазах. Иногда становится трудно дышать, хочется прилечь, ноги подкашиваются)'],
 				]],
@@ -1615,29 +1615,29 @@ function recalc() {
 	// cogn: -1 to 2; up to 7 qs -> range -7 to 14 -> apply -112 to 224
 	// axNS: -1 to 2; up to 4 qs -> range -4 to  8 -> apply  -24 to 48
 	// axFT: -1 to 2; up to 5 qs -> range -5 to 10 -> apply  -30 to 60
-	// vert: -1 to 2; up to 2 qs -> range -2 to  4 -> apply  -14 to 28
+	// vert: -1 to 2; up to 1 qs -> range -1 to  2 -> apply  -14 to 28
 	// sum:                                        -> apply -180 to 360
 	// loop: -1 to 2; up to 7 qs -> range -7 to 14
 	// grip: -1 to 2; up to 7 qs -> range -7 to 14
 
-	//   7dom + 5aux + 3ter + 1inf + 6domax + 6auxax + 7domv, 'type'
+	//   7dom + 5aux + 3ter + 1inf + 6domax + 6auxax + 14domv, 'type'
 	let mbti = [
-		[7*Ni + 5*Fe + 3*Ti + 1*Se + 6*NiSe + 6*FeTi + 7*NiV, 'INFJ'],
-		[7*Ni + 5*Te + 3*Fi + 1*Se + 6*NiSe + 6*FiTe + 7*NiV, 'INTJ'],
-		[7*Fi + 5*Ne + 3*Si + 1*Te + 6*FiTe + 6*NeSi + 7*NeV, 'INFP'],
-		[7*Ti + 5*Ne + 3*Si + 1*Fe + 6*FeTi + 6*NeSi + 7*NeV, 'INTP'],
-		[7*Si + 5*Fe + 3*Ti + 1*Ne + 6*NeSi + 6*FeTi + 7*SiV, 'ISFJ'],
-		[7*Si + 5*Te + 3*Fi + 1*Ne + 6*NeSi + 6*FiTe + 7*SiV, 'ISTJ'],
-		[7*Fi + 5*Se + 3*Ni + 1*Te + 6*FiTe + 6*NiSe + 7*SeV, 'ISFP'],
-		[7*Ti + 5*Se + 3*Ni + 1*Fe + 6*FeTi + 6*NiSe + 7*SeV, 'ISTP'],
-		[7*Fe + 5*Ni + 3*Se + 1*Ti + 6*FeTi + 6*NiSe + 7*NiV, 'ENFJ'],
-		[7*Te + 5*Ni + 3*Se + 1*Fi + 6*FiTe + 6*NiSe + 7*NiV, 'ENTJ'],
-		[7*Ne + 5*Fi + 3*Te + 1*Si + 6*NeSi + 6*FiTe + 7*NeV, 'ENFP'],
-		[7*Ne + 5*Ti + 3*Fe + 1*Si + 6*NeSi + 6*FeTi + 7*NeV, 'ENTP'],
-		[7*Fe + 5*Si + 3*Ne + 1*Ti + 6*FeTi + 6*NeSi + 7*SiV, 'ESFJ'],
-		[7*Te + 5*Si + 3*Ne + 1*Fi + 6*FiTe + 6*NeSi + 7*SiV, 'ESTJ'],
-		[7*Se + 5*Fi + 3*Te + 1*Ni + 6*NiSe + 6*FiTe + 7*SeV, 'ESFP'],
-		[7*Se + 5*Ti + 3*Fe + 1*Ni + 6*NiSe + 6*FeTi + 7*SeV, 'ESTP'],
+		[7*Ni + 5*Fe + 3*Ti + 1*Se + 6*NiSe + 6*FeTi + 14*NiV, 'INFJ'],
+		[7*Ni + 5*Te + 3*Fi + 1*Se + 6*NiSe + 6*FiTe + 14*NiV, 'INTJ'],
+		[7*Fi + 5*Ne + 3*Si + 1*Te + 6*FiTe + 6*NeSi + 14*NeV, 'INFP'],
+		[7*Ti + 5*Ne + 3*Si + 1*Fe + 6*FeTi + 6*NeSi + 14*NeV, 'INTP'],
+		[7*Si + 5*Fe + 3*Ti + 1*Ne + 6*NeSi + 6*FeTi + 14*SiV, 'ISFJ'],
+		[7*Si + 5*Te + 3*Fi + 1*Ne + 6*NeSi + 6*FiTe + 14*SiV, 'ISTJ'],
+		[7*Fi + 5*Se + 3*Ni + 1*Te + 6*FiTe + 6*NiSe + 14*SeV, 'ISFP'],
+		[7*Ti + 5*Se + 3*Ni + 1*Fe + 6*FeTi + 6*NiSe + 14*SeV, 'ISTP'],
+		[7*Fe + 5*Ni + 3*Se + 1*Ti + 6*FeTi + 6*NiSe + 14*NiV, 'ENFJ'],
+		[7*Te + 5*Ni + 3*Se + 1*Fi + 6*FiTe + 6*NiSe + 14*NiV, 'ENTJ'],
+		[7*Ne + 5*Fi + 3*Te + 1*Si + 6*NeSi + 6*FiTe + 14*NeV, 'ENFP'],
+		[7*Ne + 5*Ti + 3*Fe + 1*Si + 6*NeSi + 6*FeTi + 14*NeV, 'ENTP'],
+		[7*Fe + 5*Si + 3*Ne + 1*Ti + 6*FeTi + 6*NeSi + 14*SiV, 'ESFJ'],
+		[7*Te + 5*Si + 3*Ne + 1*Fi + 6*FiTe + 6*NeSi + 14*SiV, 'ESTJ'],
+		[7*Se + 5*Fi + 3*Te + 1*Ni + 6*NiSe + 6*FiTe + 14*SeV, 'ESFP'],
+		[7*Se + 5*Ti + 3*Fe + 1*Ni + 6*NiSe + 6*FeTi + 14*SeV, 'ESTP'],
 	];
 	let loop = [
 		[lNiFe, 'INFJ'], [lNiTe, 'INTJ'], [lFiNe, 'INFP'], [lTiNe, 'INTP'],
