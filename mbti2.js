@@ -1,4 +1,4 @@
-test_ver = '[mbti-debug v220810.17]';
+test_ver = '[mbti-debug v220812.00]';
 default_lang = 'ru';
 question_count = '205';
 authors_test = link('https://vk.com/itsapartywithmbti', 'тусовка mbti') + ' - yuki0iq, dazzydraw, narrateee, GunterXR';
@@ -1447,7 +1447,7 @@ function recalc() {
 			['en', 'Raw test score'],
 		]],
 		['cog', [
-			['ru', 'Когнитивные функции'],
+			['ru', 'Счёт когнитивных функций'],
 			['en', 'Cognitive functions score'],
 		]],
 		['group', [

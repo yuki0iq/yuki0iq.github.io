@@ -7,7 +7,7 @@ This test requires JavaScript enabled to be run correctly. Для работы �
 <select id="lang" onchange="chlang()" name="0">
     <option name="lang" value="ru">Русский</option>
     <option name="lang" value="en">English | TODO</option>
-    <option name="lang" value="uk">(Украинский) | TODO</option>
+    <option name="lang" value="uk">Українська | TODO</option>
 </select>
 </p>
 
