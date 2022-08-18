@@ -1679,7 +1679,7 @@ function recalc() {
 	var lNiFe = 0, lNiTe = 0, lNeFi = 0, lNeTi = 0, lSiFe = 0, lSiTe = 0, lSeFi = 0, lSeTi = 0;
 	var lFiNe = 0, lFiSe = 0, lFeNi = 0, lFeSi = 0, lTiNe = 0, lTiSe = 0, lTeNi = 0, lTeSi = 0;
 	var gNi = 0, gNe = 0, gSi = 0, gSe = 0, gFi = 0, gFe = 0, gTi = 0, gTe = 0;
-	eval(pull_results2);
+	pull_results2();
 
 	eval(tr_helper);
 	let txt = [
