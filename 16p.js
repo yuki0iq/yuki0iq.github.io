@@ -91,6 +91,9 @@ question_sets = [
 let total_cnt = assign_ids();
 shuffle_questions();
 
+
+function upd() {}
+
 function recalc() {
 	let str = '';
 
