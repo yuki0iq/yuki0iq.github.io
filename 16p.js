@@ -99,7 +99,7 @@ function recalc() {
 
 	let lang = get_lang();
 
-	var cnt = 0, E = 0, N = 0, T = 0, J = 0;
+	cnt = 0, E = 0, N = 0, T = 0, J = 0;
 	pull_results2();
 
 	eval(tr_helper);

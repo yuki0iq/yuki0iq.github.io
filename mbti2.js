@@ -1672,13 +1672,13 @@ function recalc() {
 
 	let lang = get_lang();
 
-	var cnt = 0;
-	var Ni = 0, Ne = 0, Si = 0, Se = 0, Fi = 0, Fe = 0, Ti = 0, Te = 0;
-	var NiSe = 0, NeSi = 0, FiTe = 0, FeTi = 0;
-	var NiV = 0, NeV = 0, SiV = 0, SeV = 0;
-	var lNiFe = 0, lNiTe = 0, lNeFi = 0, lNeTi = 0, lSiFe = 0, lSiTe = 0, lSeFi = 0, lSeTi = 0;
-	var lFiNe = 0, lFiSe = 0, lFeNi = 0, lFeSi = 0, lTiNe = 0, lTiSe = 0, lTeNi = 0, lTeSi = 0;
-	var gNi = 0, gNe = 0, gSi = 0, gSe = 0, gFi = 0, gFe = 0, gTi = 0, gTe = 0;
+	cnt = 0;
+	Ni = 0, Ne = 0, Si = 0, Se = 0, Fi = 0, Fe = 0, Ti = 0, Te = 0;
+	NiSe = 0, NeSi = 0, FiTe = 0, FeTi = 0;
+	NiV = 0, NeV = 0, SiV = 0, SeV = 0;
+	lNiFe = 0, lNiTe = 0, lNeFi = 0, lNeTi = 0, lSiFe = 0, lSiTe = 0, lSeFi = 0, lSeTi = 0;
+	lFiNe = 0, lFiSe = 0, lFeNi = 0, lFeSi = 0, lTiNe = 0, lTiSe = 0, lTeNi = 0, lTeSi = 0;
+	gNi = 0, gNe = 0, gSi = 0, gSe = 0, gFi = 0, gFe = 0, gTi = 0, gTe = 0;
 	pull_results2();
 
 	eval(tr_helper);
