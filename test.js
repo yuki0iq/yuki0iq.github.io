@@ -342,7 +342,7 @@ function shuffle_questions() {
 					question.set('le', right);
 					question.set('ri', left);
 					question.set('res', res);
-					question.set('_rev', 1 - rev);
+					question.set('_rev', 1 - _rev);
 					questions[j] = [...question];
 				}
 			}
