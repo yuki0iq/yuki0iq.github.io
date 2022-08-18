@@ -6,7 +6,7 @@ authors_tr = [
 	['ru', ''],
 	['en', 'yuki0iq'],
 ];
-sheet = 'https://docs.google.com/spreadsheets/d/1HmDkGMqrSpys0nanF3MGB8tZbEkf9c3pU4TfR4Ca2eM/edit?usp=sharing'
+sheet = '1HmDkGMqrSpys0nanF3MGB8tZbEkf9c3pU4TfR4Ca2eM'
 
 question_sets = [
 	[

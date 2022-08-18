@@ -1,3 +1,23 @@
+const API_KEY = 'AIzaSyAJSLa7fH8JM715HVmhTRCPvnBNl9YaXrs';
+const DISCOVERY_DOC = 'https://sheets.googleapis.com/$discovery/rest?version=v4';
+const SCOPES = 'https://www.googleapis.com/auth/spreadsheets';
+
+let gapiInited = false;
+
+function gapiLoaded() {
+	gapi.load('client', intializeGapiClient);
+}
+
+async function intializeGapiClient() {
+	await gapi.client.init({
+		apiKey: API_KEY,
+		discoveryDocs: [DISCOVERY_DOC],
+	});
+	gapiInited = true;
+	console.log('google api init ok');
+}
+
+
 function get_cell_names() {
 	const offset_rows = 3;
 	const cols = ['B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
@@ -31,7 +51,5 @@ function send() {
 	let cell_names = get_cell_names();
 	console.log(cell_names);
 
-	// TODO authorize to google sheets
-	const API_KEY = 'AIzaSyAJSLa7fH8JM715HVmhTRCPvnBNl9YaXrs';
 	// ...
 }
