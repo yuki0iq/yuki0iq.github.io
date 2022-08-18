@@ -2,7 +2,7 @@ function get_cell_names() {
 	const offset_rows = 1;
 	const cols = ['B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
-	let cells = []  // list of cells to increment; one for each answered question
+	let cells = [];  // list of cells to increment; one for each answered question
 
 	for (let i = 0; i < question_sets.length; i += 1) {
 		let question_set = new Map(question_sets[i]);
@@ -21,6 +21,8 @@ function get_cell_names() {
 			}
 		}
 	}
+
+	return cells;
 }
 
 function send() {
