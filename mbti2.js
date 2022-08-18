@@ -5,8 +5,9 @@ authors_test = link('https://vk.com/itsapartywithmbti', 'тусовка mbti') +
 authors_tr = [
 	['ru', ''],
 	['en', 'yuki0iq, ...'],
-	['uk', '...'],
+	['uk', 'dazzydraw, what_if, jade_yujing'],
 ];
+sheet = ''
 
 
 // Cognitive functions
@@ -1661,11 +1662,17 @@ question_sets = [
 ];
 shuffle_questions();
 
+
+function upd() {
+	recalc();
+}
+
 function recalc() {
 	let str = '';
 
 	let lang = get_lang();
 
+	var cnt = 0;
 	var Ni = 0, Ne = 0, Si = 0, Se = 0, Fi = 0, Fe = 0, Ti = 0, Te = 0;
 	var NiSe = 0, NeSi = 0, FiTe = 0, FeTi = 0;
 	var NiV = 0, NeV = 0, SiV = 0, SeV = 0;
@@ -1945,7 +1952,7 @@ function recalc() {
 
 function chlang() {
 	let lang = get_lang();
-	create2(question_sets, lang, test_ver, authors_test, authors_tr, question_count);
+	create2(question_sets, lang, test_ver, authors_test, authors_tr, question_count, sheet);
 	recalc();  // Initial recalc
 }
 

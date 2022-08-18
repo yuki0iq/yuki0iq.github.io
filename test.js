@@ -44,6 +44,7 @@ function br() { return _begin('br'); }
 function label(s, f) { return _enclose('label', s, [_param('for', f)]); }
 function radio(id, nm, vl, oc) { return _beginv('input', [_param('id', id), _param('name', nm), _param('value', vl), _param('onclick', oc), _param('type', 'radio')]); }
 function radiol(id, nm, vl, oc, s) { return radio(id, nm, vl, oc) + label(s, id); }
+function button(s, oc) { return _enclose('button', s, [_param('onclick', oc)]) }
 
 function create(data) {
 	// data = [name, desc, cnt, cntans, [name, [ans, d1, d2, ...], name2]]
@@ -157,7 +158,7 @@ tr_helper = "" +
 	"TRANS = function(arr) { return GET(arr, lang) }\n"+
 	"TR = function(key) { return TRANS(GET(txt, key)) }\n";
 
-function create2(data, lang, test_ver, authors_test, authors_tr, qc) {
+function create2(data, lang, test_ver, authors_test, authors_tr, qc, sheet) {
 	let str = '';
 
 	eval(tr_helper);
@@ -171,7 +172,11 @@ function create2(data, lang, test_ver, authors_test, authors_tr, qc) {
 				p('Версия теста ' + test_ver) +
 				p('Авторы теста: ' + authors_test) +
 				(authors_tr == '' ? '' : p('Авторы перевода: ' + authors_tr)) +
-				p('Этот тест содержит ' + qc + ' вопросов. Тест может быть удобнее проходить с ландшафтной (горизонтальной) ориентацией экрана. Результат автоматически пересчитывается при изменении ответа - можно проходить тест не полностью. При перезагрузке страницы или смене языка введённые ответы пропадают!') +
+				p('Этот тест содержит ' + qc + ' вопросов. Тест может быть удобнее проходить с ландшафтной (горизонтальной) ориентацией экрана. '
+					+ (sheet == ''
+						? 'Результат автоматически пересчитывается при изменении ответа - можно проходить тест не полностью.'
+						: 'Для получения результата нужно нажать на кнопку, тест нужно проходить полностью.')
+					+ ' При перезагрузке страницы или смене языка введённые ответы пропадают!') +
 				p('Варианты ответов (если 4 варианта):' + ol([
 					li('Это очень похоже на меня'),
 					li('Это немного похоже на меня'),
@@ -191,7 +196,11 @@ function create2(data, lang, test_ver, authors_test, authors_tr, qc) {
 				p('This test is ' + test_ver) +
 				p('Test created by ' + authors_test) +
 				(authors_tr == '' ? '' : p('Translated by ' + authors_tr)) +
-				p('This test has ' + qc + ' questions. Landscape screen orientation may be better for taking this test. Result is recalculated automatically giving you ability to take only a part of this test. Reloading the page or changing its language leads to answers loss!') +
+				p('This test has ' + qc + ' questions. Landscape screen orientation may be better for taking this test. '
+					+ (sheet == ''
+						? 'Result is recalculated automatically giving you ability to take only a part of this test. '
+						: 'You should press the button to get test result. All questions must be answered.')
+					+ 'Reloading the page or changing its language leads to answers loss!') +
 				p('Answer options (when 4):' + ol([
 					li('This is really me'),
 					li('This looks like me'),
@@ -232,6 +241,7 @@ function create2(data, lang, test_ver, authors_test, authors_tr, qc) {
 		['yes', [['ru', 'Да'], ['en', 'Yes'], ['uk', 'Так']]],
 		['no', [['ru', 'Нет'], ['en', 'No'], ['uk', 'Ні']]],
 		['number', [['ru', 'No'], ['en', 'No'], ['uk', 'No']]],
+		['calc', [['ru', 'Получить результат'], ['en', 'Get result']]],
 	];
 
 	str += TRANS(GET(txt, 'help'));
@@ -275,7 +285,7 @@ function create2(data, lang, test_ver, authors_test, authors_tr, qc) {
 					if (k == cnt_answers - 1) radio_text += ' (' + TR('no') + ')';
 				}
 
-				cols.push(td(radiol(radio_id, radio_name, val, 'recalc()', radio_text)));
+				cols.push(td(radiol(radio_id, radio_name, val, '_state = 1; upd()', radio_text)));
 			}
 			if (cnt_questions == 2) {
 				let question_right = TRANS(GET(question, 'ri'));
@@ -290,25 +300,49 @@ function create2(data, lang, test_ver, authors_test, authors_tr, qc) {
 		i += 1;
 	}
 
+	if (sheet != '') {
+		// add "done" button
+		str += button(TR('calc'), 'recalc()')
+	}
+
 	document.getElementById('test_contents').innerHTML = str;
+}
+
+function assign_ids() {
+	let q = 0;
+	for (let i = 0; i < question_sets.length; i += 1) {
+		let question_set = new Map(question_sets[i]);
+		let questions = question_set.get('questions');
+		for (let j = 0; j < questions.length; j += 1) {
+			let question = new Map(questions[j]);
+			question.set('_id', q);
+			q += 1;
+			questions[j] = [...question];
+		}
+		question_set.set('questions', questions);
+		question_sets[i] = [...question_set];
+	}
+	return q;
 }
 
 function shuffle_questions() {
 	for (let i = 0; i < question_sets.length; i += 1) {
-		question_set = new Map(question_sets[i]);
-		questions = question_set.get('questions');
+		let question_set = new Map(question_sets[i]);
+		let questions = question_set.get('questions');
 		shuffle(questions);
 		if (2 == question_set.get('cnt_q')) {
 			for (let j = 0; j < questions.length; j += 1) {
 				if (Math.random() > 0.5) {
-					question = new Map(questions[j]);
-					left = question.get('le');
-					right = question.get('ri');
-					res = question.get('res');
-					for (k = 0; k < res.length; k += 1) res[k] = RA(res[k]);
+					let question = new Map(questions[j]);
+					let left = question.get('le');
+					let right = question.get('ri');
+					let res = question.get('res');
+					let _rev = question.get('_rev') || 0;
+					for (let k = 0; k < res.length; k += 1) res[k] = RA(res[k]);
 					question.set('le', right);
 					question.set('ri', left);
 					question.set('res', res);
+					question.set('_rev', 1 - rev);
 					questions[j] = [...question];
 				}
 			}
@@ -318,17 +352,19 @@ function shuffle_questions() {
 	}
 }
 
-pull_results2 = "" +
-	"for (i = 0; i < question_sets.length; i += 1) {\n" +
-	"	question_set = new Map(question_sets[i])\n" +
-	"	questions = question_set.get('questions')\n" +
-	"	for (j = 0; j < questions.length; j += 1) {\n" +
-	"		v_sub = $('input[name=i' + i + '-' + j + ']:checked')\n" +
-	"		if (v_sub.length != 0) {\n" +
-	"			eval(v_sub[0].value)\n" +
-	"		}\n" +
-	"	}\n" +
-	"}"
+function pull_results2() {
+	for (let i = 0; i < question_sets.length; i += 1) {
+		let question_set = new Map(question_sets[i]);
+		let questions = question_set.get('questions');
+		for (let j = 0; j < questions.length; j += 1) {
+			let v_sub = $('input[name=i' + i + '-' + j + ']:checked');
+			if (v_sub.length != 0) {
+				eval(v_sub[0].value);
+				cnt += 1;
+			}
+		}
+	}
+}
 
 function get_lang() {
 	let lang_array = [];
