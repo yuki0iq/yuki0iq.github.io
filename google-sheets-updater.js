@@ -1,4 +1,4 @@
-functions get_cell_names() {
+function get_cell_names() {
 	const offset_rows = 1;
 	const cols = ['B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
