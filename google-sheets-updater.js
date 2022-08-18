@@ -12,6 +12,7 @@ async function intializeGapiClient() {
 	await gapi.client.init({
 		apiKey: API_KEY,
 		discoveryDocs: [DISCOVERY_DOC],
+		clientId: 'amatorica-test-220818.apps.googleusercontent.com',
 	});
 	gapiInited = true;
 	console.log('google api init ok');
