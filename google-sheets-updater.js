@@ -8,19 +8,19 @@ function gapiLoaded() {
 	gapi.load('client', intializeGapiClient);
 }
 
-async function intializeGapiClient() {
-	await gapi.client.init({
+function intializeGapiClient() {
+	gapi.client.init({
 		apiKey: API_KEY,
 		discoveryDocs: [DISCOVERY_DOC],
-		clientId: 'amatorica-test-220818.apps.googleusercontent.com',
+	}).then(function () {
+		gapiInited = true;
+		console.log('google api init ok');
 	});
-	gapiInited = true;
-	console.log('google api init ok');
 }
 
 
 function get_cell_names() {
-	const offset_rows = 3;
+	const offset_rows = 2;
 	const cols = ['B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
 	let cells = ['B1'];  // list of cells to increment; one for each answered question
