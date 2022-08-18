@@ -1,6 +1,7 @@
 const API_KEY = 'AIzaSyAJSLa7fH8JM715HVmhTRCPvnBNl9YaXrs';
 const DISCOVERY_DOC = 'https://sheets.googleapis.com/$discovery/rest?version=v4';
-const SCOPES = 'https://www.googleapis.com/auth/spreadsheets';
+const CLIENT_ID = '117134655696470126940'
+const SCOPE = 'https://www.googleapis.com/auth/spreadsheets';
 
 let gapiInited = false;
 
@@ -12,6 +13,8 @@ function intializeGapiClient() {
 	gapi.client.init({
 		apiKey: API_KEY,
 		discoveryDocs: [DISCOVERY_DOC],
+		clientId: CLIENT_ID,
+		scope: SCOPE,
 	}).then(function () {
 		gapiInited = true;
 		console.log('google api init ok');
@@ -37,7 +40,7 @@ function get_cell_names() {
 				let _id = question.get('_id') + offset_rows;
 				let _rev = question.get('_rev') || 0;
 				if (_rev) k = question_set.get('cnt_q') - 1 - k;
-				cell = cols[k] + _id;
+				cell = 'Sheet1!' + cols[k] + _id;
 				cells.push(cell);
 			}
 		}
