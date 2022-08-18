@@ -1,6 +1,6 @@
 const API_KEY = 'AIzaSyAJSLa7fH8JM715HVmhTRCPvnBNl9YaXrs';
 const DISCOVERY_DOC = 'https://sheets.googleapis.com/$discovery/rest?version=v4';
-const CLIENT_ID = '117134655696470126940'
+const CLIENT_ID = '117134655696470126940';
 const SCOPE = 'https://www.googleapis.com/auth/spreadsheets';
 
 let gapiInited = false;
@@ -55,5 +55,7 @@ function send() {
 	let cell_names = get_cell_names();
 	console.log(cell_names);
 
-	// ...
+	// step 1. batch get
+	// step 2. increment
+	// step 3. basch update
 }
