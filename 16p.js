@@ -1,4 +1,4 @@
-test_ver = '[ag16p v220818.16]';
+test_ver = '[ag16p v220819.05]';
 default_lang = 'ru';
 question_count = '4';
 authors_test = link('https://vk.com/itsapartywithmbti', 'тусовка mbti') + ' - yuki0iq, Агасфер';
@@ -6,7 +6,6 @@ authors_tr = [
 	['ru', ''],
 	['en', 'yuki0iq'],
 ];
-sheet = '1HmDkGMqrSpys0nanF3MGB8tZbEkf9c3pU4TfR4Ca2eM'
 
 question_sets = [
 	[
@@ -35,7 +34,7 @@ question_sets = [
 					['en', 'You can think'],
 				]],
 			],
-			/*[
+			[
 				['res', [['T', 1, -1]]],
 				['le', [
 					['ru', 'Ты убил человека'],
@@ -47,42 +46,6 @@ question_sets = [
 				['le', [
 					['ru', 'Ты моешься'],
 					['en', 'You bathe'],
-				]],
-			],*/
-		]],
-	],
-	[
-		['name', [
-			['ru', 'Тест Агасфера 2'],
-			['en', 'Agasfer test 2'],
-		]],
-		['desc', [
-			['ru', ''],
-			['en', ''],
-		]],
-		['cnt_a', 2],
-		['cnt_q', 2],
-		['questions', [
-			[
-				['res', [['T', 1, -1]]],
-				['le', [
-					['ru', 'Ты убил человека'],
-					['en', 'You have killed a person'],
-				]],
-				['ri', [
-					['ru', 'Ты не убил человека'],
-					['en', 'You didn\'t kill a person'],
-				]],
-			],
-			[
-				['res', [['J', 1, -1]]],
-				['le', [
-					['ru', 'Ты моешься'],
-					['en', 'You bathe'],
-				]],
-				['ri', [
-					['ru', 'Ты не моешься'],
-					['en', 'You don\'t bathe'],
 				]],
 			],
 		]],
@@ -183,8 +146,6 @@ function recalc() {
 	} else {
 		if (_state == 1) {
 			_state = 0;
-			// try sending data to google sheets
-			send();
 		}
 
 		str2 = ''
