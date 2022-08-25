@@ -974,7 +974,7 @@ function recalc() {
 	str += p(TR('range'));
 
 	let type = [[E2, '2'], [E3, '3'], [E4, '4'], [E5, '5'], [E6, '6'], [E7, '7'], [E8, '8'], [E9, '9'], [E1, '1']];
-	for (let i = 0; i < 9; i += 1) type[i][1] = type[i][1] + ' - ' + TR(type[i][1]);
+	for (let i = 0; i < 9; i += 1) type[i][1] = type[i][1] + ' (' + TR(type[i][1]) + ')';
 
 	let type3 = [];
 	for (let i of [[E2, '2'], [E3, '3'], [E4, '4']]) {
@@ -1036,7 +1036,7 @@ function recalc() {
 		tr([td(type[7][1]), td(type[7][0])]),
 		tr([td(type[8][1]), td(type[8][0])]),
 	]);
-	str += p(TR('ans') + ' ' + bold(type[8][1]) + ' (' + TR(type[8][1]) + ')');
+	str += p(TR('ans') + ' ' + bold(type[8][1]));
 	str += p(TR('range') + ' ' + TR('besthint'));
 
 
