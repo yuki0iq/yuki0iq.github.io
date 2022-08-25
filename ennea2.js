@@ -1,4 +1,4 @@
-test_ver = '[ennea-debug v220825.23]';
+test_ver = '[ennea-debug v220826.02]';
 default_lang = 'ru';
 question_count = '126';
 authors_test = link('https://vk.com/itsapartywithmbti', 'тусовка mbti') + ' - yuki0iq, dazzydraw';
