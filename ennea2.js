@@ -981,8 +981,9 @@ function recalc() {
 		for (let j of [[E5, '5'], [E6, '6'], [E7, '7']]) {
 			for (let k of [[E8, '8'], [E9, '9'], [E1, '1']]) {
 				let val  = i[0] + j[0] + k[0];
-				let name = i[1] + j[1] + k[1];
-				name.sort();  // why not?
+				let name = [i[1], j[1], k[1]];
+				name.sort();
+				name = name.join('');
 				let mxv  = Math.max(i[0], j[0], k[0]);
 				let core = '';
 				if (i[0] == mxv) core += i[1];
