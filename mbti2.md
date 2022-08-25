@@ -1,6 +1,6 @@
 # Yuki's cognitive functions test (debug version)
 
-This test requires JavaScript enabled to be run correctly. Для работы теста требуется поддержка JavaScript.
+This test requires JavaScript enabled to be run correctly
 
 <p>
 <label for="lang">Select language:</label>

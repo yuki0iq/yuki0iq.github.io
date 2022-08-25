@@ -21,6 +21,12 @@ function RA(an) {
 	return ans;
 }
 
+function paircmp(a,b) {
+	if (a[0] - b[0] != 0)
+		return a[0] - b[0];
+	return a[1] < b[1];
+}
+
 function _begin(s, arg='') { return '<' + s + ' ' + arg + '>'; }
 function _beginv(s, arg=[]) { return _begin(s, arg.join('')); }
 function _end(s) { return _begin('/' + s); }

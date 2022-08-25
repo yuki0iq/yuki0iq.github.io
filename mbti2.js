@@ -2008,9 +2008,9 @@ function recalc() {
 		[lFeSi, 'ESFJ'], [lTeSi, 'ESTJ'], [lSeFi, 'ESFP'], [lSeTi, 'ESTP'],
 	];
 	let grip = [ [gSe, 'INxJ'], [gTe, 'IxFP'], [gFe, 'IxTP'], [gNe, 'ISxJ'], [gTi, 'ExFJ'], [gFi, 'ExTJ'], [gSi, 'ENxP'], [gNi, 'ESxP'], ];
-	mbti.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];});
-	loop.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];});
-	grip.sort(function(a,b) { if (a[0] - b[0] != 0) return a[0] - b[0]; return a[1] < b[1];});
+	mbti.sort(paircmp);
+	loop.sort(paircmp);
+	grip.sort(paircmp);
 
 	let col_names1m = [th(TR('type'))], col_names2m = [th(TR('type'))];
 	let col_names1l = [th(TR('type'))], col_names2l = [th(TR('type'))], col_names1g = [th(TR('type'))];
