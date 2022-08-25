@@ -968,8 +968,8 @@ function recalc() {
 
 	str += h3(TR('raw'));
 	str += table([
-		tr([th(TR('type')),  th('2'), th('3'), th('4'), th('5'), th('6'), th('7'), th('8'), th('9'), th('1')]),
-		tr([th(TR('score')), td(E2 ), td(E3 ), td(E4 ), td(E5 ), td(E6 ), td(E7 ), td(E8 ), td(E9 ), td(E1 )]),
+		tr([th(TR('type')),  th('2'), th('3'), th('4'), td(''), th('5'), th('6'), th('7'), td(''), th('8'), th('9'), th('1')]),
+		tr([th(TR('score')), td(E2 ), td(E3 ), td(E4 ), td(''), td(E5 ), td(E6 ), td(E7 ), td(''), td(E8 ), td(E9 ), td(E1 )]),
 	]);
 	str += p(TR('range'));
 
