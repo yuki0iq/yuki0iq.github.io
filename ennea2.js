@@ -1001,22 +1001,22 @@ function recalc() {
 	let col_empty = [td('')];
 	for (let i = 0; i < 7; i += 1) col_empty.push(td(''));
 	for (let i = 0; i < 7; i += 1) {
-		col_names1.push(td(type3[i][1]));
+		col_names1.push(td([...type3[i][1]].join('-')));
 		col_cores1.push(td(type3[i][2]));
 		col_vals1 .push(td(type3[i][0]));
 	}
 	for (let i = 7; i < 14; i += 1) {
-		col_names2.push(td(type3[i][1]));
+		col_names2.push(td([...type3[i][1]].join('-')));
 		col_cores2.push(td(type3[i][2]));
 		col_vals2 .push(td(type3[i][0]));
 	}
 	for (let i = 14; i < 21; i += 1) {
-		col_names3.push(td(type3[i][1]));
+		col_names3.push(td([...type3[i][1]].join('-')));
 		col_cores3.push(td(type3[i][2]));
 		col_vals3 .push(td(type3[i][0]));
 	}
 	for (let i = 21; i < 27; i += 1) {
-		col_names4.push(td(type3[i][1]));
+		col_names4.push(td([...type3[i][1]].join('-')));
 		col_cores4.push(td(type3[i][2]));
 		col_vals4 .push(td(type3[i][0]));
 	}
@@ -1048,7 +1048,7 @@ function recalc() {
 		tr(col_names3), tr(col_cores3), tr(col_vals3), tr(col_empty),
 		tr(col_names4), tr(col_cores4), tr(col_vals4),
 	]);
-	str += p(TR('ans') + ' ' + bold(type3[26][1] + ' core ' + type3[26][2]) + ' (' + TR(type3[26][1]) + ')');
+	str += p(TR('ans') + ' ' + bold([...type3[26][1]].join('-') + ' core ' + type3[26][2]) + ' (' + TR(type3[26][1]) + ')');
 	str += p(TR('range3') + ' ' + TR('besthint'));
 
 	document.getElementById('res').innerHTML = str;
