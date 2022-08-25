@@ -883,86 +883,113 @@ function recalc() {
 		['1', [
 			['ru', 'Перфекционист'],
 		]],
-		['258', [
-			['ru', 'fuiya'],
-		]],
-		['259', [
-			['ru', 'fuiku'],
-		]],
 		['125', [
-			['ru', 'fuihi'],
-		]],
-		['268', [
-			['ru', 'fumuya'],
-		]],
-		['269', [
-			['ru', 'fumuku'],
+			['ru', 'Наставник'],
+			['en', 'The Mentor'],
 		]],
 		['126', [
-			['ru', 'fumuhi'],
-		]],
-		['278', [
-			['ru', 'funaya'],
-		]],
-		['279', [
-			['ru', 'funaku'],
+			['ru', 'Поддерживатель'],
+			['en', 'The Supporter'],
 		]],
 		['127', [
-			['ru', 'funahi'],
-		]],
-		['358', [
-			['ru', 'miiya'],
-		]],
-		['359', [
-			['ru', 'miiku'],
+			['ru', 'Учитель'],
+			['en', 'The Teacher'],
 		]],
 		['135', [
-			['ru', 'miihi'],
-		]],
-		['368', [
-			['ru', 'mimuya'],
-		]],
-		['369', [
-			['ru', 'mimuku'],
+			['ru', 'Технический эксперт'],
+			['en', 'The Technical Expert'],
 		]],
 		['136', [
-			['ru', 'mimuhi'],
-		]],
-		['378', [
-			['ru', 'minaya'],
-		]],
-		['379', [
-			['ru', 'minaku'],
+			['ru', 'Надсмотрщик'],
+			['en', 'The Taskmaster'],
 		]],
 		['137', [
-			['ru', 'minahi'],
-		]],
-		['458', [
-			['ru', 'yoiya'],
-		]],
-		['459', [
-			['ru', 'yoiku'],
+			['ru', 'Системостроитель'],
+			['en', 'The Systems Builder'],
 		]],
 		['145', [
-			['ru', 'yoihi'],
-		]],
-		['468', [
-			['ru', 'yomuya'],
-		]],
-		['469', [
-			['ru', 'yomuku'],
+			['ru', 'Исследователь'],
+			['en', 'The Researcher'],
 		]],
 		['146', [
-			['ru', 'yomuhi'],
-		]],
-		['478', [
-			['ru', 'yonaya'],
-		]],
-		['479', [
-			['ru', 'yonaku'],
+			['ru', 'Философ'],
+			['en', 'The Philosopher'],
 		]],
 		['147', [
-			['ru', 'yonahi'],
+			['ru', 'Визионер'],
+			['en', 'The Visionary'],
+		]],
+		['258', [
+			['ru', 'Стратег'],
+			['en', 'The Strategist'],
+		]],
+		['259', [
+			['ru', 'Решатель'],
+			['en', 'The Problem Solver'],
+		]],
+		['268', [
+			['ru', 'Спасатель'],
+			['en', 'The Rescuer'],
+		]],
+		['269', [
+			['ru', 'Добрый самарянин'],
+			['en', 'The Good Samaritan'],
+		]],
+		['278', [
+			['ru', 'Свободный дух'],
+			['en', 'The Free Spirit'],
+		]],
+		['279', [
+			['ru', 'Миротворец'],
+			['en', 'The Peacemaker'],
+		]],
+		['358', [
+			['ru', 'Мастер решений'],
+			['en', 'The Solution Master'],
+		]],
+		['359', [
+			['ru', 'Мыслитель'],
+			['en', 'The Thinker'],
+		]],
+		['368', [
+			['ru', 'Борец за справедливость'],
+			['en', 'The Justice Fighter'],
+		]],
+		['369', [
+			['ru', 'Посредник'],
+			['en', 'The Mediator'],
+		]],
+		['378', [
+			['ru', 'Подстрекатель'],
+			['en', 'The Mover Shaker'],
+		]],
+		['379', [
+			['ru', 'Посол'],
+			['en', 'The Ambassador'],
+		]],
+		['458', [
+			['ru', 'Ученик'],
+			['en', 'The Scholar'],
+		]],
+		['459', [
+			['ru', 'Созерцатель'],
+			['en', 'The Contemplative'],
+		]],
+		['468', [
+			['ru', 'Говорящий правду'],
+			['en', 'The Truth Teller'],
+		]],
+		['469', [
+			['ru', 'Искатель'],
+			['en', 'The Seeker'],
+		]],
+		['478', [
+			['ru', 'Посланник'],
+			['en', 'The Messenger'],
+		]],
+		['479', [
+			['ru', 'Мягкий дух'],
+			['en', 'The Gentle Spirit'],
 		]],
 	];
 
@@ -1003,22 +1030,22 @@ function recalc() {
 	let col_empty = [td('')];
 	for (let i = 0; i < 7; i += 1) col_empty.push(td(''));
 	for (let i = 0; i < 7; i += 1) {
-		col_names1.push(td([...type3[i][1]].join('-')));
+		col_names1.push(td(bold([...type3[i][1]].join('-'))));
 		col_cores1.push(td(type3[i][2]));
 		col_vals1 .push(td(type3[i][0]));
 	}
 	for (let i = 7; i < 14; i += 1) {
-		col_names2.push(td([...type3[i][1]].join('-')));
+		col_names2.push(td(bold([...type3[i][1]].join('-'))));
 		col_cores2.push(td(type3[i][2]));
 		col_vals2 .push(td(type3[i][0]));
 	}
 	for (let i = 14; i < 21; i += 1) {
-		col_names3.push(td([...type3[i][1]].join('-')));
+		col_names3.push(td(bold([...type3[i][1]].join('-'))));
 		col_cores3.push(td(type3[i][2]));
 		col_vals3 .push(td(type3[i][0]));
 	}
 	for (let i = 21; i < 27; i += 1) {
-		col_names4.push(td([...type3[i][1]].join('-')));
+		col_names4.push(td(bold([...type3[i][1]].join('-'))));
 		col_cores4.push(td(type3[i][2]));
 		col_vals4 .push(td(type3[i][0]));
 	}

@@ -26,6 +26,7 @@ This test requires JavaScript enabled to be run correctly
 - Оскар Ичазо, "Человеческий процесс осветления и свободы"
 - https://www.ecoach.by/enneagramma-tipy
 - https://www.psychologyjunkie.com
+- https://www.katherinefauvre.com/tritype
 - Beatrice Chestnut, "The Complete Enneagram"
 - Duran and Catalan, "Enneagram Fixations"
 - Telegram channel [хiрай](https://t.me/hiiirraeth)
