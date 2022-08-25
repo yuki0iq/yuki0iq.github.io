@@ -21,10 +21,11 @@ This test requires JavaScript enabled to be run correctly. Для работы �
 
 ## Sources
 
-- todo
-- add
-- sources
-- list
+- Loops from [Psychology Junkie](https://www.psychologyjunkie.com/2021/02/19/what-youre-like-in-a-loop-based-on-your-myers-briggs-personality-type)
+- Grips from [Psychology Junkie](https://www.psychologyjunkie.com/2021/03/04/what-youre-like-during-grip-stress-based-on-your-myers-briggs-personality-type)
+- Карл Густав Юнг, "Психологические типы"
+- Майерс, Бриггс, "MBTI: определение типов; у каждого свой дар"
+- [r/mbti](https://reddit.com/r/mbti)
 
 <script src="jquery.js"></script>
 <script src="test.js"></script>
