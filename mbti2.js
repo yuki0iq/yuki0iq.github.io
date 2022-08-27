@@ -1854,7 +1854,7 @@ function recalc() {
 			['en', 'Executive'],
 			['uk', 'Керівник'],
 		]],
-		['ESTP', [
+		['ESFJ', [
 			['ru', 'Консул'],
 			['en', 'Consul'],
 			['uk', 'Консул'],
