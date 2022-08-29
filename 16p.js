@@ -112,7 +112,7 @@ function recalc() {
 			['ru', 'Менеджер'],
 			['en', 'Executive'],
 		]],
-		['ESTP', [
+		['ESFJ', [
 			['ru', 'Консул'],
 			['en', 'Consul'],
 		]],
@@ -155,7 +155,7 @@ function recalc() {
 		if (T < 0) { str2 += 'F' } else { str2 += 'T' }
 		if (J > 0) { str2 += 'J' } else { str2 += 'P' }
 
-		str += p(TR('ans') + bold(str2) + ' ' + TR(str2))
+		str += p(TR('ans') + bold(str2) + ' ' + TR(str2));
 	}
 
 	document.getElementById('res').innerHTML = str;
