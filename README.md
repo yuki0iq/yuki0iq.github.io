@@ -1,6 +1,6 @@
 # yuki0iq.github.io
 
-Hello, I am Yuki Nagano (長野ユキ) ([pronouns page](https://pronouns.page/u/yuki.n)) from Moscow. I speak Russian and English.
+Hello, I am Yuki ([pronouns page](https://pronouns.page/u/yuki.n)) from Moscow. I speak Russian and English.
 
 Contact me on [telegram](https://t.me/yuki0iq)!
 
@@ -9,5 +9,7 @@ Contact me on [telegram](https://t.me/yuki0iq)!
 Work in progress...
 
 - [Cognitive functions test (Ru)](/mbti)
+- [Cognitive functions test (Ru+more) DEBUG](/mbti2)
 - [Enneagram test (Ru)](/ennea)
+- [Enneagram test (Ru+more)](/ennea2)
 - [16personalities clone (Ru + En)](/16p)
