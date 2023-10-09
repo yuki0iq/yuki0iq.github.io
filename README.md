@@ -1,6 +1,6 @@
 # yuki0iq.github.io
 
-Hello, I am Yuki ([pronouns page](https://pronouns.page/u/yuki.n)) from Moscow. I speak Russian and English.
+Hello, I am Yuki ([pronouns page](https://pronouns.page/u/yuki_the_girl)) from Moscow. I speak Russian and English.
 
 Contact me on [telegram](https://t.me/yuki0iq)!
 
